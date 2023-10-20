@@ -1,0 +1,89 @@
+{
+  "the Ville": {
+    "Arthur Burton's apartment": {
+      "main room": [
+        "bed",
+        "guitar",
+        "desk",
+        "refrigerator",
+        "closet",
+        "shelf"
+      ]
+    },
+    "The Rose and Crown Pub": {},
+    "Ryan Park's apartment": {
+      "main room": [
+        "bed",
+        "computer desk",
+        "cooking area",
+        "kitchen sink",
+        "closet",
+        "refrigerator"
+      ]
+    },
+    "Hobbs Cafe": {
+      "cafe": [
+        "refrigerator",
+        "cafe customer seating",
+        "cooking area",
+        "kitchen sink",
+        "behind the cafe counter",
+        "piano"
+      ]
+    },
+    "Dorm for Oak Hill College": {
+      "Maria Lopez's room": [
+        "closet",
+        "desk",
+        "bed",
+        "computer",
+        "blackboard"
+      ]
+    },
+    "Lin family's house": {},
+    "Moreno family's house": {},
+    "Tamara Taylor and Carmen Ortiz's house": {
+      "common room": [
+        "shelf",
+        "common room table"
+      ]
+    },
+    "Yuriko Yamamoto's house": {},
+    "artist's co-living space": {
+      "common room": [
+        "common room sofa",
+        "common room table"
+      ],
+      "Hailey Johnson's bathroom": [
+        "shower",
+        "bathroom sink",
+        "toilet"
+      ]
+    },
+    "Johnson Park": {
+      "park": [
+        "park garden"
+      ]
+    },
+    "Adam Smith's house": {
+      "main room": [
+        "closet",
+        "bed",
+        "desk",
+        "cooking area",
+        "kitchen sink",
+        "refrigerator"
+      ]
+    },
+    "Carlos Gomez's apartment": {
+      "main room": [
+        "bed",
+        "desk",
+        "cooking area",
+        "kitchen sink",
+        "closet",
+        "refrigerator"
+      ]
+    }
+  }
+}
