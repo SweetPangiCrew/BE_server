@@ -41,19 +41,17 @@ def perceive(persona):
   OUTPUT: 
     ret_events: a list of <ConceptNode> that are perceived and new. 
   """
+  percept_events_list = []
   # # PERCEIVE SPACE & EVENT
   percept_events_list = persona.scratch.percept_events_list
   # We sort, and perceive only persona.scratch.att_bandwidth of the closest
   # events. If the bandwidth is larger, then it means the persona can perceive
   # more elements within a small area. 
-  #if percept_events_list:
-  print(percept_events_list)
-  percept_events_list = sorted(percept_events_list, key=itemgetter(0))
+  percept_events_list = sorted(percept_events_list, key=itemgetter('dist'))
     
   perceived_events = []
-  for dist, event in percept_events_list[:persona.scratch.att_bandwidth]: 
-    perceived_events += [event]
-    #print(event[0],event[1],event[2])
+  for info in percept_events_list[:persona.scratch.att_bandwidth]: 
+    perceived_events += [info['event']]
 
   #print(perceived_events[0])
   # Storing events. 
