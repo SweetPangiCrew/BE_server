@@ -23,7 +23,7 @@ def generate_poig_score(persona, event_type, description):
     return run_gpt_prompt_chat_poignancy(persona, 
                            persona.scratch.act_description)[0]
 
-def perceive(persona, sim_code, step): 
+def perceive(persona): 
   """
   Perceives events around the persona and saves it to the memory, both events 
   and spaces. 
@@ -41,90 +41,21 @@ def perceive(persona, sim_code, step):
   OUTPUT: 
     ret_events: a list of <ConceptNode> that are perceived and new. 
   """
-  # # PERCEIVE SPACE
-  # # We get the nearby tiles given our current tile and the persona's vision
-  # # radius. 
-  # nearby_tiles = maze.get_nearby_tiles(persona.scratch.curr_tile, 
-  #                                      persona.scratch.vision_r)
-
-  # # We then store the perceived space. Note that the s_mem of the persona is
-  # # in the form of a tree constructed using dictionaries. 
-  # for i in nearby_tiles: 
-  #   i = maze.access_tile(i)
-  #   if i["world"]: 
-  #     if (i["world"] not in persona.s_mem.tree): 
-  #       persona.s_mem.tree[i["world"]] = {}
-  #   if i["sector"]: 
-  #     if (i["sector"] not in persona.s_mem.tree[i["world"]]): 
-  #       persona.s_mem.tree[i["world"]][i["sector"]] = {}
-  #   if i["arena"]: 
-  #     if (i["arena"] not in persona.s_mem.tree[i["world"]]
-  #                                             [i["sector"]]): 
-  #       persona.s_mem.tree[i["world"]][i["sector"]][i["arena"]] = []
-  #   if i["game_object"]: 
-  #     if (i["game_object"] not in persona.s_mem.tree[i["world"]]
-  #                                                   [i["sector"]]
-  #                                                   [i["arena"]]): 
-  #       persona.s_mem.tree[i["world"]][i["sector"]][i["arena"]] += [
-  #                                                            i["game_object"]]
-
-  # # PERCEIVE EVENTS. 
-  # # We will perceive events that take place in the same arena as the
-  # # persona's current arena. 
-  # curr_arena_path = maze.get_tile_path(persona.scratch.curr_tile, "arena")
-  # # We do not perceive the same event twice (this can happen if an object is
-  # # extended across multiple tiles).
-  # percept_events_set = set()
-  # # We will order our percept based on the distance, with the closest ones
-  # # getting priorities. 
-  # percept_events_list = []
-  # # First, we put all events that are occuring in the nearby tiles into the
-  # # percept_events_list
-  # for tile in nearby_tiles: 
-  #   tile_details = maze.access_tile(tile)
-  #   if tile_details["events"]: 
-  #     if maze.get_tile_path(tile, "arena") == curr_arena_path:  
-  #       # This calculates the distance between the persona's current tile, 
-  #       # and the target tile.
-  #       dist = math.dist([tile[0], tile[1]], 
-  #                        [persona.scratch.curr_tile[0], 
-  #                         persona.scratch.curr_tile[1]])
-  #       # Add any relevant events to our temp set/list with the distant info. 
-  #       for event in tile_details["events"]: 
-  #         if event not in percept_events_set: 
-  #           percept_events_list += [[dist, event]]
-  #           percept_events_set.add(event)
-            
-  # recevie events from front_end ------------------------------
-
-  sim_folder = f"{fs_storage}/{sim_code}"
-  curr_perceive_file = f"{sim_folder}/perceive/{step}.json"
-
-  #if check_if_file_exists(curr_perceive_file):
-  percept_events_list = []
-  perceived_info = dict()
-  try:
-    with open(curr_perceive_file) as json_file:  
-      perceived_info = json.load(json_file)
-      percept_events_list = perceived_info["perceived_tiles"]
-  except:
-      perceived_info["curr_address"] = "the Ville:Isabella Rodriguez's apartment:main room"
-      percept_events_list =  [
-            [1.0, ('Isabella Rodriguez', 'is', 'walking', 'walking')]
-            ]
-            
-
+  # # PERCEIVE SPACE & EVENT
+  percept_events_list = persona.scratch.percept_events_list
   # We sort, and perceive only persona.scratch.att_bandwidth of the closest
   # events. If the bandwidth is larger, then it means the persona can perceive
   # more elements within a small area. 
+  #if percept_events_list:
+  print(percept_events_list)
   percept_events_list = sorted(percept_events_list, key=itemgetter(0))
+    
   perceived_events = []
   for dist, event in percept_events_list[:persona.scratch.att_bandwidth]: 
     perceived_events += [event]
+    #print(event[0],event[1],event[2])
 
-  persona.scratch.curr_address = perceived_info["curr_address"]
-  
-
+  #print(perceived_events[0])
   # Storing events. 
   # <ret_events> is a list of <ConceptNode> instances from the persona's 
   # associative memory. 

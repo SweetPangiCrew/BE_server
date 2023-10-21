@@ -157,6 +157,8 @@ class Scratch:
     # e.g., [(50, 10), (49, 10), (48, 10), ...]
     self.planned_path = []
 
+    self.percept_events_list = []
+
     if check_if_file_exists(f_saved): 
       # If we have a bootstrap file, load that here. 
       scratch_load = json.load(open(f_saved))
@@ -232,6 +234,7 @@ class Scratch:
 
       self.act_path_set = scratch_load["act_path_set"]
       self.planned_path = scratch_load["planned_path"]
+      self.percept_events_list = scratch_load["percept_events_list"]
 
 
   def save(self, out_json):
@@ -306,6 +309,7 @@ class Scratch:
 
     scratch["act_path_set"] = self.act_path_set
     scratch["planned_path"] = self.planned_path
+    scratch["percept_events_list"] = self.percept_events_list
 
     with open(out_json, "w") as outfile:
       json.dump(scratch, outfile, indent=2) 

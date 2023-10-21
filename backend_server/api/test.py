@@ -29,25 +29,37 @@ class PostPerceiveTestCase(APITestCase):
     def test_post_creation(self):
 
 
-        sample_data = {
-        "curr_address" : "the Ville:Isabella Rodriguez's apartment:main room:bed"
-        ,
-        "perceived_tiles" : [
-            {
-                "dist" : 0.0,
-                "event" : ["the Ville:Isabella Rodriguez's apartment:main room:bed", 'be', 'used', 'being used']
-            },
-            {
-                "dist" : 0.0,
-                "event" : ['Isabella Rodriguez', 'is', 'sleeping', 'sleeping']
-            },
-                    {
-                "dist" : 1.0,
-                "event" : ["the Ville:Isabella Rodriguez's apartment:main room:bed", None, None, None]
-            }
-        ]
+        sample_data = {"perceived_info" : [
+			{   "persona": "Isabella Rodriguez",
+					"curr_address" : "the Ville:Isabella Rodriguez's apartment:main room:bed",
+					"perceived_tiles" : [
+					      {
+					          "dist" : 0.0,
+					          "event" : ["the Ville:Isabella Rodriguez's apartment:main room:bed", "be", "used", "being used"]
+					      },
+					      {
+					          "dist" : 0.0,
+					          "event" : ["Isabella Rodriguez", "is", "sleeping", "sleeping"]
+					      },
+								{
+					          "dist" : 1.0,
+					          "event" : ["the Ville:Isabella Rodriguez's apartment:main room:bed", None, None, None]
+					      }
+					  ]
+			},
 
-        }
+	{"persona": "Klaus Mueller",
+	 "curr_address" : "the Ville:Dorm for Oak Hill College:Klaus Mueller's room",
+	"perceived_tiles" : []
+	},
+
+	{   "persona": "Maria Lopez",
+					"curr_address" : "the Ville:Isabella Rodriguez's apartment:main room:bed",
+					"perceived_tiles" : []
+	}
+
+]
+}
 
         #sample_data = {"title": "Sample title", "content": "Sample content"}
         #json.dump(sample_data)

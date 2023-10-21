@@ -78,7 +78,7 @@ class Persona:
     self.scratch.save(f_scratch)
 
 
-  def perceive(self,sim_code,step):
+  def perceive(self):
     """
     This function takes the current maze, and returns events that are 
     happening around the persona. Importantly, perceive is guided by 
@@ -104,7 +104,7 @@ class Persona:
         See associative_memory.py -- but to get you a sense of what it 
         receives as its input: "s, p, o, desc, persona.scratch.curr_time"
     """
-    return perceive(self,sim_code,step)
+    return perceive(self)
 
 
   def retrieve(self, perceived):
@@ -217,7 +217,7 @@ class Persona:
     self.scratch.curr_time = curr_time
 
     #Main cognitive sequence begins here. 
-    perceived = self.perceive(sim_code,step)
+    perceived = self.perceive()
     retrieved = self.retrieve(perceived)
     
     plan = self.plan(personas, new_day, retrieved)
