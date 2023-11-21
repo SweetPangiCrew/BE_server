@@ -2265,6 +2265,7 @@ def run_gpt_prompt_agent_chat_summarize_ideas(persona, target_persona, statement
 def run_gpt_prompt_agent_chat_summarize_relationship(persona, target_persona, statements, test_input=None, verbose=False): 
   def create_prompt_input(persona, target_persona, statements, test_input=None): 
     prompt_input = [statements, persona.scratch.name, target_persona.scratch.name]
+    
     return prompt_input
   
   def __func_clean_up(gpt_response, prompt=""):

@@ -182,7 +182,7 @@ class Persona:
     reflect(self)
 
   #중요
-  def move(self, sim_code,step,personas, curr_time):
+  def move(self, sim_code, step, personas, curr_time):
     """
     This is the main cognitive function where our main sequence is called. 
 

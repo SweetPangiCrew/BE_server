@@ -7,8 +7,8 @@
                 "event" : ["the Ville:Isabella Rodriguez's apartment:main room:bed", "be", "used", "being used"]
             },
             {
-                "dist" : 0.0,
-                "event" : ["Isabella Rodriguez", "is", "sleeping", "sleeping"]
+                "dist" : 1.0,
+                "event" : ["Klaus Mueller", null, null, null]
             },
             {
                 "dist" : 1.0,

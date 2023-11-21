@@ -49,7 +49,9 @@ def perceive(request,sim_code,step):
         serializer = perceiveSerializer(data=data)
         if(serializer.is_valid()):
            print(serializer.validated_data)
-        else: print("serialize 실패")
+        else: 
+             print("serialize 실패") 
+             return  Response(data=request.body,status= status.HTTP_400_BAD_REQUEST)
 
     #try: 
         sim_folder = f"{fs_storage}/{sim_code}"
@@ -60,7 +62,7 @@ def perceive(request,sim_code,step):
         with open(curr_perceive_file, "w") as outfile: 
             outfile.write((json.dumps(serializer.validated_data, indent=2))) #
 
-        return Response(data=request.body,status= status.HTTP_201_CREATED)
+        return Response(data="abc",status= status.HTTP_201_CREATED)
             
     # except: 
     #        pass

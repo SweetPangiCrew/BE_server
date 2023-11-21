@@ -309,10 +309,7 @@ class ReverieServer:
         break
       
       if (True):
-      # <curr_env_file> file is the file that our frontend outputs. When the
-      # frontend has done its job and moved the personas, then it will put a 
-      # new environment file that matches our step count. That's when we run 
-      # the content of this for loop. Otherwise, we just wait. 
+      # <curr_perceive_file>을 받지 않았으면 기다림.
        curr_perceive_file = f"{sim_folder}/perceive/{self.step}.json"
        if check_if_file_exists(curr_perceive_file):
           
@@ -349,7 +346,6 @@ class ReverieServer:
           #페르소나 하나씩 순회
           for persona_name, persona in self.personas.items(): 
              
-              
             persona.scratch.curr_address = perceived_info[persona_name]["curr_address"]
             persona.scratch.percept_events_list = perceived_info[persona_name]["perceived_tiles"]
             # <next_tile> is a x,y coordinate. e.g., (58, 9)

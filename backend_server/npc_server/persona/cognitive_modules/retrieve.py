@@ -228,12 +228,18 @@ def new_retrieve(persona, focal_points, n_count=30):
     nodes = [i for created, i in nodes]
 
     # Calculating the component dictionaries and normalizing them.
-    recency_out = extract_recency(persona, nodes)
-    recency_out = normalize_dict_floats(recency_out, 0, 1)
-    importance_out = extract_importance(persona, nodes)
-    importance_out = normalize_dict_floats(importance_out, 0, 1)  
-    relevance_out = extract_relevance(persona, nodes, focal_pt)
-    relevance_out = normalize_dict_floats(relevance_out, 0, 1)
+    # 주석 처리
+    # recency_out = extract_recency(persona, nodes)
+    # recency_out = normalize_dict_floats(recency_out, 0, 1)
+    # importance_out = extract_importance(persona, nodes)
+    # importance_out = normalize_dict_floats(importance_out, 0, 1)  
+    # relevance_out = extract_relevance(persona, nodes, focal_pt)
+    # relevance_out = normalize_dict_floats(relevance_out, 0, 1)
+    
+    #데이터의 최신성 중요성은 고려하지 않고 바로 1로 처리
+    recency_out = 0.5
+    importance_out = 0.5
+    relevance_out = 0.5
 
     # Computing the final scores that combines the component values. 
     # Note to self: test out different weights. [1, 1, 1] tends to work
