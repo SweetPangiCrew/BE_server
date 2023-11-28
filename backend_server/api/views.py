@@ -12,8 +12,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 import io
 from rest_framework.parsers import JSONParser
-
-
+import datetime
 
 
 #from utils import *
@@ -21,6 +20,15 @@ import json
 import os
 
 fs_storage = "./storage"
+
+
+@api_view(['GET'])
+def servertime(request):
+
+    data = {"serverTime": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }
+     
+    return Response(data)
+
 
 @api_view(['GET'])
 def movement(request,sim_code,step):
@@ -33,7 +41,7 @@ def movement(request,sim_code,step):
         #print(absolute_path)
         with open(curr_move_file) as json_file:
             data = json.load(json_file)
-            
+            data['meta']['code'] = 0
     except: 
            data = {"There's no json file"+ sim_folder+"/"+ str(step) } 
     
@@ -51,7 +59,8 @@ def perceive(request,sim_code,step):
            print(serializer.validated_data)
         else: 
              print("serialize 실패") 
-             return  Response(data=request.body,status= status.HTTP_400_BAD_REQUEST)
+             data['meta']['code'] = 400
+             return  Response(data=data,status= status.HTTP_400_BAD_REQUEST)
 
     #try: 
         sim_folder = f"{fs_storage}/{sim_code}"
@@ -62,7 +71,8 @@ def perceive(request,sim_code,step):
         with open(curr_perceive_file, "w") as outfile: 
             outfile.write((json.dumps(serializer.validated_data, indent=2))) #
 
-        return Response(data="abc",status= status.HTTP_201_CREATED)
+        meta = { "meta": { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
+        return Response(data=meta,status= status.HTTP_201_CREATED)
             
     # except: 
     #        pass
