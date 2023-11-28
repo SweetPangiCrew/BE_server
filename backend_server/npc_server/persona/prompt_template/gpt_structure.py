@@ -242,7 +242,7 @@ def generate_prompt(curr_input, prompt_lib_file):
     curr_input = [curr_input]
   curr_input = [str(i) for i in curr_input]
 
-  f = open(prompt_lib_file, "r")
+  f = open(prompt_lib_file, "r", encoding = 'UTF8')
   prompt = f.read()
   f.close()
   for count, i in enumerate(curr_input):   

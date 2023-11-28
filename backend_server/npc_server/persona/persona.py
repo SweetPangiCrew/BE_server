@@ -46,6 +46,9 @@ class Persona:
     # <scratch> is the persona's scratch (short term memory) space. 
     scratch_saved = f"{folder_mem_saved}/bootstrap_memory/scratch.json"
     self.scratch = Scratch(scratch_saved)
+    
+    print(self.scratch.name)
+    print(self.scratch.currently)
 
 
   def save(self, save_folder): 

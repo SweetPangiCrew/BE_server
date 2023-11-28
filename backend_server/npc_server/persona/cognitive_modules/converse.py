@@ -126,7 +126,6 @@ def generate_one_utterance( init_persona, target_persona, retrieved, curr_chat):
 def agent_chat_v2(init_persona, target_persona): 
   curr_chat = []
   print ("July 23")
-
   for i in range(8): 
     focal_points = [f"{target_persona.scratch.name}"]
     retrieved = new_retrieve(init_persona, focal_points, 50)

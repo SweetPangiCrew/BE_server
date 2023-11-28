@@ -57,12 +57,12 @@ class ReverieServer:
     sim_folder = f"{fs_storage}/{self.sim_code}"
     copyanything(fork_folder, sim_folder)
 
-    with open(f"{sim_folder}/reverie/meta.json") as json_file:  
+    with open(f"{sim_folder}/reverie/meta.json", encoding = 'UTF8') as json_file:  
       reverie_meta = json.load(json_file)
 
-    with open(f"{sim_folder}/reverie/meta.json", "w") as outfile: 
+    with open(f"{sim_folder}/reverie/meta.json", "w", encoding = 'UTF8') as outfile: 
       reverie_meta["fork_sim_code"] = fork_sim_code
-      outfile.write(json.dumps(reverie_meta, indent=2))
+      outfile.write(json.dumps(reverie_meta, indent=2, ensure_ascii = False))
 
     # LOADING REVERIE'S GLOBAL VARIABLES
     # The start datetime of the Reverie: 
@@ -145,13 +145,13 @@ class ReverieServer:
     # simulation. 
     curr_sim_code = dict()
     curr_sim_code["sim_code"] = self.sim_code
-    with open(f"{fs_temp_storage}/curr_sim_code.json", "w") as outfile: 
-      outfile.write(json.dumps(curr_sim_code, indent=2))
+    with open(f"{fs_temp_storage}/curr_sim_code.json", "w", encoding = 'UTF8') as outfile: 
+      outfile.write(json.dumps(curr_sim_code, indent=2, ensure_ascii = False))
     
     curr_step = dict()
     curr_step["step"] = self.step
-    with open(f"{fs_temp_storage}/curr_step.json", "w") as outfile: 
-      outfile.write(json.dumps(curr_step, indent=2))
+    with open(f"{fs_temp_storage}/curr_step.json", "w", encoding = 'UTF8') as outfile: 
+      outfile.write(json.dumps(curr_step, indent=2, ensure_ascii = False))
 
 
   def save(self): 
@@ -178,8 +178,8 @@ class ReverieServer:
     reverie_meta["persona_names"] = list(self.personas.keys())
     reverie_meta["step"] = self.step
     reverie_meta_f = f"{sim_folder}/reverie/meta.json"
-    with open(reverie_meta_f, "w") as outfile: 
-      outfile.write(json.dumps(reverie_meta, indent=2))
+    with open(reverie_meta_f, "w", encoding = 'UTF8') as outfile: 
+      outfile.write(json.dumps(reverie_meta, indent=2, ensure_ascii = False))
 
     # Save the personas.
     for persona_name, persona in self.personas.items(): 
@@ -230,7 +230,7 @@ class ReverieServer:
         curr_dict = {}
         tester_file = fs_temp_storage + "/path_tester_env.json"
         if check_if_file_exists(tester_file): 
-          with open(tester_file) as json_file: 
+          with open(tester_file, encoding = 'UTF8') as json_file: 
             curr_dict = json.load(json_file)
             os.remove(tester_file)
           
@@ -266,8 +266,8 @@ class ReverieServer:
         # Incrementally outputting the s_mem and saving the json file. 
         print ("= " * 15)
         out_file = fs_temp_storage + "/path_tester_out.json"
-        with open(out_file, "w") as outfile: 
-          outfile.write(json.dumps(s_mem, indent=2))
+        with open(out_file, "w", encoding = 'UTF8') as outfile: 
+          outfile.write(json.dumps(s_mem, indent=2, ensure_ascii = False))
         print_tree(s_mem)
 
       except:
@@ -307,26 +307,29 @@ class ReverieServer:
       # Done with this iteration if <int_counter> reaches 0. 
       if int_counter == 0: 
         break
-      
+      #print(1)
       if (True):
       # <curr_perceive_file>을 받지 않았으면 기다림.
        curr_perceive_file = f"{sim_folder}/perceive/{self.step}.json"
        if check_if_file_exists(curr_perceive_file):
-          
+          print(2)
           perceived_info = dict()
           try:
-              with open(curr_perceive_file) as json_file:  
+              with open(curr_perceive_file, encoding = 'UTF8') as json_file:  
                 perceive_f = json.load(json_file)
                 perceived_f = perceive_f["perceived_info"]
+                print(3)
           except:
               print("error: perceive info를 못 읽어왔습니다.")
           
           for item in perceived_f:
+              print(item)
               perceived_info[item["persona"]] = {} #item["curr_address"]
               #perceived_info[item["persona"]]["perceived_tiles"] = {} #item["perceived_tiles"]  
               perceived_info[item["persona"]]["curr_address"] = item["curr_address"]
               perceived_info[item["persona"]]["perceived_tiles"] = item["perceived_tiles"]  
-                      
+              print(4)
+          print(perceived_info)          
     #     # If we have an environment file, it means we have a new perception
     #     if env_retrieved: 
     #       # This is where we go through <game_obj_cleanup> to clean up all 
@@ -343,9 +346,9 @@ class ReverieServer:
           # This is where the core brains of the personas are invoked. 
           movements = {"persona": dict(), 
                        "meta": dict()}
+          
           #페르소나 하나씩 순회
-          for persona_name, persona in self.personas.items(): 
-             
+          for persona_name, persona in self.personas.items():  
             persona.scratch.curr_address = perceived_info[persona_name]["curr_address"]
             persona.scratch.percept_events_list = perceived_info[persona_name]["perceived_tiles"]
             # <next_tile> is a x,y coordinate. e.g., (58, 9)
@@ -355,12 +358,18 @@ class ReverieServer:
             #   @ double studio:double studio:common room:sofa
             act_address, pronunciatio, description = persona.move(self.sim_code, self.step,
                                                                   self.personas, self.curr_time)
+            print(act_address)
+            print(pronunciatio)
+            print(description)
+            
             movements["persona"][persona_name] = {}
             movements["persona"][persona_name]["act_address"] = act_address
             movements["persona"][persona_name]["pronunciatio"] = pronunciatio
             movements["persona"][persona_name]["description"] = description
             movements["persona"][persona_name]["chat"] = (persona
-                                                          .scratch.chat)  
+                                                          .scratch.chat) 
+            print(persona.scratch.chat)
+            print(5) 
               
             
           # Include the meta information about the current stage in the 
@@ -377,8 +386,9 @@ class ReverieServer:
           curr_move_file = f"{sim_folder}/movement/{self.step}.json"
           #파일 생성 후 저장
           os.makedirs(os.path.dirname(curr_move_file), exist_ok=True)
-          with open(curr_move_file, "w") as outfile: 
-            outfile.write(json.dumps(movements, indent=2))
+          with open(curr_move_file, "w", encoding = 'UTF8') as outfile: 
+            outfile.write(json.dumps(movements, indent=2, ensure_ascii = False))
+          print(6)
 
           
           # After this cycle, the world takes one step forward, and the 
@@ -387,6 +397,7 @@ class ReverieServer:
           self.curr_time += datetime.timedelta(seconds=self.sec_per_step)
 
           int_counter -= 1
+          print(7)
           
       # Sleep so we don't burn our machines. 
       time.sleep(self.server_sleep)
@@ -554,23 +565,25 @@ class ReverieServer:
           persona_name = sim_command[len("call -- analysis"):].strip() 
           self.personas[persona_name].open_convo_session("analysis")
 
-        elif ("call -- load history" 
-              in sim_command.lower()): 
-          curr_file = maze_assets_loc + "/" + sim_command[len("call -- load history"):].strip() 
-          # call -- load history the_ville/agent_history_init_n3.csv
+        #NPC history 불러오기
+        #주석 처리
+        # elif ("call -- load history" 
+        #       in sim_command.lower()): 
+        #   curr_file = maze_assets_loc + "/" + sim_command[len("call -- load history"):].strip() 
+        #   # call -- load history the_ville/agent_history_init_n3.csv
 
-          rows = read_file_to_list(curr_file, header=True, strip_trail=True)[1]
-          clean_whispers = []
-          for row in rows: 
-            agent_name = row[0].strip() 
-            whispers = row[1].split(";")
-            whispers = [whisper.strip() for whisper in whispers]
-            for whisper in whispers: 
-              clean_whispers += [[agent_name, whisper]]
+        #   rows = read_file_to_list(curr_file, header=True, strip_trail=True)[1]
+        #   clean_whispers = []
+        #   for row in rows: 
+        #     agent_name = row[0].strip() 
+        #     whispers = row[1].split(";")
+        #     whispers = [whisper.strip() for whisper in whispers]
+        #     for whisper in whispers: 
+        #       clean_whispers += [[agent_name, whisper]]
 
-          load_history_via_whisper(self.personas, clean_whispers)
+        #   load_history_via_whisper(self.personas, clean_whispers)
 
-        print (ret_str)
+        # print (ret_str)
 
       except:
         traceback.print_exc()
