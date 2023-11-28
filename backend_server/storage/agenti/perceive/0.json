@@ -1,31 +1,27 @@
-{"perceived_info" : [
-  {   "persona": "Isabella Rodriguez",
-      "curr_address" : "the Ville:Isabella Rodriguez's apartment:main room:bed",
-      "perceived_tiles" : [
-            {
-                "dist" : 0.0,
-                "event" : ["the Ville:Isabella Rodriguez's apartment:main room:bed", "be", "used", "being used"]
-            },
-            {
-                "dist" : 1.0,
-                "event" : ["Klaus Mueller", null, null, null]
-            },
-            {
-                "dist" : 1.0,
-                "event" : ["the Ville:Isabella Rodriguez's apartment:main room:bed", null, null, null]
-            }
-        ]
-  },
+{
+    "perceived_info" : [
+        {   
+            "persona": "나주교",
+            "curr_address" : "the Ville:Najugyo's apartment:main room",
+            "perceived_tiles" : [
+                {
+                    "dist" : 1.0,
+                    "event" : ["오화가", null, null, null]
+                }
+            ]
+        },
 
-{"persona": "Klaus Mueller",
-"curr_address" : "the Ville:Dorm for Oak Hill College:Klaus Mueller's room",
-"perceived_tiles" : []
-},
+        {
+            "persona": "오화가",
+            "curr_address" : "the Ville:Ohwaga's apartment:main room",
+            "perceived_tiles" : []
+        },
 
-{   "persona": "Maria Lopez",
-      "curr_address" : "the Ville:Isabella Rodriguez's apartment:main room:bed",
-      "perceived_tiles" : []
+        {   
+            "persona": "이자식",
+            "curr_address" : "the Ville:Ijasik's apartment:main room",
+            "perceived_tiles" : []
+        }
+    ]
 }
 
-]
-}

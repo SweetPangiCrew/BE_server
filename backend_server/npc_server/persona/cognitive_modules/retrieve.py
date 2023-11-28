@@ -240,6 +240,9 @@ def new_retrieve(persona, focal_points, n_count=30):
     recency_out = 0.5
     importance_out = 0.5
     relevance_out = 0.5
+    # recency_out = {'a': 0.5}
+    # importance_out = {'a': 0.5}
+    # relevance_out = {'a': 0.5}
 
     # Computing the final scores that combines the component values. 
     # Note to self: test out different weights. [1, 1, 1] tends to work
