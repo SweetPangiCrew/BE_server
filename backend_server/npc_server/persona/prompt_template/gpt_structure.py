@@ -69,6 +69,11 @@ def ChatGPT_request(prompt):
     a str of GPT-3's response. 
   """
   # temp_sleep()
+  # completion = openai.ChatCompletion.create(
+  # model="gpt-3.5-turbo", 
+  # messages=[{"role": "user", "content": prompt}]
+  # )
+  # return completion["choices"][0]["message"]["content"]
   try: 
     completion = openai.ChatCompletion.create(
     model="gpt-3.5-turbo", 

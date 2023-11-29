@@ -423,7 +423,7 @@ class Scratch:
     commonset += f"Currently: {self.currently}\n"
     commonset += f"Lifestyle: {self.lifestyle}\n"
     commonset += f"Daily plan requirement: {self.daily_plan_req}\n"
-    commonset += f"Current Date: {self.curr_time.strftime('%A %B %d')}\n"
+    #commonset += f"Current Date: {self.curr_time.strftime('%A %B %d')}\n"  # 주석 처리
     return commonset
 
 

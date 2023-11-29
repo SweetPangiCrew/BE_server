@@ -298,14 +298,20 @@ def generate_convo_summary(persona, convo):
   return convo_summary
 
 
-# # 추가 (집회 참석 여부)
-# def generate_decide_to_assembly_att(persona, target_persona, convo):
-#   x = run_gpt_prompt_generate_decide_to_assembly_att(persona, target_persona, convo)[0]
-#   if(x):
-#     # 집회 참석
-#   else:
-#     # 집회 불참
-#   return x
+# 추가 (집회 참석 여부)
+def generate_decide_to_assembly_att(persona, target_persona, convo):
+  if(persona.scratch.name == '나주교'):
+    x = run_gpt_prompt_generate_decide_to_assembly_att(target_persona, persona, convo)[0]
+  elif(target_persona.scratch.name == '나주교'):
+    x = run_gpt_prompt_generate_decide_to_assembly_att(persona, target_persona, convo)[0]
+  else:
+    x = run_gpt_prompt_generate_decide_to_assembly_att(persona, target_persona, convo)[0]
+    x.update(run_gpt_prompt_generate_decide_to_assembly_att(target_persona, persona, convo)[0])
+  # if(x):
+  #   # 집회 참석
+  # else:
+  #   # 집회 불참
+  return x
 
 
 def generate_decide_to_talk(init_persona, target_persona, retrieved): 
@@ -873,8 +879,10 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
 
   # Actually creating the conversation here. 
   convo, duration_min = generate_convo(init_persona, target_persona)
+  print(convo)
+  assembly_att = generate_decide_to_assembly_att(init_persona, target_persona, convo) # 추가 # {'attendance': True}
+  print(assembly_att)
   convo_summary = generate_convo_summary(init_persona, convo)
-  #assembly_att = generate_decide_to_assembly_att(init_persona, target_persona, convo) # 추가 # {'attendance': True}
   inserted_act = convo_summary
   inserted_act_dur = duration_min
 
