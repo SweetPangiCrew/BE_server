@@ -298,6 +298,16 @@ def generate_convo_summary(persona, convo):
   return convo_summary
 
 
+# # 추가 (집회 참석 여부)
+# def generate_decide_to_assembly_att(persona, target_persona, convo):
+#   x = run_gpt_prompt_generate_decide_to_assembly_att(persona, target_persona, convo)[0]
+#   if(x):
+#     # 집회 참석
+#   else:
+#     # 집회 불참
+#   return x
+
+
 def generate_decide_to_talk(init_persona, target_persona, retrieved): 
   x =run_gpt_prompt_decide_to_talk(init_persona, target_persona, retrieved)[0]
   if debug: print ("GNS FUNCTION: <generate_decide_to_talk>")
@@ -853,6 +863,7 @@ def _create_react(persona, inserted_act, inserted_act_dur,
                            act_start_time)
 
 
+#chat 실행
 def _chat_react(persona, focused_event, reaction_mode, personas):
   # There are two personas -- the persona who is initiating the conversation
   # and the persona who is the target. We get the persona instances here. 
@@ -863,6 +874,7 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
   # Actually creating the conversation here. 
   convo, duration_min = generate_convo(init_persona, target_persona)
   convo_summary = generate_convo_summary(init_persona, convo)
+  #assembly_att = generate_decide_to_assembly_att(init_persona, target_persona, convo) # 추가 # {'attendance': True}
   inserted_act = convo_summary
   inserted_act_dur = duration_min
 

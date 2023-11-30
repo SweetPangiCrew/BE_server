@@ -1662,6 +1662,63 @@ def run_gpt_prompt_summarize_conversation(persona, conversation, test_input=None
 
 
 
+
+# 추가 (집회 참석 여부 gpt 프롬프트 실행)
+def run_gpt_prompt_generate_decide_to_assembly_att(persona, target_persona, conversation, 
+                                                   test_input=None, verbose=False):
+  def create_prompt_input(init_persona, target_persona, conversation, test_input=None): 
+    convo_str = ""
+    for row in conversation: 
+      convo_str += f'{row[0]}: "{row[1]}"\n'
+
+    prompt_input = []
+    prompt_input += [init_persona.name]
+    prompt_input += [target_persona.name]
+    prompt_input += [convo_str]
+    prompt_input += [init_persona.name]
+    prompt_input += [init_persona.name]
+    return prompt_input
+
+
+  # ChatGPT Plugin ===========================================================
+  def __chat_func_clean_up(gpt_response, prompt=""): ############
+    gpt_response = extract_first_json_dict(gpt_response)
+    cleaned_dict = dict()
+    #cleaned = []
+    for key, val in gpt_response.items():
+        cleaned_dict['attendance'] = val
+    return cleaned_dict
+
+  def __chat_func_validate(gpt_response, prompt=""): ############
+    try: 
+      # print ("debug 1")
+      # print (gpt_response)
+      # print ("debug 2")
+
+      print (extract_first_json_dict(gpt_response))
+      # print ("debug 3")
+
+      return True
+    except:
+      return False 
+
+  print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 11") ########
+  gpt_param = {"engine": "text-davinci-002", "max_tokens": 15, 
+               "temperature": 0, "top_p": 1, "stream": False,
+               "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
+  prompt_template = "assembly_attendance.txt" ########
+  prompt_input = create_prompt_input(persona, target_persona, conversation)  ########
+  prompt = generate_prompt(prompt_input, prompt_template)
+  fail_safe = "error" ########
+  output = ChatGPT_safe_generate_response_OLD(prompt, 3, fail_safe, __chat_func_validate, __chat_func_clean_up, False)
+  if output != False:
+    return output, [output, prompt, gpt_param, prompt_input, fail_safe]
+  
+
+
+
+
+
 def run_gpt_prompt_extract_keywords(persona, description, test_input=None, verbose=False): 
   def create_prompt_input(description, test_input=None): 
     if "\n" in description: 

@@ -39,7 +39,7 @@ def movement(request,sim_code,step):
         curr_move_file = f"{sim_folder}/movement/{step}.json"
         #absolute_path = os.path.abspath(curr_move_file)
         #print(absolute_path)
-        with open(curr_move_file) as json_file:
+        with open(curr_move_file, encoding = 'UTF8') as json_file:
             data = json.load(json_file)
             data['meta']['code'] = 0
     except: 
@@ -68,8 +68,8 @@ def perceive(request,sim_code,step):
 
         os.makedirs(os.path.dirname(curr_perceive_file), exist_ok=True)
         #request.body.decode('utf8')
-        with open(curr_perceive_file, "w") as outfile: 
-            outfile.write((json.dumps(serializer.validated_data, indent=2))) #
+        with open(curr_perceive_file, "w", encoding = 'UTF8') as outfile: 
+            outfile.write((json.dumps(serializer.validated_data, indent=2, ensure_ascii = False))) #
 
         meta = { "meta": { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
         return Response(data=meta,status= status.HTTP_201_CREATED)
