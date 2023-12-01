@@ -23,7 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 from decouple import config
 
-SECRET_KEY = config('SECRET_KEY')
+import my_settings
+ 
+SECRET_KEY = my_settings.SECRET_KEY
+#DATABASES = my_settings.DATABASES
+
 # cast=bool 이 없으면 False 를 문자열로 인식하게됨.
 DEBUG = config('DEBUG', default=False, cast=bool)
 
