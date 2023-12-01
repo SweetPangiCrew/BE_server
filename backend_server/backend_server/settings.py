@@ -27,7 +27,7 @@ SECRET_KEY = my_settings.SECRET_KEY
 #DATABASES = my_settings.DATABASES
 
 # cast=bool 이 없으면 False 를 문자열로 인식하게됨.
-DEBUG = False#config('DEBUG', default=False, cast=bool)
+DEBUG = True#config('DEBUG', default=False, cast=bool)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
@@ -133,9 +133,3 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = BASE_DIR +'/staticfiles' 
 
-import dj_database_url
-
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
-IGNORABLE_404_URLS = ['favicon.ico']
