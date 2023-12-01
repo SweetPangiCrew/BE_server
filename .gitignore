@@ -166,3 +166,5 @@ cython_debug/
 #.idea/
 .DS_Store
 *.json
+backend_server/ec2_agenti.pem
+backend_server/my_settings.py
