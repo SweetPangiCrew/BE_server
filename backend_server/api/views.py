@@ -19,7 +19,7 @@ import datetime
 import json
 import os
 
-fs_storage = "./storage"
+fs_storage = "/home/ubuntu/BE_server/backend_server/storage"
 
 
 @api_view(['GET'])
