@@ -1686,7 +1686,7 @@ def run_gpt_prompt_generate_decide_to_assembly_att(persona, target_persona, conv
     cleaned_dict = dict()
     #cleaned = []
     for key, val in gpt_response.items():
-        cleaned_dict[f"{persona.scratch.name}'s attendance"] = val
+        cleaned_dict[f'{persona.scratch.name} attendance'] = val
     return cleaned_dict
 
   def __chat_func_validate(gpt_response, prompt=""): ############
@@ -1709,6 +1709,7 @@ def run_gpt_prompt_generate_decide_to_assembly_att(persona, target_persona, conv
   prompt_template = "persona/prompt_template/Prompt/assembly_attendance.txt" ########
   prompt_input = create_prompt_input(persona, target_persona, conversation)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
+  print(f"{persona.scratch.name}'s attendance")
   print(prompt)
   fail_safe = "error" ########
   output = ChatGPT_safe_generate_response_OLD(prompt, 3, fail_safe, __chat_func_validate, __chat_func_clean_up, False)

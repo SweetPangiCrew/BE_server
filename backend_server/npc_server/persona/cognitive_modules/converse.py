@@ -129,7 +129,7 @@ def generate_one_utterance( init_persona, target_persona, curr_chat):
 def agent_chat_v2(init_persona, target_persona): 
   curr_chat = []
   print ("July 23")
-  for i in range(8): 
+  for i in range(1): 
     focal_points = [f"{target_persona.scratch.name}"]
     # 주석 처리
     # retrieved = new_retrieve(init_persona, focal_points, 50)
@@ -170,11 +170,11 @@ def agent_chat_v2(init_persona, target_persona):
     #                   f"{init_persona.scratch.name} is {init_persona.scratch.act_description}"]
     # retrieved = new_retrieve(target_persona, focal_points, 15)
     # utt, end = generate_one_utterance(target_persona, init_persona, retrieved, curr_chat)
-    utt, end = generate_one_utterance(target_persona, init_persona, curr_chat)
+    #utt, end = generate_one_utterance(target_persona, init_persona, curr_chat)
 
-    curr_chat += [[target_persona.scratch.name, utt]]
-    if end:
-      break
+    # curr_chat += [[target_persona.scratch.name, utt]]
+    # if end:
+    #   break
 
   print ("July 23 PU")
   for row in curr_chat: 

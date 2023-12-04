@@ -358,6 +358,7 @@ class ReverieServer:
             #   @ double studio:double studio:common room:sofa
             act_address, pronunciatio, description = persona.move(self.sim_code, self.step,
                                                                   self.personas, self.curr_time)
+
             print(act_address)
             print(pronunciatio)
             print(description)

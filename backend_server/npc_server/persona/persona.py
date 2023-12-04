@@ -218,6 +218,7 @@ class Persona:
           != curr_time.strftime('%A %B %d')):
       new_day = "New day"
     self.scratch.curr_time = curr_time
+    print('time: ', self.scratch.curr_time)
 
     #Main cognitive sequence begins here. 
     perceived = self.perceive()
