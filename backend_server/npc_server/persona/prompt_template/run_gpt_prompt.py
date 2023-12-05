@@ -1686,7 +1686,7 @@ def run_gpt_prompt_generate_decide_to_assembly_att(persona, target_persona, conv
     cleaned_dict = dict()
     #cleaned = []
     for key, val in gpt_response.items():
-        cleaned_dict['attendance'] = val
+        cleaned_dict[f'{persona.scratch.name} attendance'] = val
     return cleaned_dict
 
   def __chat_func_validate(gpt_response, prompt=""): ############
@@ -1706,9 +1706,11 @@ def run_gpt_prompt_generate_decide_to_assembly_att(persona, target_persona, conv
   gpt_param = {"engine": "text-davinci-002", "max_tokens": 15, 
                "temperature": 0, "top_p": 1, "stream": False,
                "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
-  prompt_template = "assembly_attendance.txt" ########
+  prompt_template = "persona/prompt_template/Prompt/assembly_attendance.txt" ########
   prompt_input = create_prompt_input(persona, target_persona, conversation)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
+  print(f"{persona.scratch.name}'s attendance")
+  print(prompt)
   fail_safe = "error" ########
   output = ChatGPT_safe_generate_response_OLD(prompt, 3, fail_safe, __chat_func_validate, __chat_func_clean_up, False)
   if output != False:
@@ -2875,9 +2877,11 @@ def extract_first_json_dict(data_str):
         # If parsing fails, return None
         return None
 
-
-def run_gpt_generate_iterative_chat_utt(init_persona, target_persona, retrieved, curr_context, curr_chat, test_input=None, verbose=False): 
-  def create_prompt_input(init_persona, target_persona, retrieved, curr_context, curr_chat, test_input=None):
+# 주석 처리
+# def run_gpt_generate_iterative_chat_utt(init_persona, target_persona, retrieved, curr_context, curr_chat, test_input=None, verbose=False): 
+def run_gpt_generate_iterative_chat_utt(init_persona, target_persona, curr_context, curr_chat, test_input=None, verbose=False):
+  # def create_prompt_input(init_persona, target_persona, retrieved, curr_context, curr_chat, test_input=None):
+  def create_prompt_input(init_persona, target_persona, curr_context, curr_chat, test_input=None):
     persona = init_persona
     prev_convo_insert = "\n"
     if persona.a_mem.seq_chat: 
@@ -2897,10 +2901,10 @@ def run_gpt_generate_iterative_chat_utt(init_persona, target_persona, retrieved,
     curr_arena = f"{persona.scratch.get_curr_address_arena()}"     #f"{maze.access_tile(persona.scratch.curr_tile)['arena']}"
     curr_location = f"{curr_arena} in {curr_sector}"
 
-    retrieved_str = ""
-    for key, vals in retrieved.items(): 
-      for v in vals: 
-        retrieved_str += f"- {v.description}\n"
+    # retrieved_str = ""
+    # for key, vals in retrieved.items(): 
+    #   for v in vals: 
+    #     retrieved_str += f"- {v.description}\n"
 
 
     convo_str = ""
@@ -2910,7 +2914,13 @@ def run_gpt_generate_iterative_chat_utt(init_persona, target_persona, retrieved,
       convo_str = "[The conversation has not started yet -- start it!]"
 
     init_iss = f"Here is Here is a brief description of {init_persona.scratch.name}.\n{init_persona.scratch.get_str_iss()}"
-    prompt_input = [init_iss, init_persona.scratch.name, retrieved_str, prev_convo_insert,
+    # prompt_input = [init_iss, init_persona.scratch.name, retrieved_str, prev_convo_insert,
+    #   curr_location, curr_context, init_persona.scratch.name, target_persona.scratch.name,
+    #   convo_str, init_persona.scratch.name, target_persona.scratch.name,
+    #   init_persona.scratch.name, init_persona.scratch.name,
+    #   init_persona.scratch.name
+    #   ]
+    prompt_input = [init_iss, init_persona.scratch.name, None, prev_convo_insert,
       curr_location, curr_context, init_persona.scratch.name, target_persona.scratch.name,
       convo_str, init_persona.scratch.name, target_persona.scratch.name,
       init_persona.scratch.name, init_persona.scratch.name,
@@ -2953,8 +2963,10 @@ def run_gpt_generate_iterative_chat_utt(init_persona, target_persona, retrieved,
     return cleaned_dict
 
   print ("11")
-  prompt_template = "persona/prompt_template/v3_ChatGPT/iterative_convo_v1.txt" 
-  prompt_input = create_prompt_input(init_persona, target_persona, retrieved, curr_context, curr_chat) 
+  #prompt_template = "persona/prompt_template/v3_ChatGPT/iterative_convo_v1.txt" 
+  prompt_template = "persona/prompt_template/Prompt/iterative_convo_v1.txt"
+  #prompt_input = create_prompt_input(init_persona, target_persona, retrieved, curr_context, curr_chat) 
+  prompt_input = create_prompt_input(init_persona, target_persona, curr_context, curr_chat) 
   print ("22")
   prompt = generate_prompt(prompt_input, prompt_template)
   print (prompt)
