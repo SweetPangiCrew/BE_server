@@ -69,16 +69,21 @@ def ChatGPT_request(prompt):
     a str of GPT-3's response. 
   """
   # temp_sleep()
-  try: 
-    completion = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo", 
-    messages=[{"role": "user", "content": prompt}]
-    )
-    return completion["choices"][0]["message"]["content"]
+  completion = openai.ChatCompletion.create(
+  model="gpt-3.5-turbo", 
+  messages=[{"role": "user", "content": prompt}]
+  )
+  return completion["choices"][0]["message"]["content"]
+  # try: 
+  #   completion = openai.ChatCompletion.create(
+  #   model="gpt-3.5-turbo", 
+  #   messages=[{"role": "user", "content": prompt}]
+  #   )
+  #   return completion["choices"][0]["message"]["content"]
   
-  except: 
-    print ("ChatGPT ERROR")
-    return "ChatGPT ERROR"
+  # except: 
+  #   print ("ChatGPT ERROR")
+  #   return "ChatGPT ERROR"
 
 
 def GPT4_safe_generate_response(prompt, 
@@ -175,17 +180,24 @@ def ChatGPT_safe_generate_response_OLD(prompt,
     print (prompt)
 
   for i in range(repeat): 
-    try: 
-      curr_gpt_response = ChatGPT_request(prompt).strip()
-      if func_validate(curr_gpt_response, prompt=prompt): 
-        return func_clean_up(curr_gpt_response, prompt=prompt)
-      if verbose: 
-        print (f"---- repeat count: {i}")
-        print (curr_gpt_response)
-        print ("~~~~")
+    curr_gpt_response = ChatGPT_request(prompt).strip()
+    if func_validate(curr_gpt_response, prompt=prompt): 
+      return func_clean_up(curr_gpt_response, prompt=prompt)
+    if verbose: 
+      print (f"---- repeat count: {i}")
+      print (curr_gpt_response)
+      print ("~~~~")
+    # try: 
+    #   curr_gpt_response = ChatGPT_request(prompt).strip()
+    #   if func_validate(curr_gpt_response, prompt=prompt): 
+    #     return func_clean_up(curr_gpt_response, prompt=prompt)
+    #   if verbose: 
+    #     print (f"---- repeat count: {i}")
+    #     print (curr_gpt_response)
+    #     print ("~~~~")
 
-    except: 
-      pass
+    # except: 
+    #   pass
   print ("FAIL SAFE TRIGGERED") 
   return fail_safe_response
 
