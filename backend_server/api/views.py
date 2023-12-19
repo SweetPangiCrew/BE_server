@@ -19,7 +19,22 @@ import datetime
 import json
 import os
 
-fs_storage = "/home/ubuntu/BE_server/backend_server/storage"
+
+is_ubuntu_server = False
+if os.path.exists('/etc/os-release'):
+    with open('/etc/os-release', 'r') as f:
+        for line in f:
+            if line.startswith('ID=ubuntu'):
+                is_ubuntu_server = True
+                break
+
+# 변수 설정
+if is_ubuntu_server:
+    fs_storage = "/home/ubuntu/BE_server/backend_server/storage"
+else:
+    fs_storage = "./storage"
+
+
 
 
 @api_view(['GET'])
