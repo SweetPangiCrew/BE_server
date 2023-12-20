@@ -15,6 +15,7 @@
   "currently": "오화가는 풍경화를 주로 그리는 화가이다. 또한 돈을 벌기 위해 디자인 의뢰를 받아 작업하는 일을 병행하고 있다. 낮에는 주로 Hobbs Cafe에서 디자인 작업을 하며 시간을 보낸다.", 
   "lifestyle": "오화가는 오전 7시에 자고 오후 2시에 일어난다. 오후 2시에 점심을 먹고, 오후 7시에 저녁을 먹는다. 점심과 저녁 사이에는 주로 Hobbs Cafe에서 시간을 보낸다. 오후 11시부터 오전 7시까지는 주로 집에서 그림을 그린다.", 
   "living_area": "the Ville:Ohwaga's apartment:main room",
+  "assembly_attendance": false,
   "concept_forget": 100,
   "daily_reflection_time": 180,
   "daily_reflection_size": 5,
