@@ -300,21 +300,26 @@ def generate_convo_summary(persona, convo):
 
 # 추가 (집회 참석 여부)
 def generate_decide_to_assembly_att(persona, target_persona, convo):
+  #나주교랑 대화할 때
   if(persona.scratch.name == '나주교'):
     x = run_gpt_prompt_generate_decide_to_assembly_att(target_persona, persona, convo)[0]
+    x.update({'나주교 attendance': True})
   elif(target_persona.scratch.name == '나주교'):
     x = run_gpt_prompt_generate_decide_to_assembly_att(persona, target_persona, convo)[0]
+    x.update({'나주교 attendance': True})
+  #나주교 이외의 NPC들끼리 대화할 때
   else:
     x = run_gpt_prompt_generate_decide_to_assembly_att(persona, target_persona, convo)[0]
     x.update(run_gpt_prompt_generate_decide_to_assembly_att(target_persona, persona, convo)[0])
+    
   # if(x[f'{persona.scratch.name} attendance']):
-  #   # 집회 참석
+  #   persona.scratch.assembly_attendance = True
   # else:
-  #   # 집회 불참
+  #   persona.scratch.assembly_attendance = False
   # if(x[f'{target_persona.scratch.name} attendance']):
-  #   # 집회 참석
+  #   target_persona.scratch.assembly_attendance = True
   # else:
-  #   # 집회 불참 
+  #   target_persona.scratch.assembly_attendance = False
   return x
 
 
@@ -886,7 +891,7 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
   # Actually creating the conversation here. 
   convo, duration_min = generate_convo(init_persona, target_persona)
   print(convo)
-  assembly_att = generate_decide_to_assembly_att(init_persona, target_persona, convo) # 추가 # {'attendance': True}
+  assembly_att = generate_decide_to_assembly_att(init_persona, target_persona, convo) # 추가 # ex) {'[이름] attendance': True, '[이름] attendance': False}
   print(assembly_att)
   #주석 처리
   convo_summary = generate_convo_summary(init_persona, convo)
@@ -912,12 +917,14 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
       chatting_with = target_persona.name
       chatting_with_buffer = {}
       chatting_with_buffer[target_persona.name] = 800
+      assembly_attendance = assembly_att[f'{p.scratch.name} attendance']
     elif role == "target": 
       act_address = f"<persona> {init_persona.name}"
       act_event = (p.name, "chat with", init_persona.name)
       chatting_with = init_persona.name
       chatting_with_buffer = {}
       chatting_with_buffer[init_persona.name] = 800
+      assembly_attendance = assembly_att[f'{p.scratch.name} attendance']
 
     act_pronunciatio = "💬" 
     act_obj_description = None
@@ -933,6 +940,7 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
                            convo,
                            chatting_with_buffer,
                            chatting_end_time,
+                           assembly_attendance,
                            act_obj_description,
                            act_obj_pronunciatio,
                            act_obj_event,

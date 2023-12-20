@@ -40,6 +40,7 @@ class Scratch:
     self.currently = None
     self.lifestyle = None
     self.living_area = None
+    self.assembly_attendance = False
 
     #Game Feature
     self.believer = False
@@ -185,6 +186,7 @@ class Scratch:
       self.currently = scratch_load["currently"]
       self.lifestyle = scratch_load["lifestyle"]
       self.living_area = scratch_load["living_area"]
+      self.assembly_attendance = scratch_load["assembly_attendance"]
 
       self.concept_forget = scratch_load["concept_forget"]
       self.daily_reflection_time = scratch_load["daily_reflection_time"]
@@ -265,6 +267,7 @@ class Scratch:
     scratch["currently"] = self.currently
     scratch["lifestyle"] = self.lifestyle
     scratch["living_area"] = self.living_area
+    scratch["assembly_attendance"] = self.assembly_attendance
 
     scratch["concept_forget"] = self.concept_forget
     scratch["daily_reflection_time"] = self.daily_reflection_time
@@ -287,8 +290,8 @@ class Scratch:
     scratch["f_daily_schedule_hourly_org"] = self.f_daily_schedule_hourly_org
 
     scratch["act_address"] = self.act_address
-    scratch["act_start_time"] = (self.act_start_time
-                                     .strftime("%B %d, %Y, %H:%M:%S"))
+    # scratch["act_start_time"] = (self.act_start_time
+    #                                  .strftime("%B %d, %Y, %H:%M:%S"))
     scratch["act_duration"] = self.act_duration
     scratch["act_description"] = self.act_description
     scratch["act_pronunciatio"] = self.act_pronunciatio
@@ -312,7 +315,7 @@ class Scratch:
     scratch["percept_events_list"] = self.percept_events_list
 
     with open(out_json, "w", encoding = 'UTF8') as outfile:
-      json.dump(scratch, outfile, indent=2) 
+      json.dump(scratch, outfile, indent=2, ensure_ascii = False) 
 
   def get_curr_address_world(self):
     return self.curr_address.split(":")[0]
@@ -504,6 +507,7 @@ class Scratch:
                      chat, 
                      chatting_with_buffer,
                      chatting_end_time,
+                     assembly_attendance,
                      act_obj_description, 
                      act_obj_pronunciatio, 
                      act_obj_event, 
@@ -519,6 +523,8 @@ class Scratch:
     if chatting_with_buffer: 
       self.chatting_with_buffer.update(chatting_with_buffer)
     self.chatting_end_time = chatting_end_time
+    
+    self.assembly_attendance = assembly_attendance
 
     self.act_obj_description = act_obj_description
     self.act_obj_pronunciatio = act_obj_pronunciatio
