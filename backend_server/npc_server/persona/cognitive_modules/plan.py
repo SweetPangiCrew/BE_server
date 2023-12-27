@@ -917,14 +917,14 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
       chatting_with = target_persona.name
       chatting_with_buffer = {}
       chatting_with_buffer[target_persona.name] = 800
-      assembly_attendance = assembly_att[f'{p.scratch.name} attendance']
+      p.scratch.assembly_attendance = assembly_att[f'{p.scratch.name} attendance']
     elif role == "target": 
       act_address = f"<persona> {init_persona.name}"
       act_event = (p.name, "chat with", init_persona.name)
       chatting_with = init_persona.name
       chatting_with_buffer = {}
       chatting_with_buffer[init_persona.name] = 800
-      assembly_attendance = assembly_att[f'{p.scratch.name} attendance']
+      p.scratch.assembly_attendance = assembly_att[f'{p.scratch.name} attendance']
 
     act_pronunciatio = "💬" 
     act_obj_description = None
@@ -940,7 +940,6 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
                            convo,
                            chatting_with_buffer,
                            chatting_end_time,
-                           assembly_attendance,
                            act_obj_description,
                            act_obj_pronunciatio,
                            act_obj_event,
@@ -1004,6 +1003,13 @@ def plan(persona, personas, new_day, retrieved):
   # PART 2: If the current action has expired, we want to create a new plan.
   # if persona.scratch.act_check_finished(): 
   #_determine_action(persona)
+  #추가
+  print(persona.scratch.curr_time.strftime("%B %d, %Y, %H:%M:%S"))
+  if(persona.scratch.curr_time.strftime("%B %d, %Y, %H:%M:%S")[:9] == "August 02"):
+    if(persona.scratch.assembly_attendance):
+      persona.scratch.act_address = "the Ville:Church:main room:service area"
+      print("집회 참석하러 고")
+      return persona.scratch.act_address
 
   # PART 3: If you perceived an event that needs to be responded to (saw 
   # another persona), and retrieved relevant information. 
@@ -1025,6 +1031,7 @@ def plan(persona, personas, new_day, retrieved):
   #         a) "chat with {target_persona.name}"
   #         b) "react"
   #         c) False
+  
   if focused_event: 
     reaction_mode = _should_react(persona, focused_event, personas)
     #print(reaction_mode)
@@ -1039,6 +1046,7 @@ def plan(persona, personas, new_day, retrieved):
 
       # elif reaction_mode == "do other things": 
       #   _chat_react(persona, focused_event, reaction_mode, personas)
+      
 
   # Step 3: Chat-related state clean up. 
   # If the persona is not chatting with anyone, we clean up any of the 

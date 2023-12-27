@@ -224,6 +224,9 @@ class Persona:
     perceived = self.perceive()
     retrieved = self.retrieve(perceived)
     
+    # if(curr_time[:8] == "August 2" and self.scratch.assembly_attendance):
+    #   plan = "the Ville:Church:main room:service area"
+    # else:
     plan = self.plan(personas, new_day, retrieved)
     #plan = "the Ville:Isabella Rodriguez's apartment:main room:bed"
     ##self.reflect()

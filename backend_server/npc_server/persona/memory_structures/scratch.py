@@ -507,7 +507,6 @@ class Scratch:
                      chat, 
                      chatting_with_buffer,
                      chatting_end_time,
-                     assembly_attendance,
                      act_obj_description, 
                      act_obj_pronunciatio, 
                      act_obj_event, 
@@ -523,8 +522,6 @@ class Scratch:
     if chatting_with_buffer: 
       self.chatting_with_buffer.update(chatting_with_buffer)
     self.chatting_end_time = chatting_end_time
-    
-    self.assembly_attendance = assembly_attendance
 
     self.act_obj_description = act_obj_description
     self.act_obj_pronunciatio = act_obj_pronunciatio
