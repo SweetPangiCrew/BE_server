@@ -1,4 +1,7 @@
-from .serializers import perceiveSerializer
+#
+from npc_server.global_methods import *
+from npc_server.reverie import ReverieServer
+from .serializers import perceiveSerializer,gamestartSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.shortcuts import render,redirect
@@ -13,7 +16,8 @@ from rest_framework.response import Response
 import io
 from rest_framework.parsers import JSONParser
 import datetime
-
+import sys
+sys.path.append('../npc_server')
 
 #from utils import *
 import json
@@ -92,8 +96,26 @@ def perceive(request,sim_code,step):
     # except: 
     #        pass
     
-    
+@api_view(['POST'])
+def gamestart(request):
 
-    
+        stream = io.BytesIO(request.body)
+        data = JSONParser().parse(stream)
 
+        serializer = gamestartSerializer(data=data)
+        if(serializer.is_valid()):
+           print(serializer.validated_data)
+        else: 
+             print("serialize 실패") 
+             data['meta']['code'] = 400
+             return  Response(data=data,status= status.HTTP_400_BAD_REQUEST)
+        
+        simcode = serializer.validated_data["sim_code"]
+        gamename = serializer.validated_data["game_name"]
 
+        rs = ReverieServer(simcode,gamename)
+        rs.open_server()
+       
+        meta = { "meta": { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
+        return Response(data=meta,status= status.HTTP_201_CREATED)
+          

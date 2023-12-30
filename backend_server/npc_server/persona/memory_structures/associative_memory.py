@@ -13,7 +13,7 @@ sys.path.append('../../')
 import json
 import datetime
 
-from global_methods import *
+from npc_server.global_methods import *
 
 
 class ConceptNode: 

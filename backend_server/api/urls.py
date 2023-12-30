@@ -5,4 +5,5 @@ urlpatterns = [
     path('npc/movement/<str:sim_code>/<int:step>/', views.movement,name="get_reaction"),
     path('npc/perceive/<str:sim_code>/<int:step>/', views.perceive,name="post_perceive"),
     path('servertime/', views.servertime,name="get_servertime"),
+     path('gamestart/', views.gamestart,name="game_start"),
 ]

@@ -13,10 +13,10 @@ import random
 from numpy import dot
 from numpy.linalg import norm
 
-from global_methods import *
-from persona.prompt_template.run_gpt_prompt import *
-from persona.prompt_template.gpt_structure import *
-from persona.cognitive_modules.retrieve import *
+from npc_server.global_methods import *
+from npc_server.persona.prompt_template.run_gpt_prompt import *
+from npc_server.persona.prompt_template.gpt_structure import *
+from npc_server.persona.cognitive_modules.retrieve import *
 
 def generate_focal_points(persona, n=3): 
   if debug: print ("GNS FUNCTION: <generate_focal_points>")

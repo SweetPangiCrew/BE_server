@@ -8,10 +8,10 @@ import sys
 sys.path.append('../../')
 
 from operator import itemgetter
-from global_methods import *
-from persona.prompt_template.gpt_structure import *
-from persona.prompt_template.run_gpt_prompt import *
-from utils import *
+from npc_server.global_methods import *
+from npc_server.persona.prompt_template.gpt_structure import *
+from npc_server.persona.prompt_template.run_gpt_prompt import *
+from npc_server.utils import *
 
 def generate_poig_score(persona, event_type, description): 
   if "is idle" in description: 

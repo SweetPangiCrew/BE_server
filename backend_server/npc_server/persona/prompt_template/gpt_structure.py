@@ -9,7 +9,7 @@ import random
 import openai
 import time 
 
-from utils import *
+from npc_server.utils import *
 
 openai.api_key = openai_api_key
 

@@ -18,3 +18,7 @@ class perceivePerPersonaSerializer(serializers.Serializer):
 
 class perceiveSerializer(serializers.Serializer):
     perceived_info = perceivePerPersonaSerializer(many=True)
+
+class gamestartSerializer(serializers.Serializer):
+    sim_code = serializers.CharField()
+    game_name = serializers.CharField()

@@ -14,18 +14,18 @@ import datetime
 import random
 sys.path.append('../')
 
-from global_methods import *
+from npc_server.global_methods import *
 
-from persona.memory_structures.spatial_memory import *
-from persona.memory_structures.associative_memory import *
-from persona.memory_structures.scratch import *
+from npc_server.persona.memory_structures.spatial_memory import *
+from npc_server.persona.memory_structures.associative_memory import *
+from npc_server.persona.memory_structures.scratch import *
 
-from persona.cognitive_modules.perceive import *
-from persona.cognitive_modules.retrieve import *
-from persona.cognitive_modules.plan import *
-from persona.cognitive_modules.reflect import *
-from persona.cognitive_modules.execute import *
-from persona.cognitive_modules.converse import *
+from npc_server.persona.cognitive_modules.perceive import *
+from npc_server.persona.cognitive_modules.retrieve import *
+from npc_server.persona.cognitive_modules.plan import *
+from npc_server.persona.cognitive_modules.reflect import *
+from npc_server.persona.cognitive_modules.execute import *
+from npc_server.persona.cognitive_modules.converse import *
 
 class Persona: 
   def __init__(self, name, folder_mem_saved=False):

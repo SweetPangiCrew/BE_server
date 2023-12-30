@@ -1,7 +1,7 @@
 """
 Author: Joon Sung Park (joonspk@stanford.edu)
 
-File: global_methods.py
+File: npc_server.global_methods.py
 Description: Contains functions used throughout my projects.
 """
 import random
