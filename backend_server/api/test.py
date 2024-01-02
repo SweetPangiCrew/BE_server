@@ -70,3 +70,33 @@ class PostPerceiveTestCase(APITestCase):
         # print(response.data)
        # serializedResponse = json.loads(response.data)
         #self.assertEqual(serializedResponse.data["title"], sample_data["title"])
+        
+
+class PostGameStartTestCase(APITestCase):
+
+    def setUp(self):
+        #self.view= perceive
+        self.url=reverse("game_start",None)
+
+    # def test_post(self):
+    #     response = self.client.get(self.url)
+
+    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_post_creation(self):
+
+
+        sample_data = {	
+            "sim_code" : "base",
+			"game_name": "game2" 
+		}
+
+        #sample_data = {"title": "Sample title", "content": "Sample content"}
+        #json.dump(sample_data)
+        #JSONRenderer().render(sample_data)
+        #print(sample_data)
+        response = self.client.post(self.url, sample_data, format ='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        # print(response.data)
+       # serializedResponse = json.loads(response.data)
+        #self.assertEqual(serializedResponse.data["title"], sample_data["title"])

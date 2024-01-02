@@ -37,7 +37,7 @@ class MemoryTree:
 
   def save(self, out_json):
     with open(out_json, "w", encoding = 'UTF8') as outfile:
-      json.dump(self.tree, outfile) 
+      json.dump(self.tree, outfile, ensure_ascii = False) 
 
   def get_str_world(self, s_mem): 
     """

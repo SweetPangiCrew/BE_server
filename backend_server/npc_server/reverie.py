@@ -35,6 +35,9 @@ from .utils import *
 #from maze import *
 from .persona.persona import *
 
+import sys
+
+
 ##############################################################################
 #                                  REVERIE                                   #
 ##############################################################################
@@ -367,6 +370,7 @@ class ReverieServer:
             movements["persona"][persona_name]["act_address"] = act_address
             movements["persona"][persona_name]["pronunciatio"] = pronunciatio
             movements["persona"][persona_name]["description"] = description
+            movements["persona"][persona_name]["assembly_attendance"] = persona.scratch.assembly_attendance
             movements["persona"][persona_name]["chat"] = (persona
                                                           .scratch.chat) 
             print(persona.scratch.chat)

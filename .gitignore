@@ -168,3 +168,6 @@ cython_debug/
 *.json
 backend_server/ec2_agenti.pem
 backend_server/my_settings.py
+backend_server/npc_server/utils.py
+backend_server/npc_server/utils.py
+backend_server/npc_server/utils.py

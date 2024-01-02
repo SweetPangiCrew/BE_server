@@ -75,7 +75,8 @@ def perceive(request,sim_code,step):
         print(data)
         serializer = perceiveSerializer(data=data)
         if(serializer.is_valid()):
-           print(serializer.validated_data)
+            pass
+           #print(serializer.validated_data)
         else: 
              print("serialize 실패") 
              data['meta']['code'] = 400
@@ -114,8 +115,8 @@ def gamestart(request):
         gamename = serializer.validated_data["game_name"]
 
         rs = ReverieServer(simcode,gamename)
-        rs.open_server()
+        rs.start_server(1) #하루에 60번의 인지&추론 과정이 일어남
        
         meta = { "meta": { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
         return Response(data=meta,status= status.HTTP_201_CREATED)
-          
+        

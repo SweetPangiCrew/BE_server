@@ -5,10 +5,7 @@
             "persona": "나주교",
             "curr_address" : "the Ville:Najugyo's apartment:main room",
             "perceived_tiles" : [
-                {
-                    "dist" : 1.0,
-                    "event" : ["오화가", null, null, null]
-                }
+               
             ]
         },
 
@@ -19,10 +16,6 @@
                 {
                     "dist" : 0.0,
                     "event" : ["the Ville:Ohwaga's apartment:main room:bed", "be", "used", "being used"]
-                },
-                {
-                    "dist" : 1.0,
-                    "event" : ["이자식", null, null, null]
                 }
             ]
         },

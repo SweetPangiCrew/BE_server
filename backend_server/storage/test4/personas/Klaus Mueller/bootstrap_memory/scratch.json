@@ -120,5 +120,6 @@
   },
   "chatting_end_time": "February 13, 2023, 00:10:00",
   "act_path_set": false,
-  "planned_path": []
+  "planned_path": [],
+  "percept_events_list": []
 }
