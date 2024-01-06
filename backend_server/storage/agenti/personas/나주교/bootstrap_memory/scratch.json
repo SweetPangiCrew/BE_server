@@ -15,7 +15,7 @@
   "currently": "나주교는 신자를 모으고 기계화를 진행하기 위한 종교 집회를 8월 1일 오후 3시에 열 생각을 가지고 있다.", 
   "lifestyle": "나주교는 새벽 1시에 자고 오전 7시에 일어난다. 오전 8시에 아침을 먹고, 오후 12시에 점심을 먹고, 오후 7시에 저녁을 먹는다. 저녁은 주로 Hobbs Cafe에서 먹는다.", 
   "living_area": "the Ville:Najugyo's apartment:main room",
-  "assembly_attendance": false,
+  "assembly_attendance": true,
   "concept_forget": 100,
   "daily_reflection_time": 180,
   "daily_reflection_size": 5,

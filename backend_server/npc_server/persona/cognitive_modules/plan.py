@@ -310,7 +310,7 @@ def generate_decide_to_assembly_att(persona, target_persona, convo):
   #나주교 이외의 NPC들끼리 대화할 때
   else:
     x = run_gpt_prompt_generate_decide_to_assembly_att(persona, target_persona, convo)[0]
-    x.update(run_gpt_prompt_generate_decide_to_assembly_att(target_persona, persona, convo)[0])
+    #x.update(run_gpt_prompt_generate_decide_to_assembly_att(target_persona, persona, convo)[0])
     
   # if(x[f'{persona.scratch.name} attendance']):
   #   persona.scratch.assembly_attendance = True
@@ -891,7 +891,7 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
   # Actually creating the conversation here. 
   convo, duration_min = generate_convo(init_persona, target_persona)
   print(convo)
-  assembly_att = generate_decide_to_assembly_att(init_persona, target_persona, convo) # 추가 # ex) {'[이름] attendance': True, '[이름] attendance': False}
+  assembly_att = generate_decide_to_assembly_att(init_persona, target_persona, convo) # 추가 # ex) {'convo about attendance': True, '[이름] attendance': True, '[이름] attendance': False}
   print(assembly_att)
   #주석 처리
   convo_summary = generate_convo_summary(init_persona, convo)
@@ -900,10 +900,8 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
   inserted_act_dur = duration_min
 
   act_start_time = target_persona.scratch.act_start_time
-  #act_start_time = "February 13, 2023, 00:00:00"
-  #chatting_end_time = "February 13, 2023 00:00:00"
   curr_time = target_persona.scratch.curr_time
-  #chatting_end_time = "February 13, 2023, 00:01:00"
+
   if curr_time.second != 0: 
     temp_curr_time = curr_time + datetime.timedelta(seconds=60 - curr_time.second)
     chatting_end_time = temp_curr_time + datetime.timedelta(minutes=inserted_act_dur)
@@ -917,14 +915,16 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
       chatting_with = target_persona.name
       chatting_with_buffer = {}
       chatting_with_buffer[target_persona.name] = 800
-      p.scratch.assembly_attendance = assembly_att[f'{p.scratch.name} attendance']
+      if(assembly_att['convo about attendance']):
+        p.scratch.assembly_attendance = assembly_att[f'{p.scratch.name} attendance']
     elif role == "target": 
       act_address = f"<persona> {init_persona.name}"
       act_event = (p.name, "chat with", init_persona.name)
       chatting_with = init_persona.name
       chatting_with_buffer = {}
       chatting_with_buffer[init_persona.name] = 800
-      p.scratch.assembly_attendance = assembly_att[f'{p.scratch.name} attendance']
+      if(assembly_att['convo about attendance']):
+        p.scratch.assembly_attendance = assembly_att[f'{p.scratch.name} attendance']
 
     act_pronunciatio = "💬" 
     act_obj_description = None

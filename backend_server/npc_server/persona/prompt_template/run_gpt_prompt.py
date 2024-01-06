@@ -1676,7 +1676,9 @@ def run_gpt_prompt_generate_decide_to_assembly_att(persona, target_persona, conv
     prompt_input += [target_persona.name]
     prompt_input += [convo_str]
     prompt_input += [init_persona.name]
+    prompt_input += [target_persona.name]
     prompt_input += [init_persona.name]
+    prompt_input += [target_persona.name]
     return prompt_input
 
 
@@ -1684,9 +1686,16 @@ def run_gpt_prompt_generate_decide_to_assembly_att(persona, target_persona, conv
   def __chat_func_clean_up(gpt_response, prompt=""): ############
     gpt_response = extract_first_json_dict(gpt_response)
     cleaned_dict = dict()
-    #cleaned = []
+    cleaned = []
     for key, val in gpt_response.items():
-        cleaned_dict[f'{persona.scratch.name} attendance'] = val
+      if "t" in str(val) or "T" in str(val) or "예" in str(val) or "네" in str(val):
+        cleaned += [True]
+      else:
+        cleaned += [False]
+    #print(cleaned)
+    cleaned_dict['convo about attendance'] = cleaned[0]
+    cleaned_dict[f'{persona.scratch.name} attendance'] = cleaned[1]
+    cleaned_dict[f'{target_persona.scratch.name} attendance'] = cleaned[2]
     return cleaned_dict
 
   def __chat_func_validate(gpt_response, prompt=""): ############
