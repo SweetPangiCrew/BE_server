@@ -5,7 +5,9 @@ Variables:
 !<INPUT 1>! -- target persona name
 !<INPUT 2>! -- curr convo
 !<INPUT 3>! -- persona name
-!<INPUT 4>! -- persona name
+!<INPUT 4>! -- target persona name
+!<INPUT 5>! -- persona name
+!<INPUT 6>! -- target persona name
 <commentblockmarker>###</commentblockmarker>
 
 Context for the task:
@@ -15,9 +17,11 @@ Context for the task:
 
 —
 
-Task: 위의 내용을 바탕으로, 이 대화에서 !<INPUT 3>!은(는) 집회에 참석하기로 하였는가?
+Task: 위의 내용을 바탕으로, 이 대화에는 종교 집회 참석 여부에 관한 내용이 포함되어 있는가? 그리고 이 대화에서 !<INPUT 3>!와(과) !<INPUT 4>!은(는) 집회에 참석하기로 하였는가?
 
 출력 결과 형식: 결과는 다음의 json 형식으로 출력하라:
 {
-"!<INPUT 4>!은(는) 집회에 참석하기로 하였는가?": "<json Boolean>"
+"종교 집회 참석 여부에 관한 내용이 포함되어 있는가?": "<json Boolean>", 
+"!<INPUT 5>!은(는) 집회에 참석하기로 하였는가?": "<json Boolean>",
+"!<INPUT 6>!은(는) 집회에 참석하기로 하였는가?": "<json Boolean>"
 }
