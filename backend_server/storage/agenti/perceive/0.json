@@ -5,7 +5,10 @@
             "persona": "나주교",
             "curr_address" : "the Ville:Najugyo's apartment:main room",
             "perceived_tiles" : [
-               
+                {
+                    "dist" : 1.0,
+                    "event" : ["오화가", null, null, null]
+                }
             ]
         },
 

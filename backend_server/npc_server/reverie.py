@@ -30,10 +30,10 @@ import traceback
 
 from selenium import webdriver
 
-from npc_server.global_methods import *
-from .utils import *
+from global_methods import *
+from utils import *
 #from maze import *
-from .persona.persona import *
+from persona.persona import *
 
 import sys
 

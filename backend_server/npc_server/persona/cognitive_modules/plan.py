@@ -9,7 +9,7 @@ import math
 import random 
 import sys
 import time
-sys.path.append('../../')
+#sys.path.append('../../')
 
 from npc_server.global_methods import *
 from npc_server.persona.prompt_template.run_gpt_prompt import *
