@@ -30,13 +30,20 @@ import traceback
 
 from selenium import webdriver
 
+
+
+import sys
+
+current_folder = os.path.dirname(os.path.realpath(__file__))
+parent_folder = os.path.abspath(os.path.join(current_folder, ".."))
+sys.path.append(parent_folder)
+
+print(parent_folder)
+
 from global_methods import *
 from utils import *
 #from maze import *
 from persona.persona import *
-
-import sys
-
 
 ##############################################################################
 #                                  REVERIE                                   #
