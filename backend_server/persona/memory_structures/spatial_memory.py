@@ -9,8 +9,8 @@ import json
 import sys
 sys.path.append('../../')
 
-from npc_server.utils import *
-from npc_server.global_methods import *
+from utils import *
+from global_methods import *
 
 class MemoryTree: 
   def __init__(self, f_saved): 

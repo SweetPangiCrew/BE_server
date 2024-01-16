@@ -3,7 +3,7 @@ import json
 import sys
 sys.path.append('../../')
 
-from npc_server.global_methods import *
+from global_methods import *
 
 class Scratch: 
   def __init__(self, f_saved): 

@@ -5,7 +5,7 @@ from rest_framework import status
 from django.contrib.auth import get_user_model
 import json
 from rest_framework.renderers import JSONRenderer
-
+import random
 
 User = get_user_model()
 
@@ -87,9 +87,11 @@ class PostGameStartTestCase(APITestCase):
 
 
         sample_data = {	
-            "sim_code" : "base",
-			"game_name": "game2" 
+            "sim_code" : "agenti", #base -> assembly_attendance 에러가 남(base scratch는 수정 안됐으니까.) agenti -> 나주교 에러가남.
+			"game_name": "gameTest01161" 
 		}
+
+        sample_data["game_name"] = "gameTestRandom"+str(random.randint(1, 100))
 
         #sample_data = {"title": "Sample title", "content": "Sample content"}
         #json.dump(sample_data)

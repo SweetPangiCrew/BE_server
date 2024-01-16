@@ -12,9 +12,9 @@ import datetime
 import sys
 sys.path.append('../../')
 
-from npc_server.global_methods import *
-from npc_server.persona.prompt_template.gpt_structure import *
-from npc_server.persona.prompt_template.print_prompt import *
+from global_methods import *
+from persona.prompt_template.gpt_structure import *
+from persona.prompt_template.print_prompt import *
 
 
 def get_random_alphanumeric(i=6, j=6): 
