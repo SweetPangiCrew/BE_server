@@ -226,20 +226,25 @@ def new_retrieve(persona, focal_points, n_count=30):
               if "idle" not in i.embedding_key]
     nodes = sorted(nodes, key=lambda x: x[0])
     nodes = [i for created, i in nodes]
+    print('nodes: \n', nodes)
 
     # Calculating the component dictionaries and normalizing them.
     # 주석 처리
-    # recency_out = extract_recency(persona, nodes)
-    # recency_out = normalize_dict_floats(recency_out, 0, 1)
-    # importance_out = extract_importance(persona, nodes)
-    # importance_out = normalize_dict_floats(importance_out, 0, 1)  
-    # relevance_out = extract_relevance(persona, nodes, focal_pt)
-    # relevance_out = normalize_dict_floats(relevance_out, 0, 1)
+    recency_out = extract_recency(persona, nodes)
+    recency_out = normalize_dict_floats(recency_out, 0, 1)
+    importance_out = extract_importance(persona, nodes)
+    importance_out = normalize_dict_floats(importance_out, 0, 1)  
+    relevance_out = extract_relevance(persona, nodes, focal_pt)
+    relevance_out = normalize_dict_floats(relevance_out, 0, 1)
+    
+    print('rerecency_out: \n', recency_out)
+    print('importance_out: \n', importance_out)
+    print('relevance_out: \n', relevance_out)
     
     #데이터의 최신성 중요성은 고려하지 않고 바로 1로 처리
-    recency_out = 0.5
-    importance_out = 0.5
-    relevance_out = 0.5
+    # recency_out = 0.5
+    # importance_out = 0.5
+    # relevance_out = 0.5
     # recency_out = {'a': 0.5}
     # importance_out = {'a': 0.5}
     # relevance_out = {'a': 0.5}
@@ -248,9 +253,9 @@ def new_retrieve(persona, focal_points, n_count=30):
     # Note to self: test out different weights. [1, 1, 1] tends to work
     # decently, but in the future, these weights should likely be learned, 
     # perhaps through an RL-like process.
-    # gw = [1, 1, 1]
+    gw = [1, 1, 1]
     # gw = [1, 2, 1]
-    gw = [0.5, 3, 2]
+    #gw = [0.5, 3, 2]
     master_out = dict()
     for key in recency_out.keys(): 
       master_out[key] = (persona.scratch.recency_w*recency_out[key]*gw[0] 

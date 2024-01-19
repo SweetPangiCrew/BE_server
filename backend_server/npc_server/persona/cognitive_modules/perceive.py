@@ -74,12 +74,12 @@ def perceive(persona):
     # then we add that event to the a_mem and return it. 
     latest_events = persona.a_mem.get_summarized_latest_events(
                                     persona.scratch.retention)
-    if p_event not in latest_events:
+    if p_event not in latest_events:  #latest_events = {{s, p, o}, {s, p, o}, ...}
       # We start by managing keywords. 
       keywords = set()
       sub = p_event[0]
       obj = p_event[2]
-      if ":" in p_event[0]: 
+      if ":" in p_event[0]: #장소일때
         sub = p_event[0].split(":")[-1]
       if ":" in p_event[2]: 
         obj = p_event[2].split(":")[-1]

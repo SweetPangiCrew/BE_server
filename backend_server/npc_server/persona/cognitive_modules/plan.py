@@ -706,7 +706,7 @@ def _choose_retrieved(persona, retrieved):
         and curr_event.subject != persona.name): 
       priority += [rel_ctx]
   if priority: 
-    return random.choice(priority)
+    return random.choice(priority)  #자신의 이벤트, 장소 이벤트를 제외한 다른 npc와의 이벤트들 중 랜덤으로 선택해서 다음 행동으로 결정
 
   # Skip idle. 
   for event_desc, rel_ctx in retrieved.items(): 
@@ -862,7 +862,7 @@ def _create_react(persona, inserted_act, inserted_act_dur,
     count += 1
 
   #ret = generate_new_decomp_schedule(p, inserted_act, inserted_act_dur, start_hour, end_hour)
-  p.scratch.f_daily_schedule[start_index:end_index] = ret
+  #p.scratch.f_daily_schedule[start_index:end_index] = ret
   p.scratch.add_new_action(act_address,
                            inserted_act_dur,
                            inserted_act,
