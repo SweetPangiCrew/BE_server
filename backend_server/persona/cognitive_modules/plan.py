@@ -11,10 +11,10 @@ import sys
 import time
 #sys.path.append('../../')
 
-from npc_server.global_methods import *
-from npc_server.persona.prompt_template.run_gpt_prompt import *
-from npc_server.persona.cognitive_modules.retrieve import *
-from npc_server.persona.cognitive_modules.converse import *
+from global_methods import *
+from persona.prompt_template.run_gpt_prompt import *
+from persona.cognitive_modules.retrieve import *
+from persona.cognitive_modules.converse import *
 
 ##############################################################################
 # CHAPTER 2: Generate
@@ -228,7 +228,7 @@ def generate_action_pronunciatio(act_desp, persona):
   Given an action description, creates an emoji string description via a few
   shot prompt. 
 
-  Does not really need any information from npc_server.persona. 
+  Does not really need any information from persona. 
 
   INPUT: 
     act_desp: the description of the action (e.g., "sleeping")

@@ -7,8 +7,8 @@ Description: This defines the "Retrieve" module for generative agents.
 import sys
 sys.path.append('../../')
 
-from npc_server.global_methods import *
-from npc_server.persona.prompt_template.gpt_structure import *
+from global_methods import *
+from persona.prompt_template.gpt_structure import *
 
 from numpy import dot
 from numpy.linalg import norm

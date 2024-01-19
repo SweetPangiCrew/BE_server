@@ -8,8 +8,8 @@ import sys
 import random
 sys.path.append('../../')
 
-from npc_server.global_methods import *
-from npc_server.utils import *
+from global_methods import *
+from utils import *
 
 def execute(persona, personas, plan): 
   """

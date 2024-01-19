@@ -9,9 +9,7 @@ import random
 import openai
 import time 
 
-from npc_server.utils import *
-import sys
-sys.path.append('npc_server/')
+from utils import *
 
 openai.api_key = openai_api_key
 
@@ -255,7 +253,7 @@ def generate_prompt(curr_input, prompt_lib_file):
   if type(curr_input) == type("string"): 
     curr_input = [curr_input]
   curr_input = [str(i) for i in curr_input]
-  prompt_lib_file = "../npc_server/"+prompt_lib_file
+  prompt_lib_file = ""+prompt_lib_file
   f = open(prompt_lib_file, "r", encoding = 'UTF8')
   prompt = f.read()
   f.close()

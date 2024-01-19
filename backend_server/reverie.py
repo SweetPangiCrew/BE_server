@@ -30,13 +30,20 @@ import traceback
 
 from selenium import webdriver
 
+
+
+import sys
+
+current_folder = os.path.dirname(os.path.realpath(__file__))
+parent_folder = os.path.abspath(os.path.join(current_folder, ".."))
+sys.path.append(parent_folder)
+
+print(parent_folder)
+
 from global_methods import *
 from utils import *
 #from maze import *
 from persona.persona import *
-
-import sys
-
 
 ##############################################################################
 #                                  REVERIE                                   #
@@ -51,6 +58,8 @@ class ReverieServer:
     # Interestingly, all simulations must be forked from some initial 
     # simulation, where the first simulation is "hand-crafted".
     self.fork_sim_code = fork_sim_code
+
+ 
     fork_folder = f"{fs_storage}/{self.fork_sim_code}"
 
     # <sim_code> indicates our current simulation. The first step here is to 

@@ -1,6 +1,6 @@
 #
-from npc_server.global_methods import *
-from npc_server.reverie import ReverieServer
+from global_methods import *
+from reverie import *
 from .serializers import perceiveSerializer,gamestartSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -18,6 +18,10 @@ from rest_framework.parsers import JSONParser
 import datetime
 import sys
 sys.path.append('../npc_server')
+
+current_folder = os.path.dirname(os.path.realpath(__file__))
+parent_folder = os.path.abspath(os.path.join(current_folder, ".."))
+sys.path.append(parent_folder)
 
 #from utils import *
 import json

@@ -10,13 +10,13 @@ import datetime
 import random
 sys.path.append('../')
 
-from npc_server.global_methods import *
+from global_methods import *
 
-from npc_server.persona.memory_structures.spatial_memory import *
-from npc_server.persona.memory_structures.associative_memory import *
-from npc_server.persona.memory_structures.scratch import *
-from npc_server.persona.cognitive_modules.retrieve import *
-from npc_server.persona.prompt_template.run_gpt_prompt import *
+from persona.memory_structures.spatial_memory import *
+from persona.memory_structures.associative_memory import *
+from persona.memory_structures.scratch import *
+from persona.cognitive_modules.retrieve import *
+from persona.prompt_template.run_gpt_prompt import *
 
 def generate_agent_chat_summarize_ideas(init_persona, 
                                         target_persona, 
