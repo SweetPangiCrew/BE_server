@@ -67,6 +67,7 @@ def movement(request,sim_code,step):
             data['meta']['code'] = 0
     except: 
            data = {"There's no json file"+ sim_folder+"/"+ str(step) } 
+           data['meta']['code'] = 404
     
     return Response(data)
 
@@ -86,17 +87,23 @@ def perceive(request,sim_code,step):
              data['meta']['code'] = 400
              return  Response(data=data,status= status.HTTP_400_BAD_REQUEST)
 
-    #try: 
-        sim_folder = f"{fs_storage}/{sim_code}"
-        curr_perceive_file = f"{sim_folder}/perceive/{step}.json"
+        try: 
+            sim_folder = f"{fs_storage}/{sim_code}"
+            curr_perceive_file = f"{sim_folder}/perceive/{step}.json"
 
-        os.makedirs(os.path.dirname(curr_perceive_file), exist_ok=True)
-        #request.body.decode('utf8')
-        with open(curr_perceive_file, "w", encoding = 'UTF8') as outfile: 
-            outfile.write((json.dumps(serializer.validated_data, indent=2, ensure_ascii = False))) #
+            os.makedirs(os.path.dirname(curr_perceive_file), exist_ok=True)
+            #request.body.decode('utf8')
+            with open(curr_perceive_file, "w", encoding = 'UTF8') as outfile: 
+                outfile.write((json.dumps(serializer.validated_data, indent=2, ensure_ascii = False))) #
 
-        meta = { "meta": { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
-        return Response(data=meta,status= status.HTTP_201_CREATED)
+            meta = { "meta": { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
+            return Response(data=meta,status= status.HTTP_201_CREATED)
+        except:
+
+            meta = { "meta": { "code": 400, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
+            return Response(data=meta,status= status.HTTP_201_CREATED)
+        
+
             
     # except: 
     #        pass
