@@ -286,8 +286,7 @@ def generate_convo(init_persona, target_persona):
     speaker = row[0]
     utt = row[1]
     all_utt += f"{speaker}: {utt}\n"
-
-  convo_length = math.ceil(int(len(all_utt)/8) / 30)
+  convo_length = math.ceil(int(len(all_utt)/8) / 30)  #대화 수가 아닌 전체 대화 문장 길이로 판단
 
   if debug: print ("GNS FUNCTION: <generate_convo>")
   return convo, convo_length
@@ -673,7 +672,43 @@ def _determine_action(persona):
                                  act_obj_pron, 
                                  act_obj_event)
 
+#act_address 반환하는 함수
+def _determine_address(persona):
+  print(persona.scratch.curr_time.strftime("%B %d, %Y, %H:%M:%S"))
+  if(persona.scratch.curr_time.strftime("%B %d, %Y, %H:%M:%S")[:9] == "August 02"):
+    if(persona.scratch.assembly_attendance):
+      act_address = "the Ville:Church:main room:service area"
+      print("집회 참석하러 고")
+      return persona.scratch.act_address
+  
+  act_address = persona.scratch.curr_address
+  persona.scratch.act_address = act_address
+  #act_address = {world}:{sector}:{arena}:{object}
+  #지금은 {world}:{sector}:{arena}
+    
+  # act_pron = generate_action_pronunciatio(act_desp, persona)  #emoji
+  # act_event = generate_action_event_triple(act_desp, persona) #{s, p, o}
 
+  # act_obj_desp = generate_act_obj_desc(act_game_object, act_desp, persona)
+  # act_obj_pron = generate_action_pronunciatio(act_obj_desp, persona)
+  # act_obj_event = generate_act_obj_event_triple(act_game_object, 
+  #                                               act_obj_desp, persona)
+
+  # persona.scratch.add_new_action(act_address, 
+  #                                int(act_dura), 
+  #                                act_desp, 
+  #                                act_pron, 
+  #                                act_event,
+  #                                None,
+  #                                None,
+  #                                None,
+  #                                None,
+  #                                act_obj_desp, 
+  #                                act_obj_pron, 
+  #                                act_obj_event)
+
+    
+    
 def _choose_retrieved(persona, retrieved): 
   """
   Retrieved elements have multiple core "curr_events". We need to choose one
@@ -891,6 +926,7 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
   # Actually creating the conversation here. 
   convo, duration_min = generate_convo(init_persona, target_persona)
   print(convo)
+  print("convo duration_min: ", duration_min)
   assembly_att = generate_decide_to_assembly_att(init_persona, target_persona, convo) # 추가 # ex) {'convo about attendance': True, '[이름] attendance': True, '[이름] attendance': False}
   print(assembly_att)
   #주석 처리
@@ -901,12 +937,15 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
 
   act_start_time = target_persona.scratch.act_start_time
   curr_time = target_persona.scratch.curr_time
+  print("curr_time: ", curr_time)
 
   if curr_time.second != 0: 
     temp_curr_time = curr_time + datetime.timedelta(seconds=60 - curr_time.second)
     chatting_end_time = temp_curr_time + datetime.timedelta(minutes=inserted_act_dur)
+    print("chatting_end_time 1: ", chatting_end_time)
   else: 
     chatting_end_time = curr_time + datetime.timedelta(minutes=inserted_act_dur)
+    print("chatting_end_time 2: ", chatting_end_time)
 
   for role, p in [("init", init_persona), ("target", target_persona)]: 
     if role == "init": 
@@ -1003,13 +1042,17 @@ def plan(persona, personas, new_day, retrieved):
   # PART 2: If the current action has expired, we want to create a new plan.
   # if persona.scratch.act_check_finished(): 
   #_determine_action(persona)
+  
   #추가
-  print(persona.scratch.curr_time.strftime("%B %d, %Y, %H:%M:%S"))
-  if(persona.scratch.curr_time.strftime("%B %d, %Y, %H:%M:%S")[:9] == "August 02"):
-    if(persona.scratch.assembly_attendance):
-      persona.scratch.act_address = "the Ville:Church:main room:service area"
-      print("집회 참석하러 고")
-      return persona.scratch.act_address
+  #perceived 파일에서 object와 상호작용시 act_address 반환하기 위한 함수
+  #_determine_address(persona)
+  
+  # print(persona.scratch.curr_time.strftime("%B %d, %Y, %H:%M:%S"))
+  # if(persona.scratch.curr_time.strftime("%B %d, %Y, %H:%M:%S")[:9] == "August 02"):
+  #   if(persona.scratch.assembly_attendance):
+  #     persona.scratch.act_address = "the Ville:Church:main room:service area"
+  #     print("집회 참석하러 고")
+  #     return persona.scratch.act_address
 
   # PART 3: If you perceived an event that needs to be responded to (saw 
   # another persona), and retrieved relevant information. 

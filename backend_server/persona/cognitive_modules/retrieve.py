@@ -221,21 +221,31 @@ def new_retrieve(persona, focal_points, n_count=30):
     # Getting all nodes from the agent's memory (both thoughts and events) and
     # sorting them by the datetime of creation.
     # You could also imagine getting the raw conversation, but for now. 
+    #print(persona.a_mem.seq_event[0].spo_summary())
     nodes = [[i.last_accessed, i]
               for i in persona.a_mem.seq_event + persona.a_mem.seq_thought
               if "idle" not in i.embedding_key]
     nodes = sorted(nodes, key=lambda x: x[0])
     nodes = [i for created, i in nodes]
-    print('nodes: \n', nodes)
+    
+    print('\n-------------- nodes:')
+    for i in nodes:
+      print(i.spo_summary())
 
     # Calculating the component dictionaries and normalizing them.
     # 주석 처리
-    recency_out = extract_recency(persona, nodes)
-    recency_out = normalize_dict_floats(recency_out, 0, 1)
-    importance_out = extract_importance(persona, nodes)
-    importance_out = normalize_dict_floats(importance_out, 0, 1)  
-    relevance_out = extract_relevance(persona, nodes, focal_pt)
-    relevance_out = normalize_dict_floats(relevance_out, 0, 1)
+    if(nodes):
+      recency_out = extract_recency(persona, nodes)
+      recency_out = normalize_dict_floats(recency_out, 0, 1)
+      importance_out = extract_importance(persona, nodes)
+      importance_out = normalize_dict_floats(importance_out, 0, 1)  
+      relevance_out = extract_relevance(persona, nodes, focal_pt)
+      relevance_out = normalize_dict_floats(relevance_out, 0, 1)
+    else:
+      recency_out = {'node_1': 0.5}
+      importance_out = {'node_1': 0.5}
+      relevance_out = {'node_1': 0.5}
+      
     
     print('rerecency_out: \n', recency_out)
     print('importance_out: \n', importance_out)

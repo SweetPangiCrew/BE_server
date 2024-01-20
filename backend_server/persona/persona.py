@@ -222,14 +222,29 @@ class Persona:
 
     #Main cognitive sequence begins here. 
     perceived = self.perceive()
+    print("\n-------------- persona perceived -----------------: ", perceived)
+    for p in perceived:
+      print(p.type, " / ", p.spo_summary())
+    print("---------------------------------------------------\n")
+    
     retrieved = self.retrieve(perceived)
+    print("\n--------------- persona retrieved ----------------: ", retrieved)
+    for key, val in retrieved.items():
+      print("'", key, "': ")
+      print("'curr_event': \n", val['curr_event'].type, " / ", val['curr_event'].spo_summary())
+      print("'events': ")
+      for j in val['events']:
+        print(j.type, " / ", j.spo_summary())
+      print("'thoughts': ")
+      for k in val['thoughts']:
+        print(k.type, " / ", k.spo_summary())
+    print("---------------------------------------------------\n")
     
     # if(curr_time[:8] == "August 2" and self.scratch.assembly_attendance):
     #   plan = "the Ville:Church:main room:service area"
     # else:
     plan = self.plan(personas, new_day, retrieved)
-    #plan = "the Ville:Isabella Rodriguez's apartment:main room:bed"
-    ##self.reflect()
+    self.reflect()
 
     # <execution> is a triple set that contains the following components: 
     # <next_tile> is a x,y coordinate. e.g., (58, 9)

@@ -106,6 +106,7 @@ def perceive(persona):
       # of the persona here. 
       #TODO : perceive 단에서 self.chat을 감지하는 법? 
       chat_node_ids = []
+      print("p_event: ", p_event)
       if p_event[0] == f"{persona.name}" and p_event[1] == "chat with": 
         curr_event = persona.scratch.act_event
         if persona.scratch.act_description in persona.a_mem.embeddings: 
@@ -124,6 +125,7 @@ def perceive(persona):
                       chat_poignancy, chat_embedding_pair, 
                       persona.scratch.chat)
         chat_node_ids = [chat_node.node_id]
+        #print(persona.a_mem.seq_chat[0].spo_summary())
 
       # Finally, we add the current event to the agent's memory. 
       ret_events += [persona.a_mem.add_event(persona.scratch.curr_time, None,
