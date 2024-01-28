@@ -151,11 +151,12 @@ def ChatGPT_safe_generate_response(prompt,
       curr_gpt_response = curr_gpt_response[:end_index]
       curr_gpt_response = json.loads(curr_gpt_response)["output"]
 
-      # print ("---ashdfaf")
-      # print (curr_gpt_response)
-      # print ("000asdfhia")
+      print ("---ashdfaf")
+      print (curr_gpt_response)
+      print ("000asdfhia")
       
       if func_validate(curr_gpt_response, prompt=prompt): 
+        print(4)
         return func_clean_up(curr_gpt_response, prompt=prompt)
       
       if verbose: 
@@ -166,7 +167,8 @@ def ChatGPT_safe_generate_response(prompt,
     except: 
       pass
 
-  return False
+  #return False
+  return func_clean_up(curr_gpt_response, prompt=prompt)
 
 
 def ChatGPT_safe_generate_response_OLD(prompt, 
@@ -219,21 +221,21 @@ def GPT_request(prompt, gpt_parameter):
     a str of GPT-3's response. 
   """
   temp_sleep()
-  try: 
-    response = openai.Completion.create(
-                model=gpt_parameter["engine"],
-                prompt=prompt,
-                temperature=gpt_parameter["temperature"],
-                max_tokens=gpt_parameter["max_tokens"],
-                top_p=gpt_parameter["top_p"],
-                frequency_penalty=gpt_parameter["frequency_penalty"],
-                presence_penalty=gpt_parameter["presence_penalty"],
-                stream=gpt_parameter["stream"],
-                stop=gpt_parameter["stop"],)
-    return response.choices[0].text
-  except: 
-    print ("TOKEN LIMIT EXCEEDED")
-    return "TOKEN LIMIT EXCEEDED"
+  # try: 
+  response = openai.Completion.create(
+              model=gpt_parameter["engine"],
+              prompt=prompt,
+              temperature=gpt_parameter["temperature"],
+              max_tokens=gpt_parameter["max_tokens"],
+              top_p=gpt_parameter["top_p"],
+              frequency_penalty=gpt_parameter["frequency_penalty"],
+              presence_penalty=gpt_parameter["presence_penalty"],
+              stream=gpt_parameter["stream"],
+              stop=gpt_parameter["stop"],)
+  return response.choices[0].text
+  # except: 
+  #   print ("TOKEN LIMIT EXCEEDED")
+  #   return "TOKEN LIMIT EXCEEDED"
 
 
 def generate_prompt(curr_input, prompt_lib_file): 
@@ -276,6 +278,7 @@ def safe_generate_response(prompt,
 
   for i in range(repeat): 
     curr_gpt_response = GPT_request(prompt, gpt_parameter)
+    #curr_gpt_response = ChatGPT_request(prompt)
     if func_validate(curr_gpt_response, prompt=prompt): 
       return func_clean_up(curr_gpt_response, prompt=prompt)
     if verbose: 
@@ -294,7 +297,7 @@ def get_embedding(text, model="text-embedding-ada-002"):
 
 
 if __name__ == '__main__':
-  gpt_parameter = {"engine": "text-davinci-003", "max_tokens": 50, 
+  gpt_parameter = {"engine": "gpt-3.5-turbo-instruct", "max_tokens": 50, 
                    "temperature": 0, "top_p": 1, "stream": False,
                    "frequency_penalty": 0, "presence_penalty": 0, 
                    "stop": ['"']}

@@ -108,6 +108,7 @@ def run_reflect(persona):
   """
   # Reflection requires certain focal points. Generate that first. 
   focal_points = generate_focal_points(persona, 3)
+  print("--------- focal_points for reflect: ", focal_points)
   # Retrieve the relevant Nodes object for each of the focal points. 
   # <retrieved> has keys of focal points, and values of the associated Nodes. 
   retrieved = new_retrieve(persona, focal_points)
@@ -119,7 +120,8 @@ def run_reflect(persona):
     for xxx in xx: print (xxx)
 
     thoughts = generate_insights_and_evidence(persona, nodes, 5)
-    print("thoughts: ", thoughts)
+    print("------------------------ thoughts for reflect ------------------------\n\n", thoughts)
+    print("\n----------------------------------------------------------------------")
     for thought, evidence in thoughts.items(): 
       created = persona.scratch.curr_time
       expiration = persona.scratch.curr_time + datetime.timedelta(days=30)
