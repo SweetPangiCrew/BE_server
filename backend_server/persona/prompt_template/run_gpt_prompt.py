@@ -2233,11 +2233,11 @@ def run_gpt_prompt_insight_and_guidance(persona, statements, n, test_input=None,
     return ret
 
   def __func_validate(gpt_response, prompt=""): 
-    # try: 
-    __func_clean_up(gpt_response, prompt)
-    return True
-    # except:
-    #   return False 
+    try: 
+      __func_clean_up(gpt_response, prompt)
+      return True
+    except:
+      return False 
 
   def get_fail_safe(n): 
     return ["I am hungry"] * n

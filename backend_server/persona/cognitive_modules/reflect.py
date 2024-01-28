@@ -214,6 +214,7 @@ def reflect(persona):
       # make sure you set the fillings as well
 
       # print (persona.a_mem.get_last_chat(persona.scratch.chatting_with).node_id)
+      print("all_utt: ", all_utt)
       print("seq_chat: ", persona.a_mem.seq_chat[0:0])
       print("kw_to_chat: ", persona.a_mem.kw_to_chat)
       evidence = [persona.a_mem.get_last_chat(persona.scratch.chatting_with).node_id]
