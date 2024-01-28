@@ -2163,12 +2163,12 @@ def run_gpt_prompt_focal_pt(persona, statements, n, test_input=None, verbose=Fal
     return ret
 
   def __chat_func_validate(gpt_response, prompt=""): ############
-    try: 
-      #print("왜 안돼")
-      __func_clean_up(gpt_response, prompt)
-      return True
-    except:
-      return False 
+    # try: 
+    #print("왜 안돼")
+    __func_clean_up(gpt_response, prompt)
+    return True
+    # except:
+    #   return False 
 
 
   print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 12") ########
@@ -2220,6 +2220,7 @@ def run_gpt_prompt_insight_and_guidance(persona, statements, n, test_input=None,
   
   def __func_clean_up(gpt_response, prompt=""):
     gpt_response = "1. " + gpt_response.strip()
+    print("gpt_response: ", gpt_response)
     ret = dict()
     for i in gpt_response.split("\n"): 
       row = i.split(". ")[-1]
@@ -2232,11 +2233,11 @@ def run_gpt_prompt_insight_and_guidance(persona, statements, n, test_input=None,
     return ret
 
   def __func_validate(gpt_response, prompt=""): 
-    try: 
-      __func_clean_up(gpt_response, prompt)
-      return True
-    except:
-      return False 
+    # try: 
+    __func_clean_up(gpt_response, prompt)
+    return True
+    # except:
+    #   return False 
 
   def get_fail_safe(n): 
     return ["I am hungry"] * n
