@@ -429,6 +429,24 @@ def generate_new_decomp_schedule(persona, inserted_act, inserted_act_dur,  start
 # CHAPTER 3: Plan
 ##############################################################################
 
+#추가
+#새로운 이벤트 발생 시(ex 약속) 행동 트리 외에 위치 변화
+def revise_current_address(persona):
+  p_name = persona.scratch.name
+
+  focal_points = [f"{p_name}'s plan for {persona.scratch.get_str_curr_date_str()}.",
+                  f"Important recent events for {p_name}'s life."]
+  retrieved = new_retrieve(persona, focal_points)
+
+  statements = "[Statements]\n"
+  for key, val in retrieved.items():
+    for i in val: 
+      statements += f"{i.created.strftime('%A %B %d -- %H:%M %p')}: {i.embedding_key}\n"
+  
+  new_address = run_gpt_prompt_generate_current_address(persona, statements, True)[0]
+  print("-------- new address: ", new_address)
+  persona.scratch.act_address = new_address
+    
 def revise_identity(persona): 
   p_name = persona.scratch.name
 
@@ -1089,8 +1107,11 @@ def plan(persona, personas, new_day, retrieved):
 
       # elif reaction_mode == "do other things": 
       #   _chat_react(persona, focused_event, reaction_mode, personas)
-      
-
+  if persona.scratch.act_event[1] != "chat with":
+    #추가
+    #채팅 하는 중이 아니라면, act_address 확인 후 조정
+    revise_current_address(persona)
+    
   # Step 3: Chat-related state clean up. 
   # If the persona is not chatting with anyone, we clean up any of the 
   # chat-related states here. 
