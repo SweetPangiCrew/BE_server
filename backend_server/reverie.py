@@ -303,7 +303,7 @@ class ReverieServer:
     """
     # <sim_folder> points to the current simulation folder.
     sim_folder = f"{fs_storage}/{self.sim_code}"
-
+    print(str(self.step)+"번째 ~~~~~~~~~~~~~~~~~ 게임: "+str(sim_folder))
     # When a persona arrives at a game object, we give a unique event
     # to that object. 
     # e.g., ('double studio[...]:bed', 'is', 'unmade', 'unmade')

@@ -17,12 +17,7 @@ import io
 from rest_framework.parsers import JSONParser
 import datetime
 import sys
-sys.path.append('../npc_server')
-
-current_folder = os.path.dirname(os.path.realpath(__file__))
-parent_folder = os.path.abspath(os.path.join(current_folder, ".."))
-sys.path.append(parent_folder)
-
+import pickle
 #from utils import *
 import json
 import os
@@ -39,10 +34,12 @@ if os.path.exists('/etc/os-release'):
 # 변수 설정
 if is_ubuntu_server:
     fs_storage = "/home/ubuntu/BE_server/backend_server/storage"
+    game_storage = "/home/ubuntu/BE_server/backend_server/games"
 else:
     fs_storage = "./storage"
+    game_storage = "./games"
 
-
+rs = dict()
 
 
 @api_view(['GET'])
@@ -55,7 +52,6 @@ def servertime(request):
 
 @api_view(['GET'])
 def movement(request,sim_code,step):
-
 
     try: 
         sim_folder = f"{fs_storage}/{sim_code}"
@@ -73,7 +69,7 @@ def movement(request,sim_code,step):
 
 @api_view(['POST'])
 def perceive(request,sim_code,step):
-
+        global rs
         stream = io.BytesIO(request.body)
         data = JSONParser().parse(stream)
 
@@ -94,22 +90,34 @@ def perceive(request,sim_code,step):
             os.makedirs(os.path.dirname(curr_perceive_file), exist_ok=True)
             #request.body.decode('utf8')
             with open(curr_perceive_file, "w", encoding = 'UTF8') as outfile: 
-                outfile.write((json.dumps(serializer.validated_data, indent=2, ensure_ascii = False))) #
+                outfile.write((json.dumps(serializer.validated_data, indent=2, ensure_ascii = False))) 
 
-            meta = { "meta": { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
-            return Response(data=meta,status= status.HTTP_201_CREATED)
         except:
 
-            meta = { "meta": { "code": 400, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
+            meta = { "meta": { "code": 401, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
             return Response(data=meta,status= status.HTTP_201_CREATED)
         
-
+        #try:
+        rs_file = f"{game_storage}/{sim_code}.pkl"
+        with open(rs_file, 'rb') as file:
+                    gameInstance = pickle.load(file)
+                    gameInstance.step = step
+                    gameInstance.start_server(1)
+                    print("game ~~~~~~~~~~~~~~~~~~~~"+str(gameInstance))
+                    meta = { "meta": { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
+                    return Response(data=meta,status= status.HTTP_201_CREATED)
             
-    # except: 
-    #        pass
-    
+
+        # except :
+        #      print("해당 게임 인스턴스가 존재하지 않습니다.")
+        #      meta = { "meta": { "code": 401, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
+        #      return Response(data=meta,status= status.HTTP_201_CREATED)
+
+
+
 @api_view(['POST'])
 def gamestart(request):
+        global rs 
 
         stream = io.BytesIO(request.body)
         data = JSONParser().parse(stream)
@@ -125,9 +133,52 @@ def gamestart(request):
         simcode = serializer.validated_data["sim_code"]
         gamename = serializer.validated_data["game_name"]
 
-        rs = ReverieServer(simcode,gamename)
-        rs.start_server(1) #하루에 60번의 인지&추론 과정이 일어남
-       
-        meta = { "meta": { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
-        return Response(data=meta,status= status.HTTP_201_CREATED)
+        try:
+            
+            rs = ReverieServer(simcode, gamename)
+
+            rs_file = f"{game_storage}/{gamename}.pkl"
+            with open(rs_file, 'wb') as file:
+                pickle.dump( rs, file)
+            rs.start_server(1) #base에 있는 Perceive 0으로 1번 인지추론 과정을 거쳐서 첫번째 Getmovement를 생성
+            #print(rs[gamename])
+            meta = { "meta": { "code": 0,"opened game": gamename ,"date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
+            return Response(data=meta,status= status.HTTP_201_CREATED)
         
+        except:
+            meta["code"] = 1
+            meta["openedgame"] = "전역 변수 인스턴스에 다른 값이 이미 존재함."
+            return Response(data=meta,status= status.HTTP_400_BAD_REQUEST)
+            
+        
+@api_view(['GET'])
+def loadgames(request):
+
+    try: 
+        # 해당 폴더에 있는 파일 목록을 얻기
+        file_list = os.listdir(game_storage)
+        data= dict()
+        data["games"] = dict()
+        # 파일 목록 출력
+        for file_name in file_list:
+               
+            game_name, game_extension = os.path.splitext(os.path.basename(file_name))
+
+            
+            curr_move_file = f"{fs_storage}/{game_name}/reverie/meta.json"
+
+            with open(curr_move_file, encoding = 'UTF8') as json_file:
+                data["games"][game_name] =json.load(json_file)
+
+       
+        data['meta'] = dict()
+        data['meta']['code'] = 0
+
+        print(data)
+            
+    except: 
+           data = {"There's no json file"+ curr_move_file+"/" } 
+           data['meta']['code'] = 404
+    
+    return Response(data)
+
