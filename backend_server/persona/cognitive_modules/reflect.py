@@ -119,6 +119,7 @@ def run_reflect(persona):
     for xxx in xx: print (xxx)
 
     thoughts = generate_insights_and_evidence(persona, nodes, 5)
+    print("thoughts: ", thoughts)
     for thought, evidence in thoughts.items(): 
       created = persona.scratch.curr_time
       expiration = persona.scratch.curr_time + datetime.timedelta(days=30)
@@ -149,6 +150,7 @@ def reflection_trigger(persona):
   print (persona.scratch.name, "persona.scratch.importance_trigger_curr::", persona.scratch.importance_trigger_curr)
   print (persona.scratch.importance_trigger_max)
 
+  #persona.scratch.importance_trigger_curr = 0
   if (persona.scratch.importance_trigger_curr <= 0 and 
       [] != persona.a_mem.seq_event + persona.a_mem.seq_thought): 
     return True 
@@ -186,11 +188,11 @@ def reflect(persona):
 
 
 
-  # print (persona.scratch.name, "al;sdhfjlsad", persona.scratch.chatting_end_time)
+  print (persona.scratch.name, "al;sdhfjlsad", persona.scratch.chatting_end_time)
   if persona.scratch.chatting_end_time: 
-    # print("DEBUG", persona.scratch.curr_time + datetime.timedelta(0,10))
+    print("DEBUG", persona.scratch.curr_time + datetime.timedelta(0,10))
     if persona.scratch.curr_time + datetime.timedelta(0,10) == persona.scratch.chatting_end_time: 
-      # print ("KABOOOOOMMMMMMM")
+      print ("KABOOOOOMMMMMMM")
       all_utt = ""
       if persona.scratch.chat: 
         for row in persona.scratch.chat:  
@@ -210,11 +212,13 @@ def reflect(persona):
       # make sure you set the fillings as well
 
       # print (persona.a_mem.get_last_chat(persona.scratch.chatting_with).node_id)
-
+      print("seq_chat: ", persona.a_mem.seq_chat[0:0])
+      print("kw_to_chat: ", persona.a_mem.kw_to_chat)
       evidence = [persona.a_mem.get_last_chat(persona.scratch.chatting_with).node_id]
 
       planning_thought = generate_planning_thought_on_convo(persona, all_utt)
       planning_thought = f"For {persona.scratch.name}'s planning: {planning_thought}"
+      print("planning_thought: ", planning_thought)
 
       created = persona.scratch.curr_time
       expiration = persona.scratch.curr_time + datetime.timedelta(days=30)
@@ -226,11 +230,13 @@ def reflect(persona):
       persona.a_mem.add_thought(created, expiration, s, p, o, 
                                 planning_thought, keywords, thought_poignancy, 
                                 thought_embedding_pair, evidence)
+      print("persona_seq_thought: ", persona.a_mem.seq_thought[0].spo_summary())
 
 
 
       memo_thought = generate_memo_on_convo(persona, all_utt)
       memo_thought = f"{persona.scratch.name} {memo_thought}"
+      print("memo_thought: ", memo_thought)
 
       created = persona.scratch.curr_time
       expiration = persona.scratch.curr_time + datetime.timedelta(days=30)
@@ -242,6 +248,7 @@ def reflect(persona):
       persona.a_mem.add_thought(created, expiration, s, p, o, 
                                 memo_thought, keywords, thought_poignancy, 
                                 thought_embedding_pair, evidence)
+      print("persona_seq_thought: ", persona.a_mem.seq_thought[1].spo_summary())
 
 
 
