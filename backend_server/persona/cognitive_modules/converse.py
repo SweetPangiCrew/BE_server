@@ -104,21 +104,31 @@ def agent_chat_v1(maze, init_persona, target_persona):
 
 
 #주석 처리
-def generate_one_utterance( init_persona, target_persona, retrieved, curr_chat): 
+def generate_one_utterance(init_persona, target_persona, retrieved, curr_chat): 
 #def generate_one_utterance( init_persona, target_persona, curr_chat): 
   # Chat version optimized for speed via batch generation
-  curr_context = (f"{init_persona.scratch.name} " + 
+
+  print ("July 23 5")
+  if(target_persona):
+    curr_context = (f"{init_persona.scratch.name} " + 
               f"was {init_persona.scratch.act_description} " + 
               f"when {init_persona.scratch.name} " + 
               f"saw {target_persona.scratch.name} " + 
               f"in the middle of {target_persona.scratch.act_description}.\n")
-  curr_context += (f"{init_persona.scratch.name} " +
+    curr_context += (f"{init_persona.scratch.name} " +
               f"is initiating a conversation with " +
               f"{target_persona.scratch.name}.")
-
-  print ("July 23 5")
-  x = run_gpt_generate_iterative_chat_utt(init_persona, target_persona, retrieved, curr_context, curr_chat)[0]
-  #x = run_gpt_generate_iterative_chat_utt(init_persona, target_persona, curr_context, curr_chat)[0]
+  
+    x = run_gpt_generate_iterative_chat_utt(init_persona, target_persona, retrieved, curr_context, curr_chat)[0]
+    #x = run_gpt_generate_iterative_chat_utt(init_persona, target_persona, curr_context, curr_chat)[0]
+  else:
+    curr_context = (f"{init_persona.scratch.name} " + 
+              f"was {init_persona.scratch.act_description} " + 
+              f"when {init_persona.scratch.name} " + 
+              f"saw User")
+    curr_context += (f"{init_persona.scratch.name} " +
+              f"is initiating a conversation with User")
+    x = run_gpt_generate_iterative_user_chat_utt(init_persona, retrieved, curr_context, curr_chat)[0]
 
   print ("July 23 6")
 
@@ -220,7 +230,56 @@ def agent_chat_v2(init_persona, target_persona):
   return curr_chat
 
 
+def agent_with_user_chat(init_persona):
+  curr_chat = []
+  print ("July 23")
+  for i in range(2): 
+    # focal_points = [f"{target_persona.scratch.name}"]
+    # print("focal_points: ", focal_points)
+    # retrieved = new_retrieve(init_persona, focal_points, 50)
+    
+    # print('\n--------------- retrieved for convo ----------------: \n', retrieved)
+    # for key, val in retrieved.items():
+    #   print("'", key, "': ")
+    #   for i in val:
+    #     print(i.type, " / ", i.spo_summary())
+    # print("----------------------------------------------------\n")
+    
+    # relationship = generate_summarize_agent_relationship(init_persona, target_persona, retrieved)
+    # print ("-------- relationship", relationship)
+    # last_chat = ""
+    # for i in curr_chat[-4:]:
+    #   last_chat += ": ".join(i) + "\n"
+    # if last_chat: 
+    #   focal_points = [f"{relationship}", 
+    #                   f"{target_persona.scratch.name} is {target_persona.scratch.act_description}", 
+    #                   last_chat]
+    # else: 
+    #   focal_points = [f"{relationship}", 
+    #                   f"{target_persona.scratch.name} is {target_persona.scratch.act_description}"]
+    # print("new focal_points: ", focal_points)
+    # retrieved = new_retrieve(init_persona, focal_points, 15)
+    
+    # print('\n------------------ new retrieved for convo --------------------: \n', retrieved)
+    # for key, val in retrieved.items():
+    #   print("'", key, "': ")
+    #   for i in val:
+    #     print(i.type, " / ", i.spo_summary())
+    # print("---------------------------------------------------------------\n")
+    
+    utt, end = generate_one_utterance(init_persona, None, None, curr_chat)
+    #utt, end = generate_one_utterance(init_persona, target_persona, curr_chat)
 
+    curr_chat += [[init_persona.scratch.name, utt]]
+    # if end:
+    #   break
+    
+    user_chat = input("대화를 입력하세요: ")
+    curr_chat += [["User", user_chat]]
+    
+  curr_chat += [[init_persona.scratch.name, "말이 기네요.. 저는 이만 가보겠습니다"]]
+  return curr_chat
+      
 
 
 

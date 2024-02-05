@@ -15,4 +15,4 @@ Location tree:
 Statements: 
 !<INPUT 3>!
 
-위의 내용을 바탕으로, 현재 시각에 !<INPUT 4>!는 어디에 있을까? (example output: the Ville:Ohwaga's apartment:main room) 
+위의 내용을 바탕으로, 현재 시각에 !<INPUT 4>!는 어디에 있을까? (example output: the Ville:Pani Park:park:park garden) 
