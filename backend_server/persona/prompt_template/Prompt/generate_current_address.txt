@@ -1,0 +1,18 @@
+generate_current_address.txt
+
+Variables: 
+!<INPUT 0>! -- Persona name
+!<INPUT 1>! -- Current time
+!<INPUT 2>! -- Location tree
+!<INPUT 3>! -- Retrieve statements
+!<INPUT 4>! -- Persona name
+
+<commentblockmarker>###</commentblockmarker>
+Name: !<INPUT 0>!
+Current time: !<INPUT 1>!
+Location tree:
+!<INPUT 2>!
+Statements: 
+!<INPUT 3>!
+
+위의 내용을 바탕으로, 현재 시각에 !<INPUT 4>!는 어디에 있을까? (example output: the Ville:Pani Park:park:park garden) 

@@ -247,9 +247,9 @@ def new_retrieve(persona, focal_points, n_count=30):
       relevance_out = {'node_1': 0.5}
       
     
-    print('rerecency_out: \n', recency_out)
-    print('importance_out: \n', importance_out)
-    print('relevance_out: \n', relevance_out)
+    # print('rerecency_out: \n', recency_out)
+    # print('importance_out: \n', importance_out)
+    # print('relevance_out: \n', relevance_out)
     
     #데이터의 최신성 중요성은 고려하지 않고 바로 1로 처리
     # recency_out = 0.5

@@ -108,6 +108,7 @@ def run_reflect(persona):
   """
   # Reflection requires certain focal points. Generate that first. 
   focal_points = generate_focal_points(persona, 3)
+  print("--------- focal_points for reflect: ", focal_points)
   # Retrieve the relevant Nodes object for each of the focal points. 
   # <retrieved> has keys of focal points, and values of the associated Nodes. 
   retrieved = new_retrieve(persona, focal_points)
@@ -119,7 +120,8 @@ def run_reflect(persona):
     for xxx in xx: print (xxx)
 
     thoughts = generate_insights_and_evidence(persona, nodes, 5)
-    print("thoughts: ", thoughts)
+    print("------------------------ thoughts for reflect ------------------------\n\n", thoughts)
+    print("\n----------------------------------------------------------------------")
     for thought, evidence in thoughts.items(): 
       created = persona.scratch.curr_time
       expiration = persona.scratch.curr_time + datetime.timedelta(days=30)
@@ -212,13 +214,14 @@ def reflect(persona):
       # make sure you set the fillings as well
 
       # print (persona.a_mem.get_last_chat(persona.scratch.chatting_with).node_id)
-      print("seq_chat: ", persona.a_mem.seq_chat[0:0])
-      print("kw_to_chat: ", persona.a_mem.kw_to_chat)
+      print("------------ all_utt: ", all_utt)
+      print("------------ seq_chat: ", persona.a_mem.seq_chat[0:0])
+      print("------------ kw_to_chat: ", persona.a_mem.kw_to_chat)
       evidence = [persona.a_mem.get_last_chat(persona.scratch.chatting_with).node_id]
 
       planning_thought = generate_planning_thought_on_convo(persona, all_utt)
       planning_thought = f"For {persona.scratch.name}'s planning: {planning_thought}"
-      print("planning_thought: ", planning_thought)
+      print("------------ planning_thought: ", planning_thought)
 
       created = persona.scratch.curr_time
       expiration = persona.scratch.curr_time + datetime.timedelta(days=30)
@@ -230,13 +233,13 @@ def reflect(persona):
       persona.a_mem.add_thought(created, expiration, s, p, o, 
                                 planning_thought, keywords, thought_poignancy, 
                                 thought_embedding_pair, evidence)
-      print("persona_seq_thought: ", persona.a_mem.seq_thought[0].spo_summary())
+      print("------------ persona_seq_thought: ", persona.a_mem.seq_thought[0].spo_summary())
 
 
 
       memo_thought = generate_memo_on_convo(persona, all_utt)
       memo_thought = f"{persona.scratch.name} {memo_thought}"
-      print("memo_thought: ", memo_thought)
+      print("------------ memo_thought: ", memo_thought)
 
       created = persona.scratch.curr_time
       expiration = persona.scratch.curr_time + datetime.timedelta(days=30)

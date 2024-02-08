@@ -292,6 +292,20 @@ def generate_convo(init_persona, target_persona):
   return convo, convo_length
 
 
+def generate_user_convo(init_persona):
+  convo = agent_with_user_chat(init_persona)
+  all_utt = ""
+
+  for row in convo: 
+    speaker = row[0]
+    utt = row[1]
+    all_utt += f"{speaker}: {utt}\n"
+  convo_length = math.ceil(int(len(all_utt)/8) / 30)  #대화 수가 아닌 전체 대화 문장 길이로 판단
+
+  if debug: print ("GNS FUNCTION: <generate_convo>")
+  return convo, convo_length
+
+
 def generate_convo_summary(persona, convo): 
   convo_summary = run_gpt_prompt_summarize_conversation(persona, convo)[0]
   return convo_summary
@@ -429,6 +443,24 @@ def generate_new_decomp_schedule(persona, inserted_act, inserted_act_dur,  start
 # CHAPTER 3: Plan
 ##############################################################################
 
+#추가
+#새로운 이벤트 발생 시(ex 약속) 행동 트리 외에 위치 변화
+def revise_current_address(persona):
+  p_name = persona.scratch.name
+
+  focal_points = [f"{p_name}'s plan for {persona.scratch.get_str_curr_date_str()}.",
+                  f"Important recent events for {p_name}'s life."]
+  retrieved = new_retrieve(persona, focal_points)
+
+  statements = "[Statements]\n"
+  for key, val in retrieved.items():
+    for i in val: 
+      statements += f"{i.created.strftime('%A %B %d -- %H:%M %p')}: {i.embedding_key}\n"
+  
+  new_address = run_gpt_prompt_generate_current_address(persona, statements, True)[0]
+  print("-------- new address: ", new_address)
+  persona.scratch.act_address = new_address
+    
 def revise_identity(persona): 
   p_name = persona.scratch.name
 
@@ -922,13 +954,14 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
   curr_personas = [init_persona, target_persona]
   
   target_persona.scratch.curr_time = init_persona.scratch.curr_time #추가
-
+  
   # Actually creating the conversation here. 
   convo, duration_min = generate_convo(init_persona, target_persona)
   print(convo)
   print("convo duration_min: ", duration_min)
   assembly_att = generate_decide_to_assembly_att(init_persona, target_persona, convo) # 추가 # ex) {'convo about attendance': True, '[이름] attendance': True, '[이름] attendance': False}
   print(assembly_att)
+    
   #주석 처리
   convo_summary = generate_convo_summary(init_persona, convo)
   inserted_act = convo_summary
@@ -988,6 +1021,60 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
     #   act_pronunciatio, act_obj_description, act_obj_pronunciatio, 
     #   act_obj_event, act_start_time)
 
+
+#유저와의 채팅
+def _user_chat_react(persona):
+  
+  init_persona = persona
+  
+  # Actually creating the conversation here. 
+  convo, duration_min = generate_user_convo(init_persona)
+  print(convo)
+  print("convo duration_min: ", duration_min)
+  #assembly_att = generate_decide_to_assembly_att(init_persona, target_persona, convo)
+    
+  convo_summary = generate_convo_summary(init_persona, convo)
+  inserted_act = convo_summary
+  inserted_act_dur = duration_min
+
+  # act_start_time = target_persona.scratch.act_start_time
+  curr_time = init_persona.scratch.curr_time
+  # print("curr_time: ", curr_time)
+
+  if curr_time.second != 0: 
+    temp_curr_time = curr_time + datetime.timedelta(seconds=60 - curr_time.second)
+    chatting_end_time = temp_curr_time + datetime.timedelta(minutes=inserted_act_dur)
+    print("chatting_end_time 1: ", chatting_end_time)
+  else: 
+    chatting_end_time = curr_time + datetime.timedelta(minutes=inserted_act_dur)
+    print("chatting_end_time 2: ", chatting_end_time)
+
+  act_address = f"<persona> User"
+  act_event = (init_persona.name, "chat with", "User")
+  chatting_with = "User"
+  chatting_with_buffer = {}
+  chatting_with_buffer["User"] = 800
+  # if(assembly_att['convo about attendance']):
+  #   init_persona.scratch.assembly_attendance = assembly_att[f'{p.scratch.name} attendance']
+
+  act_pronunciatio = "💬" 
+  act_obj_description = None
+  act_obj_pronunciatio = None
+  act_obj_event = (None, None, None)
+
+  init_persona.scratch.add_new_action(act_address,
+                          inserted_act_dur,
+                          inserted_act,
+                          act_pronunciatio,
+                          act_event,
+                          chatting_with,
+                          convo,
+                          chatting_with_buffer,
+                          chatting_end_time,
+                          act_obj_description,
+                          act_obj_pronunciatio,
+                          act_obj_event,
+                          None)
 
 def _wait_react(persona, reaction_mode): 
   p = persona
@@ -1063,6 +1150,11 @@ def plan(persona, personas, new_day, retrieved):
   #         dictionary {["curr_event"] = <ConceptNode>, 
   #                     ["events"] = [<ConceptNode>, ...], 
   #                     ["thoughts"] = [<ConceptNode>, ...]}
+  
+  #유저와의 채팅 테스트
+  if(persona.scratch.name == "나주교"):
+    _user_chat_react(persona)
+    
   focused_event = False
   if retrieved.keys(): 
     focused_event = _choose_retrieved(persona, retrieved)
@@ -1089,11 +1181,15 @@ def plan(persona, personas, new_day, retrieved):
 
       # elif reaction_mode == "do other things": 
       #   _chat_react(persona, focused_event, reaction_mode, personas)
-      
-
+  # if persona.scratch.act_event[1] != "chat with":
+  #   #추가
+  #   #채팅 하는 중이 아니라면, act_address 확인 후 조정
+  #   revise_current_address(persona)
+    
   # Step 3: Chat-related state clean up. 
   # If the persona is not chatting with anyone, we clean up any of the 
   # chat-related states here. 
+  
   if persona.scratch.act_event[1] != "chat with":
     persona.scratch.chatting_with = None
     persona.scratch.chat = None
