@@ -335,6 +335,14 @@ def generate_decide_to_assembly_att(persona, target_persona, convo):
   #   target_persona.scratch.assembly_attendance = False
   return x
 
+def generate_new_meeting_schedule(persona, target_persona, convo):
+  if(target_persona == "User"):
+    meeting = run_gpt_check_new_meeting_schedule(persona, "User", convo)[0]
+  else:
+    meeting = run_gpt_check_new_meeting_schedule(persona, target_persona, convo)[0]
+  
+  return meeting
+
 
 def generate_decide_to_talk(init_persona, target_persona, retrieved): 
   x =run_gpt_prompt_decide_to_talk(init_persona, target_persona, retrieved)[0]
@@ -961,6 +969,7 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
   print("convo duration_min: ", duration_min)
   assembly_att = generate_decide_to_assembly_att(init_persona, target_persona, convo) # 추가 # ex) {'convo about attendance': True, '[이름] attendance': True, '[이름] attendance': False}
   print(assembly_att)
+  meeting_schedule = generate_new_meeting_schedule(init_persona, target_persona, convo)   # True or False # 새로운 약속 생성 여부
     
   #주석 처리
   convo_summary = generate_convo_summary(init_persona, convo)
@@ -1032,6 +1041,10 @@ def _user_chat_react(persona):
   print(convo)
   print("convo duration_min: ", duration_min)
   #assembly_att = generate_decide_to_assembly_att(init_persona, target_persona, convo)
+  meeting_schedule = generate_new_meeting_schedule(init_persona, "User", convo)   # True or False # 새로운 약속 생성 여부
+  if meeting_schedule['new_meeting'] == True:
+    persona.a_mem.add_schedule(meeting_schedule)
+  print("a_mem: ", persona.a_mem.seq_schedule)
     
   convo_summary = generate_convo_summary(init_persona, convo)
   inserted_act = convo_summary

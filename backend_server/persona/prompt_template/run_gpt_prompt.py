@@ -1773,6 +1773,74 @@ def run_gpt_prompt_generate_decide_to_assembly_att(persona, target_persona, conv
   
 
 
+def run_gpt_check_new_meeting_schedule(init_persona, target_persona, convo):
+  
+  def create_prompt_input(init_persona, target_persona, conversation, test_input=None): 
+    if(target_persona == "User"):
+      target_p_name = "User"
+    else:
+      target_p_name = target_persona.scratch.name
+    convo_str = ""
+    for row in conversation: 
+      convo_str += f'{row[0]}: "{row[1]}"\n'
+
+    prompt_input = []
+    prompt_input += [init_persona.name]
+    prompt_input += [init_persona.scratch.curr_time]
+    prompt_input += [init_persona.s_mem.tree]
+    prompt_input += [init_persona.name]
+    prompt_input += [target_p_name]
+    prompt_input += [convo_str]
+    prompt_input += [init_persona.name]
+    prompt_input += [target_p_name]
+    prompt_input += [init_persona.name]
+    return prompt_input
+
+
+  # ChatGPT Plugin ===========================================================
+  def __chat_func_clean_up(gpt_response, prompt=""): ############
+    gpt_response = extract_first_json_dict(gpt_response)
+    print("gpt_response: ", gpt_response)
+    cleaned_dict = dict()
+    val_1 = list(gpt_response.values())[0]
+    if "t" in str(val_1) or "T" in str(val_1) or "예" in str(val_1) or "네" in str(val_1):
+      val_1 = True
+      cleaned_dict['new_meeting'] = val_1
+      cleaned_dict['time'] = list(gpt_response.values())[1]
+      cleaned_dict['location'] = list(gpt_response.values())[2]
+      cleaned_dict['content'] = list(gpt_response.values())[3]
+    else:
+      val_1 = False
+      cleaned_dict['new_meeting'] = val_1
+      cleaned_dict['time'] = None
+      cleaned_dict['location'] = None
+      cleaned_dict['content'] = None
+    return cleaned_dict
+
+  def __chat_func_validate(gpt_response, prompt=""): ############
+    try: 
+      print ("gpt_response1: ", gpt_response)
+      
+      __chat_func_clean_up(gpt_response, prompt)
+
+      return True
+    except:
+      return False 
+
+  print ("asdhfapsh8p9hfaiafdsi;ldfj as DEBUG 11") ########
+  gpt_param = {"engine": "gpt-3.5-turbo-instruct", "max_tokens": 15, 
+               "temperature": 0, "top_p": 1, "stream": False,
+               "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
+  prompt_template = "persona/prompt_template/Prompt/check_new_meeting_schedule.txt" ########
+  prompt_input = create_prompt_input(init_persona, target_persona, convo)  ########
+  prompt = generate_prompt(prompt_input, prompt_template)
+  print(prompt)
+  fail_safe = "error" ########
+  output = ChatGPT_safe_generate_response_OLD(prompt, 2, fail_safe, __chat_func_validate, __chat_func_clean_up, False)
+  print("output: ", output)
+  if output != False:
+    return output, [output, prompt, gpt_param, prompt_input, fail_safe]
+
 
 
 
