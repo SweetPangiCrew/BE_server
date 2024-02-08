@@ -23,6 +23,7 @@ import json
 import os
 
 
+
 is_ubuntu_server = False
 if os.path.exists('/etc/os-release'):
     with open('/etc/os-release', 'r') as f:
@@ -69,10 +70,12 @@ def movement(request,sim_code,step):
 
 @api_view(['POST'])
 def perceive(request,sim_code,step):
-        global rs
+     
         stream = io.BytesIO(request.body)
-        data = JSONParser().parse(stream)
-
+        #stream = stream.replace("'", "\"") 
+        data = JSONParser().parse(stream) #stream data 가 Dict가 됨.
+        #print(stream)
+      
         print(data)
         serializer = perceiveSerializer(data=data)
         if(serializer.is_valid()):
@@ -88,7 +91,7 @@ def perceive(request,sim_code,step):
             curr_perceive_file = f"{sim_folder}/perceive/{step}.json"
 
             os.makedirs(os.path.dirname(curr_perceive_file), exist_ok=True)
-            #request.body.decode('utf8')
+  
             with open(curr_perceive_file, "w", encoding = 'UTF8') as outfile: 
                 outfile.write((json.dumps(serializer.validated_data, indent=2, ensure_ascii = False))) 
 
@@ -117,8 +120,6 @@ def perceive(request,sim_code,step):
 
 @api_view(['POST'])
 def gamestart(request):
-        global rs 
-
         stream = io.BytesIO(request.body)
         data = JSONParser().parse(stream)
 

@@ -39,5 +39,6 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', include('api.urls')),
+    path('chat/',include("chat.urls")),
 ]
 
