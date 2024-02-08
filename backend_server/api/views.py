@@ -40,7 +40,7 @@ else:
     fs_storage = "./storage"
     game_storage = "./games"
 
-rs = dict()
+
 
 
 @api_view(['GET'])
@@ -107,6 +107,8 @@ def perceive(request,sim_code,step):
                     gameInstance.step = step
                     gameInstance.start_server(1)
                     print("game ~~~~~~~~~~~~~~~~~~~~"+str(gameInstance))
+                    with open(rs_file, 'wb') as file:
+                        pickle.dump( gameInstance, file)
                     meta = { "meta": { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
                     return Response(data=meta,status= status.HTTP_201_CREATED)
             

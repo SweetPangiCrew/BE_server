@@ -279,6 +279,63 @@ def agent_with_user_chat(init_persona):
     
   curr_chat += [[init_persona.scratch.name, "말이 기네요.. 저는 이만 가보겠습니다"]]
   return curr_chat
+
+def agent_with_user_chat(init_persona,message,round):
+
+  max_round = 2
+  curr_chat = []
+  #curr_chat += [init_persona.scratch.chat]
+  round = int(round) 
+  if round <= max_round : 
+    # focal_points = [f"{target_persona.scratch.name}"]
+    # print("focal_points: ", focal_points)
+    # retrieved = new_retrieve(init_persona, focal_points, 50)
+    
+    # print('\n--------------- retrieved for convo ----------------: \n', retrieved)
+    # for key, val in retrieved.items():
+    #   print("'", key, "': ")
+    #   for i in val:
+    #     print(i.type, " / ", i.spo_summary())
+    # print("----------------------------------------------------\n")
+    
+    # relationship = generate_summarize_agent_relationship(init_persona, target_persona, retrieved)
+    # print ("-------- relationship", relationship)
+    # last_chat = ""
+    # for i in curr_chat[-4:]:
+    #   last_chat += ": ".join(i) + "\n"
+    # if last_chat: 
+    #   focal_points = [f"{relationship}", 
+    #                   f"{target_persona.scratch.name} is {target_persona.scratch.act_description}", 
+    #                   last_chat]
+    # else: 
+    #   focal_points = [f"{relationship}", 
+    #                   f"{target_persona.scratch.name} is {target_persona.scratch.act_description}"]
+    # print("new focal_points: ", focal_points)
+    # retrieved = new_retrieve(init_persona, focal_points, 15)
+    
+    # print('\n------------------ new retrieved for convo --------------------: \n', retrieved)
+    # for key, val in retrieved.items():
+    #   print("'", key, "': ")
+    #   for i in val:
+    #     print(i.type, " / ", i.spo_summary())
+    # print("---------------------------------------------------------------\n")
+    
+    if round != 0:
+      curr_chat += [["User", message]]
+
+    utt, end = generate_one_utterance(init_persona, None, None, curr_chat)
+    #utt, end = generate_one_utterance(init_persona, target_persona, curr_chat)
+
+    if end:
+      utt += "말이 기네요.. 저는 이만 가보겠습니다"
+      
+      #[[init_persona.scratch.name, "말이 기네요.. 저는 이만 가보겠습니다"]]
+
+    curr_chat += [[init_persona.scratch.name, utt]]
+    init_persona.scratch.chat = curr_chat
+    
+  return utt, end
+      
       
 
 

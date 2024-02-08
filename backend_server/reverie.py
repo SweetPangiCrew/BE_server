@@ -287,6 +287,13 @@ class ReverieServer:
 
       time.sleep(self.server_sleep * 10)
 
+  def user_chat(self, persona_name, message, round):
+
+    curr_persona = self.personas[persona_name]
+    curr_persona.scratch.curr_time = self.curr_time
+    response, end = agent_with_user_chat(curr_persona,message,round)
+
+    return response, end
 
   def start_server(self, int_counter): 
     """

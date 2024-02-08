@@ -7,5 +7,5 @@ from . import views
 urlpatterns = [
     path("", views.index, name="index"),
     path("<str:room_name>/", views.room, name="room"),
-    path("send/", views.send, name="send"),
+    path("send/<str:game_name>", views.send, name="send"),
 ]
