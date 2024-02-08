@@ -319,18 +319,15 @@ class ReverieServer:
       # Done with this iteration if <int_counter> reaches 0. 
       if int_counter == 0: 
         break
-      #print(1)
       if (True):
       # <curr_perceive_file>을 받지 않았으면 기다림.
        curr_perceive_file = f"{sim_folder}/perceive/{self.step}.json"
        if check_if_file_exists(curr_perceive_file):
-          print(2)
           perceived_info = dict()
           try:
               with open(curr_perceive_file, encoding = 'UTF8') as json_file:  
                 perceive_f = json.load(json_file)
                 perceived_f = perceive_f["perceived_info"]
-                print(3)
           except:
               print("error: perceive info를 못 읽어왔습니다.")
           
@@ -340,7 +337,6 @@ class ReverieServer:
               #perceived_info[item["persona"]]["perceived_tiles"] = {} #item["perceived_tiles"]  
               perceived_info[item["persona"]]["curr_address"] = item["curr_address"]
               perceived_info[item["persona"]]["perceived_tiles"] = item["perceived_tiles"]  
-              print(4)
           print(perceived_info)          
     #     # If we have an environment file, it means we have a new perception
     #     if env_retrieved: 
@@ -383,13 +379,13 @@ class ReverieServer:
             movements["persona"][persona_name]["chat"] = (persona
                                                           .scratch.chat) 
             print(persona.scratch.chat)
-            print(5) 
               
             
           # Include the meta information about the current stage in the 
           # movements dictionary. 
           movements["meta"]["curr_time"] = (self.curr_time 
                                              .strftime("%B %d, %Y, %H:%M:%S"))
+          print(movements)
          
           # We then write the personas' movements to a file that will be sent 
           # to the frontend server. 
@@ -402,7 +398,6 @@ class ReverieServer:
           os.makedirs(os.path.dirname(curr_move_file), exist_ok=True)
           with open(curr_move_file, "w", encoding = 'UTF8') as outfile: 
             outfile.write(json.dumps(movements, indent=2, ensure_ascii = False))
-          print(6)
 
           
           # After this cycle, the world takes one step forward, and the 
@@ -411,7 +406,6 @@ class ReverieServer:
           self.curr_time += datetime.timedelta(seconds=self.sec_per_step)
 
           int_counter -= 1
-          print(7)
           
       # Sleep so we don't burn our machines. 
       time.sleep(self.server_sleep)
