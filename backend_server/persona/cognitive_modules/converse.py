@@ -282,7 +282,7 @@ def agent_with_user_chat(init_persona):
 
 
 #api로 메세지 받아서 반환하는 함수.
-def agent_with_user_chat(init_persona,message,round):
+def agent_with_user_chat_api(init_persona,message,round):
 
   max_round = 2
   curr_chat = []

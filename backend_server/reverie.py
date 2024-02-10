@@ -291,7 +291,7 @@ class ReverieServer:
 
     curr_persona = self.personas[persona_name]
     curr_persona.scratch.curr_time = self.curr_time
-    response, end = agent_with_user_chat(curr_persona,message,round)
+    response, end = agent_with_user_chat_api(curr_persona,message,round)
 
     return response, end
 

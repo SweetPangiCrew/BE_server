@@ -1152,8 +1152,8 @@ def plan(persona, personas, new_day, retrieved):
   #                     ["thoughts"] = [<ConceptNode>, ...]}
   
   #유저와의 채팅 테스트
-  if(persona.scratch.name == "나주교"):
-    _user_chat_react(persona)
+  # if(persona.scratch.name == "나주교"):
+  #   _user_chat_react(persona)
     
   focused_event = False
   if retrieved.keys(): 
