@@ -280,11 +280,13 @@ def agent_with_user_chat(init_persona):
   curr_chat += [[init_persona.scratch.name, "말이 기네요.. 저는 이만 가보겠습니다"]]
   return curr_chat
 
+
+#api로 메세지 받아서 반환하는 함수.
 def agent_with_user_chat(init_persona,message,round):
 
   max_round = 2
   curr_chat = []
-  #curr_chat += [init_persona.scratch.chat]
+  curr_chat = init_persona.scratch.chat
   round = int(round) 
   if round <= max_round : 
     # focal_points = [f"{target_persona.scratch.name}"]
@@ -323,6 +325,8 @@ def agent_with_user_chat(init_persona,message,round):
     if round != 0:
       curr_chat += [["User", message]]
 
+    print("---------------------------------------------")
+    print(curr_chat)
     utt, end = generate_one_utterance(init_persona, None, None, curr_chat)
     #utt, end = generate_one_utterance(init_persona, target_persona, curr_chat)
 
