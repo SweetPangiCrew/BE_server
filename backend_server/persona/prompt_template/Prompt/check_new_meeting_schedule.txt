@@ -8,8 +8,7 @@ Variables:
 !<INPUT 4>! -- Target persona name
 !<INPUT 5>! -- Convo
 !<INPUT 6>! -- Persona name
-!<INPUT 7>! -- Target persona name
-!<INPUT 8>! -- Persona name
+!<INPUT 7>! -- Persona name
 
 <commentblockmarker>###</commentblockmarker>
 이름: !<INPUT 0>!
@@ -21,7 +20,7 @@ Variables:
 !<INPUT 5>!
 
 
-Task: 위의 대화에서 !<INPUT 6>!와(과) !<INPUT 7>!이(가) 이 대화 이후에 만남을 약속하였는가? 그렇다면, 언제 어디서의 어떤 만남인가? !<INPUT 8>!의 관점에서 생각해보아라. 
+Task: 위의 대화를 통해 !<INPUT 6>!에게 새로운 일정이 생겼는가? 그렇다면, 언제 어디서의 어떤 일정인가? !<INPUT 7>!의 관점에서 생각해보아라. 
 
 출력 결과 형식: 결과는 다음의 json 형식으로 출력하라:
 {

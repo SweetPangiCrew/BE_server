@@ -1792,7 +1792,6 @@ def run_gpt_check_new_meeting_schedule(init_persona, target_persona, convo):
     prompt_input += [target_p_name]
     prompt_input += [convo_str]
     prompt_input += [init_persona.name]
-    prompt_input += [target_p_name]
     prompt_input += [init_persona.name]
     return prompt_input
 

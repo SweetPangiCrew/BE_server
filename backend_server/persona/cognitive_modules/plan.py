@@ -452,6 +452,21 @@ def generate_new_decomp_schedule(persona, inserted_act, inserted_act_dur,  start
 ##############################################################################
 
 #추가
+#이 시간에 약속이 있으면 약속 장소로 이동
+def move_meeting_location(persona):
+  #persona 약속 리스트 안에서 현재 시간에 있는 가장 최근에 잡은 약속 장소로 이동
+  persona.a_mem.seq_schedule = [{'new_meeting': True, 'time': '2023-08-01 08:00:00', 'location': "Ijasik's apartment:main room", 'content': 'play with 나주교'}, {'new_meeting': True, 'time': '2023-08-03 15:30:00', 'location': "OhHwaga's apartment:main room", 'content': 'play with 이자식'}, {'new_meeting': True, 'time': '2023-08-01 08:00:00', 'location': "Ijasik's apartment:main room", 'content': 'playing the piano'}, {'new_meeting': True, 'time': '2023-08-05 08:00:00', 'location': "Ijasik's apartment:main room", 'content': 'sleeping'}]
+  schedule = persona.a_mem.seq_schedule[::-1]
+  if str(persona.scratch.curr_time) in [d['time'] for d in schedule]:
+    index = [d['time'] for d in schedule].index(str(persona.scratch.curr_time))
+    persona.scratch.act_address = schedule[index]['location']
+    print("persona's new act_address: ", persona.scratch.act_address)
+  #   return True
+  # else:
+  #   return False
+  
+  
+#추가
 #새로운 이벤트 발생 시(ex 약속) 행동 트리 외에 위치 변화
 def revise_current_address(persona):
   p_name = persona.scratch.name
@@ -969,7 +984,12 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
   print("convo duration_min: ", duration_min)
   assembly_att = generate_decide_to_assembly_att(init_persona, target_persona, convo) # 추가 # ex) {'convo about attendance': True, '[이름] attendance': True, '[이름] attendance': False}
   print(assembly_att)
-  meeting_schedule = generate_new_meeting_schedule(init_persona, target_persona, convo)   # True or False # 새로운 약속 생성 여부
+  
+  meeting_schedule = generate_new_meeting_schedule(init_persona, target_persona, convo)   # 새로운 약속 생성 여부
+  if meeting_schedule['new_meeting'] == True:
+    persona.a_mem.add_schedule(meeting_schedule)
+  print("a_mem: ", persona.a_mem.seq_schedule)
+  
     
   #주석 처리
   convo_summary = generate_convo_summary(init_persona, convo)
@@ -1041,7 +1061,8 @@ def _user_chat_react(persona):
   print(convo)
   print("convo duration_min: ", duration_min)
   #assembly_att = generate_decide_to_assembly_att(init_persona, target_persona, convo)
-  meeting_schedule = generate_new_meeting_schedule(init_persona, "User", convo)   # True or False # 새로운 약속 생성 여부
+  
+  meeting_schedule = generate_new_meeting_schedule(init_persona, "User", convo)   # 새로운 약속 생성 여부
   if meeting_schedule['new_meeting'] == True:
     persona.a_mem.add_schedule(meeting_schedule)
   print("a_mem: ", persona.a_mem.seq_schedule)
@@ -1153,6 +1174,8 @@ def plan(persona, personas, new_day, retrieved):
   #     persona.scratch.act_address = "the Ville:Church:main room:service area"
   #     print("집회 참석하러 고")
   #     return persona.scratch.act_address
+  move_meeting_location(persona)
+  
 
   # PART 3: If you perceived an event that needs to be responded to (saw 
   # another persona), and retrieved relevant information. 
@@ -1165,8 +1188,8 @@ def plan(persona, personas, new_day, retrieved):
   #                     ["thoughts"] = [<ConceptNode>, ...]}
   
   #유저와의 채팅 테스트
-  if(persona.scratch.name == "나주교"):
-    _user_chat_react(persona)
+  # if(persona.scratch.name == "나주교"):
+  #   _user_chat_react(persona)
     
   focused_event = False
   if retrieved.keys(): 
