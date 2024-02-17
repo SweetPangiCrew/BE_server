@@ -54,6 +54,7 @@ class AssociativeMemory:
     self.seq_event = []
     self.seq_thought = []
     self.seq_chat = []
+    self.seq_schedule = []
 
     self.kw_to_event = dict()
     self.kw_to_thought = dict()
@@ -269,6 +270,9 @@ class AssociativeMemory:
     self.embeddings[embedding_pair[0]] = embedding_pair[1]
         
     return node
+  
+  def add_schedule(self, schedule):
+    self.seq_schedule.append(schedule)
 
 
   def get_summarized_latest_events(self, retention): 

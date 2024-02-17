@@ -277,7 +277,7 @@ def agent_with_user_chat(init_persona):
     user_chat = input("대화를 입력하세요: ")
     curr_chat += [["User", user_chat]]
     
-  curr_chat += [[init_persona.scratch.name, "말이 기네요.. 저는 이만 가보겠습니다"]]
+  curr_chat += [[init_persona.scratch.name, "그럼 저는 이만 가보겠습니다"]]
   return curr_chat
 
 
