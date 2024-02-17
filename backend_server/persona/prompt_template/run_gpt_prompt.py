@@ -38,23 +38,66 @@ def get_random_alphanumeric(i=6, j=6):
 
 #추가
 #새로운 이벤트 발생 시(ex 약속) 행동 트리 외에 위치 변화
-def run_gpt_prompt_generate_current_address(persona, statements, verbose = False):
+# def run_gpt_prompt_generate_current_address(persona, statements, verbose = False):
+  
+#   def create_prompt_input(persona, test_input=None): 
+#     prompt_input = [persona.scratch.name,
+#                     persona.scratch.curr_time,
+#                     persona.s_mem.tree,
+#                     statements,
+#                     persona.scratch.name]
+#     return prompt_input
+
+#   def __func_clean_up(gpt_response, prompt=""):
+#     address = gpt_response.strip()
+#     ca = []
+#     for i in address.split(":"):
+#       ca += [i.strip()]
+#     curr_address = ":".join(ca)
+#     return curr_address
+  
+#   def __func_validate(gpt_response, prompt=""): 
+#     try: __func_clean_up(gpt_response, prompt="")
+#     except: return False
+#     return True
+
+#   def get_fail_safe(): 
+#     print("왜 안되는데")
+
+#   gpt_param = {"engine": "gpt-3.5-turbo-instruct", "max_tokens": 150, 
+#                "temperature": 0.5, "top_p": 1, "stream": False,
+#                "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
+#   prompt_template = "persona/prompt_template/Prompt\generate_current_address.txt"
+#   prompt_input = create_prompt_input(persona)
+#   prompt = generate_prompt(prompt_input, prompt_template)
+#   fail_safe = get_fail_safe()
+#   output = safe_generate_response(prompt, gpt_param, 2, fail_safe,
+#                                    __func_validate, __func_clean_up)
+  
+#   #print("-------------- output: ", output)
+  
+#   if debug or verbose: 
+#     print_run_prompts(prompt_template, persona, gpt_param, 
+#                       prompt_input, prompt, output)
+    
+#   return output, [output, prompt, gpt_param, prompt_input, fail_safe]
+
+#추가
+#새로운 행동 생성
+def run_gpt_prompt_generate_action(persona, statements, verbose = False):
   
   def create_prompt_input(persona, test_input=None): 
     prompt_input = [persona.scratch.name,
                     persona.scratch.curr_time,
-                    persona.s_mem.tree,
+                    persona.scratch.curr_address,
                     statements,
-                    persona.scratch.name]
+                    persona.scratch.name,
+                    persona.scratch.curr_address]
     return prompt_input
 
   def __func_clean_up(gpt_response, prompt=""):
-    address = gpt_response.strip()
-    ca = []
-    for i in address.split(":"):
-      ca += [i.strip()]
-    curr_address = ":".join(ca)
-    return curr_address
+    
+    return gpt_response
   
   def __func_validate(gpt_response, prompt=""): 
     try: __func_clean_up(gpt_response, prompt="")
@@ -63,11 +106,13 @@ def run_gpt_prompt_generate_current_address(persona, statements, verbose = False
 
   def get_fail_safe(): 
     print("왜 안되는데")
+    return persona.scratch.name + " is sleeping"
+    
 
   gpt_param = {"engine": "gpt-3.5-turbo-instruct", "max_tokens": 150, 
                "temperature": 0.5, "top_p": 1, "stream": False,
                "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
-  prompt_template = "persona/prompt_template/Prompt\generate_current_address.txt"
+  prompt_template = "persona/prompt_template/Prompt\generate_action.txt"
   prompt_input = create_prompt_input(persona)
   prompt = generate_prompt(prompt_input, prompt_template)
   fail_safe = get_fail_safe()
@@ -81,6 +126,7 @@ def run_gpt_prompt_generate_current_address(persona, statements, verbose = False
                       prompt_input, prompt, output)
     
   return output, [output, prompt, gpt_param, prompt_input, fail_safe]
+
 
 def run_gpt_prompt_wake_up_hour(persona, test_input=None, verbose=False): 
   """
