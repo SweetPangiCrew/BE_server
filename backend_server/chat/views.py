@@ -34,12 +34,26 @@ else:
     fs_storage = "./storage"
     game_storage = "./games"
 
+@api_view(['GET'])
+def chat_list(request, game_name):
+    sim_folder = f"{fs_storage}/{game_name}"
+    user_file = f"{sim_folder}/reverie/user.json"
+    
+    data = dict()
+    data['meta'] = dict()
+    try:
+        with open(user_file, encoding = 'UTF8') as json_file:  
+            reverie_user = json.load(json_file)
+            data["chat_list"] = reverie_user["chat_list"]
+            data['meta']['code'] = 0
 
-def index(request):
-    return render(request, "chat/index.html")
+    except: 
+           
+           data['meta']['code'] = 404
+    
+    return Response(data)
 
-def room(request, room_name):
-    return render(request, "chat/room.html", {"room_name": room_name})
+
 
 @api_view(['POST'])
 def send(request, game_name):

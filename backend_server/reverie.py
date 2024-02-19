@@ -288,11 +288,26 @@ class ReverieServer:
       time.sleep(self.server_sleep * 10)
 
   def user_chat(self, persona_name, message, round):
+    sim_folder = f"{fs_storage}/{self.sim_code}"
+    user_file = f"{sim_folder}/reverie/user.json"
+
+    with open(user_file, encoding = 'UTF8') as json_file:  
+          reverie_user = json.load(json_file)
 
     curr_persona = self.personas[persona_name]
     curr_persona.scratch.curr_time = self.curr_time
-    response, end = agent_with_user_chat_api(curr_persona,message,round)
+    response, end = agent_with_user_chat_api(curr_persona,message,round,reverie_user["reliability"])
 
+    #유저 대화 끝난 후 저장
+    if end:
+        with open(user_file, "w", encoding = 'UTF8') as outfile: 
+          curr_chat = dict()
+          curr_chat["date"] = (self.curr_time 
+                                             .strftime("%B %d, %Y, %H:%M:%S"))
+          curr_chat["chat"] =curr_persona.scratch.chat
+          reverie_user["chat_list"] += [[curr_chat]]
+          outfile.write(json.dumps(reverie_user, indent=2, ensure_ascii = False))
+    
     return response, end
 
   def start_server(self, int_counter): 

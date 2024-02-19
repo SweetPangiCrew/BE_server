@@ -277,14 +277,26 @@ def agent_with_user_chat(init_persona):
     user_chat = input("대화를 입력하세요: ")
     curr_chat += [["User", user_chat]]
     
-  curr_chat += [[init_persona.scratch.name, "말이 기네요.. 저는 이만 가보겠습니다"]]
+  curr_chat += [[init_persona.scratch.name, "저는 이만 가보겠습니다"]]
   return curr_chat
 
 
 #api로 메세지 받아서 반환하는 함수.
-def agent_with_user_chat_api(init_persona,message,round):
+def agent_with_user_chat_api(init_persona,message,round,reliability):
 
-  max_round = 2
+  # 신뢰도 5 이하일 때 : 글자 수 제한(10자 이하), 대화 3회
+  # 신뢰도 6~15 일때 : 글자 수 40자, 대화 6회
+  # 신뢰도 30 이하일 때 : 최대 8회 
+
+  if reliability <= 5:
+        max_round = 3
+  elif reliability <= 15:
+        max_round = 6
+  elif reliability >= 30:
+        max_round = 8
+  else:
+        max_round = 3  
+
   curr_chat = []
   curr_chat = init_persona.scratch.chat
   round = int(round) 
@@ -330,20 +342,17 @@ def agent_with_user_chat_api(init_persona,message,round):
     utt, end = generate_one_utterance(init_persona, None, None, curr_chat)
     #utt, end = generate_one_utterance(init_persona, target_persona, curr_chat)
 
-    if end:
-      utt += "말이 기네요.. 저는 이만 가보겠습니다"
-      
-      #[[init_persona.scratch.name, "말이 기네요.. 저는 이만 가보겠습니다"]]
+    if end or round == max_round:
+      end = True
+      utt += "저는 이만 가보겠습니다.."
 
     curr_chat += [[init_persona.scratch.name, utt]]
     init_persona.scratch.chat = curr_chat
+      
     
   return utt, end
       
-      
-
-
-
+    
 def generate_summarize_ideas(persona, nodes, question): 
   statements = ""
   for n in nodes:

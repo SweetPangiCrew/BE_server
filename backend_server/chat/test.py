@@ -15,14 +15,18 @@ class sendTestCase(APITestCase):
         
         self.view = send
 
-        #scratch에 로컬 저장이 안됨
-        sample_data = {"persona": "나주교", "message": "a","round": 0}
+        #scratch에 로컬 저장이 안됨 -> 당연히 안됨. 인스턴스에 저장이 되나를 봐야함?!!!!!11
+        sample_data = {"persona": "나주교", "message": "a","round": 3}
 
         self.url = reverse("send",None,["game1"])
         response = self.client.post(self.url, sample_data, format ='json')
-        print("이거_____________"+str(response))
         self.assertEqual(response.status_code,status.HTTP_200_OK)
 
+class chatListTestCase(APITestCase):
+
+    def test(self):
+        response = self.client.get(reverse("list",None,["game1"]))
+        self.assertEqual(response.status_code,status.HTTP_200_OK)
 
 # class PostPerceiveTestCase(APITestCase):
 
