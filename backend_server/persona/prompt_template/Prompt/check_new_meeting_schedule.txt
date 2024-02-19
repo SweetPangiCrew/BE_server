@@ -1,0 +1,31 @@
+check_new_meeting_schedule.txt
+
+Variables: 
+!<INPUT 0>! -- Persona name
+!<INPUT 1>! -- Current time
+!<INPUT 2>! -- Location tree
+!<INPUT 3>! -- Persona name
+!<INPUT 4>! -- Target persona name
+!<INPUT 5>! -- Convo
+!<INPUT 6>! -- Persona name
+!<INPUT 7>! -- Persona name
+
+<commentblockmarker>###</commentblockmarker>
+이름: !<INPUT 0>!
+현재 시간: !<INPUT 1>!
+이 마을의 장소는 다음과 같다:
+!<INPUT 2>!
+
+!<INPUT 3>!와(과) !<INPUT 4>!이(가) 현재 대화하고 있다. 그들의 대화는 다음과 같다:
+!<INPUT 5>!
+
+
+Task: 위의 대화를 통해 !<INPUT 6>!에게 새로운 일정이 생겼는가? 그렇다면, 언제 어디서의 어떤 일정인가? !<INPUT 7>!의 관점에서 생각해보아라. 
+
+출력 결과 형식: 결과는 다음의 json 형식으로 출력하라:
+{
+"새로운 일정의 여부": "<json Boolean>",
+"일정 시간": (example output: "2023-08-02 15:30:00"),
+"일정 장소": (example output: "Ijasik's apartment:main room"),
+"일정 내용": "(example output: "play with 나주교")
+}
