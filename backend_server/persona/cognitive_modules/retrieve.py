@@ -228,9 +228,9 @@ def new_retrieve(persona, focal_points, n_count=30):
     nodes = sorted(nodes, key=lambda x: x[0])
     nodes = [i for created, i in nodes]
     
-    print('\n-------------- nodes:')
-    for i in nodes:
-      print(i.spo_summary())
+    # print('\n-------------- nodes:')
+    # for i in nodes:
+    #   print(i.spo_summary())
 
     # Calculating the component dictionaries and normalizing them.
     # 주석 처리

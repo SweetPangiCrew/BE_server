@@ -490,7 +490,9 @@ def move_meeting_location(persona):
 def generate_action(persona):
   p_name = persona.scratch.name
 
-  focal_points = [f"{p_name}'s plan for {persona.scratch.get_str_curr_date_str()}.",
+  # focal_points = [f"{p_name}'s plan for {persona.scratch.get_str_curr_date_str()}.",
+  #                 f"Important recent events for {p_name}'s life."]
+  focal_points = [f"{p_name}'s plan for {persona.scratch.get_str_curr_date_str()} at the {persona.scratch.curr_address}.",
                   f"Important recent events for {p_name}'s life."]
   retrieved = new_retrieve(persona, focal_points)
 
@@ -504,6 +506,10 @@ def generate_action(persona):
   
   act_pron = generate_action_pronunciatio(new_action, persona)
   
+  act_obj_description = None
+  act_obj_pronunciatio = None
+  act_obj_event = (None, None, None)
+  
   # Adding the action to persona's queue. 
   persona.scratch.add_new_action(persona.scratch.curr_address, 
                                  60, 
@@ -514,9 +520,9 @@ def generate_action(persona):
                                  None,
                                  None,
                                  None,
-                                 None, 
-                                 None, 
-                                 None)
+                                 act_obj_description, 
+                                 act_obj_pronunciatio, 
+                                 act_obj_event)
     
 def revise_identity(persona): 
   p_name = persona.scratch.name
@@ -756,10 +762,10 @@ def _determine_action(persona):
                                  None,
                                  None,
                                  None,
-                                 None,
-                                 act_obj_desp, 
+                                 act_obj_desp,
                                  act_obj_pron, 
-                                 act_obj_event)
+                                 act_obj_event, 
+                                 None)
 
 #act_address 반환하는 함수
 def _determine_address(persona):
@@ -941,7 +947,8 @@ def _should_react(persona, retrieved, personas):
   print(curr_event.subject)
   if ":" not in curr_event.subject: 
     # this is a persona event. 
-    if True : #d~ lets_talk(persona, personas[curr_event.subject], retrieved):
+    #if True : #d~ lets_talk(persona, personas[curr_event.subject], retrieved):
+    if lets_talk(persona, personas[curr_event.subject], retrieved):
       return f"chat with {curr_event.subject}"
     react_mode = lets_react(persona, personas[curr_event.subject], 
                             retrieved)
@@ -1208,8 +1215,8 @@ def plan(persona, personas, new_day, retrieved):
   #     persona.scratch.act_address = "the Ville:Church:main room:service area"
   #     print("집회 참석하러 고")
   #     return persona.scratch.act_address
-  move_meeting_location(persona)
-  generate_action(persona)
+  # move_meeting_location(persona)
+  # generate_action(persona)
   
 
   # PART 3: If you perceived an event that needs to be responded to (saw 

@@ -96,7 +96,7 @@ def run_gpt_prompt_generate_action(persona, statements, verbose = False):
     return prompt_input
 
   def __func_clean_up(gpt_response, prompt=""):
-    
+    gpt_response = gpt_response.strip()
     return gpt_response
   
   def __func_validate(gpt_response, prompt=""): 
