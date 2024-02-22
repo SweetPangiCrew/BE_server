@@ -493,7 +493,8 @@ def generate_action(persona):
   # focal_points = [f"{p_name}'s plan for {persona.scratch.get_str_curr_date_str()}.",
   #                 f"Important recent events for {p_name}'s life."]
   focal_points = [f"{p_name}'s plan for {persona.scratch.get_str_curr_date_str()} at the {persona.scratch.curr_address}.",
-                  f"Important recent events for {p_name}'s life."]
+                  f"Important recent events for {p_name}'s life.",
+                  f"what was {p_name} doing just before."]
   retrieved = new_retrieve(persona, focal_points)
 
   statements = "[Statements]\n"
@@ -1200,10 +1201,13 @@ def plan(persona, personas, new_day, retrieved):
   # PART 1: Generate the hourly schedule. 
   #if new_day: 
     #_long_term_planning(persona, new_day)
+  move_meeting_location(persona)
 
   # PART 2: If the current action has expired, we want to create a new plan.
-  # if persona.scratch.act_check_finished(): 
+  #if persona.scratch.act_check_finished(): 
   #_determine_action(persona)
+  if not persona.scratch.chatting_with:
+    generate_action(persona) 
   
   #추가
   #perceived 파일에서 object와 상호작용시 act_address 반환하기 위한 함수
@@ -1215,8 +1219,6 @@ def plan(persona, personas, new_day, retrieved):
   #     persona.scratch.act_address = "the Ville:Church:main room:service area"
   #     print("집회 참석하러 고")
   #     return persona.scratch.act_address
-  # move_meeting_location(persona)
-  # generate_action(persona)
   
 
   # PART 3: If you perceived an event that needs to be responded to (saw 
