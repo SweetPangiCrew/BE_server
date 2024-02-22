@@ -284,6 +284,11 @@ def agent_with_user_chat(init_persona):
 #api로 메세지 받아서 반환하는 함수.
 def agent_with_user_chat_api(init_persona,message,round,reliability):
 
+  if init_persona.scratch.chatting_with != None and init_persona.scratch.chatting_with != "User" :
+      utt += "대화가 불가능한 상태입니다."
+      end = True
+      return utt, end
+
   # 신뢰도 5 이하일 때 : 글자 수 제한(10자 이하), 대화 3회
   # 신뢰도 6~15 일때 : 글자 수 40자, 대화 6회
   # 신뢰도 30 이하일 때 : 최대 8회 
@@ -296,7 +301,7 @@ def agent_with_user_chat_api(init_persona,message,round,reliability):
         max_round = 8
   else:
         max_round = 3  
-
+  init_persona.scratch.chatting_with = "User"
   curr_chat = []
   curr_chat = init_persona.scratch.chat
   round = int(round) 
@@ -344,6 +349,7 @@ def agent_with_user_chat_api(init_persona,message,round,reliability):
 
     if end or round == max_round:
       end = True
+      init_persona.scratch.chatting_with = None
       utt += "그럼 저는 이만 가보겠습니다."
 
     curr_chat += [[init_persona.scratch.name, utt]]

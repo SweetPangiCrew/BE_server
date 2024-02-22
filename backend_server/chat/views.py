@@ -81,11 +81,12 @@ def send(request, game_name):
         with open(rs_file, 'rb') as file:
                     gameInstance = pickle.load(file)
                     re_message, end = gameInstance.user_chat(persona,message,round)
-
+                    
                     data = {"meta": { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
-                    data["response"] = re_message
-                    data["round"] = round
-                    data["end"] =  end
+                    data["body"] = dict()
+                    data["body"]["response"] = re_message
+                    data["body"]["round"] = round
+                    data["body"]["end"] =  end
 
                     with open(rs_file, 'wb') as file:
                         pickle.dump(gameInstance, file)
