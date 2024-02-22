@@ -283,9 +283,9 @@ def agent_with_user_chat(init_persona):
 
 #api로 메세지 받아서 반환하는 함수.
 def agent_with_user_chat_api(init_persona,message,round,reliability):
-
-  if init_persona.scratch.chatting_with != None and init_persona.scratch.chatting_with != "User" :
-      utt += "대화가 불가능한 상태입니다."
+  round = int(round) 
+  if round != -1 and init_persona.scratch.chatting_with != None and init_persona.scratch.chatting_with != "User" :
+      utt = init_persona.scratch.chatting_with + "와 대화 중. 대화가 불가능한 상태입니다."
       end = True
       return utt, end
 
@@ -303,8 +303,11 @@ def agent_with_user_chat_api(init_persona,message,round,reliability):
         max_round = 3  
   init_persona.scratch.chatting_with = "User"
   curr_chat = []
-  curr_chat = init_persona.scratch.chat
-  round = int(round) 
+  if round != -1 :
+    curr_chat = init_persona.scratch.chat
+  else : 
+     init_persona.scratch.act_description = ""
+  
   if round <= max_round : 
     # focal_points = [f"{target_persona.scratch.name}"]
     # print("focal_points: ", focal_points)
