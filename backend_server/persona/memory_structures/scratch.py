@@ -560,8 +560,7 @@ class Scratch:
     if not self.act_address: 
       return True
       
-    if self.chatting_with: 
-      return False
+    # if self.chatting_with: 
     #   end_time = self.chatting_end_time
     # else: 
     #   x = self.act_start_time
@@ -572,7 +571,13 @@ class Scratch:
 
     # if end_time.strftime("%H:%M:%S") == self.curr_time.strftime("%H:%M:%S"): 
     #   return True
-    # return False
+    if not self.act_duration:
+      return True
+    if self.act_duration <= 0:
+      return True
+    
+    self.act_duration -= 1
+    return False
 
 
   def act_summarize(self):

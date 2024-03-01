@@ -456,10 +456,33 @@ def generate_new_decomp_schedule(persona, inserted_act, inserted_act_dur,  start
 def move_meeting_location(persona):
   #persona 약속 리스트 안에서 현재 시간에 있는 가장 최근에 잡은 약속 장소로 이동
   #persona.a_mem.seq_schedule = [{'new_meeting': True, 'time': '2023-08-01 08:00:00', 'location': "Ijasik's apartment:main room", 'content': 'play with 나주교'}, {'new_meeting': True, 'time': '2023-08-03 15:30:00', 'location': "OhHwaga's apartment:main room", 'content': 'play with 이자식'}, {'new_meeting': True, 'time': '2023-08-01 08:00:00', 'location': "Ijasik's apartment:main room", 'content': 'playing the piano'}, {'new_meeting': True, 'time': '2023-08-05 08:00:00', 'location': "Ijasik's apartment:main room", 'content': 'sleeping'}]
+  # if(persona.scratch.name == "나주교"):
+  #   persona.a_mem.seq_schedule = [{'new_meeting': True, 'time': '2023-08-01 08:30:00', 'location': "Ijasik's apartment:main room", 'content': 'play with 이자식'}]
   schedule = persona.a_mem.seq_schedule[::-1]
   if str(persona.scratch.curr_time) in [d['time'] for d in schedule]:
     index = [d['time'] for d in schedule].index(str(persona.scratch.curr_time))
-    persona.scratch.act_address = schedule[index]['location']
+    new_address = schedule[index]['location']
+    new_action = f"move to {new_address}"
+    act_pron = "🚶‍♂️"
+    act_event = generate_action_event_triple(new_action, persona)
+    
+    act_obj_description = None
+    act_obj_pronunciatio = None
+    act_obj_event = (None, None, None)
+  
+    persona.scratch.add_new_action(#persona.scratch.curr_address, 
+                                new_address,
+                                2, 
+                                new_action, 
+                                act_pron, 
+                                act_event,
+                                None,
+                                None,
+                                None,
+                                None,
+                                act_obj_description, 
+                                act_obj_pronunciatio, 
+                                act_obj_event)
     print("persona's new act_address: ", persona.scratch.act_address)
   #   return True
   # else:
@@ -506,17 +529,24 @@ def generate_action(persona):
   print("-------- new action: ", new_action)
   
   act_pron = generate_action_pronunciatio(new_action, persona)
+  act_event = generate_action_event_triple(new_action, persona)
   
   act_obj_description = None
   act_obj_pronunciatio = None
   act_obj_event = (None, None, None)
   
+  if not persona.scratch.act_address:
+    new_address = persona.scratch.curr_address
+  else:
+    new_address = persona.scratch.act_address
+  
   # Adding the action to persona's queue. 
-  persona.scratch.add_new_action(persona.scratch.curr_address, 
-                                 60, 
+  persona.scratch.add_new_action(#persona.scratch.curr_address, 
+                                 new_address,
+                                 2, 
                                  new_action, 
                                  act_pron, 
-                                 new_action,
+                                 act_event,
                                  None,
                                  None,
                                  None,
@@ -1206,8 +1236,9 @@ def plan(persona, personas, new_day, retrieved):
   # PART 2: If the current action has expired, we want to create a new plan.
   #if persona.scratch.act_check_finished(): 
   #_determine_action(persona)
-  if not persona.scratch.chatting_with:
-    generate_action(persona) 
+  #if not persona.scratch.chatting_with:
+  if persona.scratch.act_check_finished(): 
+    generate_action(persona)
   
   #추가
   #perceived 파일에서 object와 상호작용시 act_address 반환하기 위한 함수
