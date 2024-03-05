@@ -1,0 +1,15 @@
+generate_random_action.txt
+
+Variables: 
+!<INPUT 0>! -- Persona name
+!<INPUT 1>! -- Current time
+!<INPUT 2>! -- Current address
+!<INPUT 3>! -- Persona name
+!<INPUT 4>! -- Current address
+
+<commentblockmarker>###</commentblockmarker>
+Name: !<INPUT 0>!
+Current time: !<INPUT 1>!
+Current location: !<INPUT 2>!
+
+위의 내용을 바탕으로, 현재 시각에 !<INPUT 3>!는 !<INPUT 4>!에서 무엇을 하고 있을까? 한 가지 행동으로 답하여라. (example output: 나주교는 방청소를 하고 있다.) 

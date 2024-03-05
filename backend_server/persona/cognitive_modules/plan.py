@@ -525,7 +525,7 @@ def generate_action(persona):
     for i in val: 
       statements += f"{i.created.strftime('%A %B %d -- %H:%M %p')}: {i.embedding_key}\n"
   
-  new_action = run_gpt_prompt_generate_action(persona, statements, True)[0]
+  new_action = run_gpt_prompt_generate_action(persona, statements)[0]
   print("-------- new action: ", new_action)
   
   act_pron = generate_action_pronunciatio(new_action, persona)
@@ -535,14 +535,43 @@ def generate_action(persona):
   act_obj_pronunciatio = None
   act_obj_event = (None, None, None)
   
-  if not persona.scratch.act_address:
-    new_address = persona.scratch.curr_address
-  else:
-    new_address = persona.scratch.act_address
+  # if not persona.scratch.act_address:
+  #   new_address = persona.scratch.curr_address
+  # else:
+  #   new_address = persona.scratch.act_address
   
   # Adding the action to persona's queue. 
-  persona.scratch.add_new_action(#persona.scratch.curr_address, 
-                                 new_address,
+  persona.scratch.add_new_action(persona.scratch.curr_address, 
+                                 2, 
+                                 new_action, 
+                                 act_pron, 
+                                 act_event,
+                                 None,
+                                 None,
+                                 None,
+                                 None,
+                                 act_obj_description, 
+                                 act_obj_pronunciatio, 
+                                 act_obj_event)
+
+def generate_random_action(persona):
+  new_action = run_gpt_prompt_generate_random_action(persona, True)[0]
+  print("-------- new action: ", new_action)
+  
+  act_pron = generate_action_pronunciatio(new_action, persona)
+  act_event = generate_action_event_triple(new_action, persona)
+  
+  act_obj_description = None
+  act_obj_pronunciatio = None
+  act_obj_event = (None, None, None)
+  
+  # if not persona.scratch.act_address:
+  #   new_address = persona.scratch.curr_address
+  # else:
+  #   new_address = persona.scratch.act_address
+  
+  # Adding the action to persona's queue. 
+  persona.scratch.add_new_action(persona.scratch.curr_address,
                                  2, 
                                  new_action, 
                                  act_pron, 
@@ -1238,7 +1267,8 @@ def plan(persona, personas, new_day, retrieved):
   #_determine_action(persona)
   #if not persona.scratch.chatting_with:
   if persona.scratch.act_check_finished(): 
-    generate_action(persona)
+    #generate_action(persona)
+    generate_random_action(persona)
   
   #추가
   #perceived 파일에서 object와 상호작용시 act_address 반환하기 위한 함수

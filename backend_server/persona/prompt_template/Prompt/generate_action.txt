@@ -1,4 +1,4 @@
-generate_current_address.txt
+generate_action.txt
 
 Variables: 
 !<INPUT 0>! -- Persona name
