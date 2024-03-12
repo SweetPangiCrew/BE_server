@@ -397,7 +397,7 @@ class ReverieServer:
             movements["persona"][persona_name]["act_address"] = act_address
             movements["persona"][persona_name]["pronunciatio"] = pronunciatio
             movements["persona"][persona_name]["description"] = description
-            movements["persona"][persona_name]["assembly_attendance"] = persona.scratch.assembly_attendance
+            #movements["persona"][persona_name]["assembly_attendance"] = persona.scratch.assembly_attendance
             movements["persona"][persona_name]["chat"] = (persona
                                                           .scratch.chat) 
             print(persona.scratch.chat)
@@ -426,6 +426,11 @@ class ReverieServer:
           # current time moves by <sec_per_step> amount. 
           self.step += 1
           self.curr_time += datetime.timedelta(seconds=self.sec_per_step)
+          
+          # 새벽 2시에 하루 끝
+          # 아침 8시로 변경
+          if(self.curr_time.strftime("%H") == "02"):
+            self.curr_time += datetime.timedelta(hours = 6)
 
           int_counter -= 1
           

@@ -128,6 +128,52 @@ def run_gpt_prompt_generate_action(persona, statements, verbose = False):
   return output, [output, prompt, gpt_param, prompt_input, fail_safe]
 
 
+def run_gpt_prompt_generate_random_action(persona, verbose = False):
+  
+  def create_prompt_input(persona, test_input=None): 
+    prompt_input = [persona.scratch.name,
+                    persona.scratch.age,
+                    persona.scratch.innate,
+                    persona.scratch.learned,
+                    persona.scratch.currently,
+                    persona.scratch.lifestyle,
+                    persona.scratch.curr_time,
+                    persona.scratch.curr_address,
+                    persona.scratch.name,
+                    persona.scratch.curr_address]
+    return prompt_input
+
+  def __func_clean_up(gpt_response, prompt=""):
+    gpt_response = gpt_response.strip()
+    return gpt_response
+  
+  def __func_validate(gpt_response, prompt=""): 
+    try: __func_clean_up(gpt_response, prompt="")
+    except: return False
+    return True
+
+  def get_fail_safe(): 
+    return persona.scratch.name + " 는 졸고 있다."
+    
+
+  gpt_param = {"engine": "gpt-3.5-turbo-instruct", "max_tokens": 150, 
+               "temperature": 0.5, "top_p": 1, "stream": False,
+               "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
+  prompt_template = "persona/prompt_template/Prompt\generate_random_action.txt"
+  prompt_input = create_prompt_input(persona)
+  prompt = generate_prompt(prompt_input, prompt_template)
+  fail_safe = get_fail_safe()
+  output = safe_generate_response(prompt, gpt_param, 2, fail_safe,
+                                   __func_validate, __func_clean_up)
+  
+  #print("-------------- output: ", output)
+  
+  if debug or verbose: 
+    print_run_prompts(prompt_template, persona, gpt_param, 
+                      prompt_input, prompt, output)
+    
+  return output, [output, prompt, gpt_param, prompt_input, fail_safe]
+
 def run_gpt_prompt_wake_up_hour(persona, test_input=None, verbose=False): 
   """
   Given the persona, returns an integer that indicates the hour when the 

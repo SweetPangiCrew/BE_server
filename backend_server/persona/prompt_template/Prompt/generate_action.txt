@@ -1,4 +1,4 @@
-generate_current_address.txt
+generate_action.txt
 
 Variables: 
 !<INPUT 0>! -- Persona name
@@ -15,4 +15,4 @@ Current location: !<INPUT 2>!
 
 !<INPUT 3>!
 
-위의 내용을 바탕으로, 현재 시각에 !<INPUT 4>!는 !<INPUT 5>!에서 무엇을 하고 있을까? 한 가지 행동으로 답하여라. (example output: 나주교 is cleaning the room) 
+위의 내용을 바탕으로, 현재 시각에 !<INPUT 4>!는 !<INPUT 5>!에서 무엇을 하고 있을까? 한 가지 행동으로 답하여라. (example output: 나주교는 방청소를 하고 있다.) 
