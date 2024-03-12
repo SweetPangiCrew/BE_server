@@ -40,7 +40,8 @@ class Scratch:
     self.currently = None
     self.lifestyle = None
     self.living_area = None
-    self.assembly_attendance = False
+    #self.assembly_attendance = False
+    self.religious_index = 0
 
     #Game Feature
     self.believer = False
@@ -186,7 +187,8 @@ class Scratch:
       self.currently = scratch_load["currently"]
       self.lifestyle = scratch_load["lifestyle"]
       self.living_area = scratch_load["living_area"]
-      self.assembly_attendance = scratch_load["assembly_attendance"]
+      #self.assembly_attendance = scratch_load["assembly_attendance"]
+      self.religious_index = scratch_load["religious_index"]
 
       self.concept_forget = scratch_load["concept_forget"]
       self.daily_reflection_time = scratch_load["daily_reflection_time"]
@@ -267,7 +269,8 @@ class Scratch:
     scratch["currently"] = self.currently
     scratch["lifestyle"] = self.lifestyle
     scratch["living_area"] = self.living_area
-    scratch["assembly_attendance"] = self.assembly_attendance
+    #scratch["assembly_attendance"] = self.assembly_attendance
+    scratch["religious_index"] = self.religious_index
 
     scratch["concept_forget"] = self.concept_forget
     scratch["daily_reflection_time"] = self.daily_reflection_time

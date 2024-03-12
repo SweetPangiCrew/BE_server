@@ -132,6 +132,11 @@ def run_gpt_prompt_generate_random_action(persona, verbose = False):
   
   def create_prompt_input(persona, test_input=None): 
     prompt_input = [persona.scratch.name,
+                    persona.scratch.age,
+                    persona.scratch.innate,
+                    persona.scratch.learned,
+                    persona.scratch.currently,
+                    persona.scratch.lifestyle,
                     persona.scratch.curr_time,
                     persona.scratch.curr_address,
                     persona.scratch.name,
