@@ -3,7 +3,7 @@
     "perceived_info" : [
         {   
             "persona": "나주교",
-            "curr_address" : "the Ville:Najugyo's apartment:main room",
+            "curr_address" : "<location> the Ville:교회:나주교의 방",
             "perceived_tiles" : [
                 {
                     "dist" : 0.0,
@@ -14,7 +14,7 @@
 
         {
             "persona": "오화가",
-            "curr_address" : "the Ville:Ohwaga's apartment:main room",
+            "curr_address" : "<location> the Ville:오화가와 유리코의 집:오화가의 방",
             "perceived_tiles" : [
                 {
                     "dist" : 0.0,
@@ -25,7 +25,7 @@
         
         {   
             "persona": "이자식",
-            "curr_address" : "the Ville:Ijasik's apartment:main room",
+            "curr_address" : "<location> the Ville:이장남과 이자식의 집:이자식의 방",
             "perceived_tiles" : [
                 {
                     "dist" : 0.0,

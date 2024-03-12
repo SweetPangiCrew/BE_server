@@ -456,13 +456,10 @@ def generate_new_decomp_schedule(persona, inserted_act, inserted_act_dur,  start
 def move_meeting_location(persona):
   #persona 약속 리스트 안에서 현재 시간에 있는 가장 최근에 잡은 약속 장소로 이동
   #persona.a_mem.seq_schedule = [{'new_meeting': True, 'time': '2023-08-01 08:00:00', 'location': "Ijasik's apartment:main room", 'content': 'play with 나주교'}, {'new_meeting': True, 'time': '2023-08-03 15:30:00', 'location': "OhHwaga's apartment:main room", 'content': 'play with 이자식'}, {'new_meeting': True, 'time': '2023-08-01 08:00:00', 'location': "Ijasik's apartment:main room", 'content': 'playing the piano'}, {'new_meeting': True, 'time': '2023-08-05 08:00:00', 'location': "Ijasik's apartment:main room", 'content': 'sleeping'}]
-  if(persona.scratch.name == "이자식"):
-    persona.a_mem.seq_schedule = [{'new_meeting': True, 'time': '2023-08-01 19:00:00', 'location': "Hobbs Cafe:cafe", 'content': 'player와 떡볶이 먹기'}]
-    print(persona.a_mem.seq_schedule)
   schedule = persona.a_mem.seq_schedule[::-1]
   if str(persona.scratch.curr_time) in [d['time'] for d in schedule]:
     index = [d['time'] for d in schedule].index(str(persona.scratch.curr_time))
-    new_address = schedule[index]['location']
+    new_address = "<location> " + schedule[index]['location']
     new_action = f"move to {new_address}"
     act_pron = "🚶‍♂️"
     act_event = generate_action_event_triple(new_action, persona)
