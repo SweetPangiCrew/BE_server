@@ -137,7 +137,7 @@ def generate_one_utterance(init_persona, target_persona, retrieved, curr_chat):
 def agent_chat_v2(init_persona, target_persona): 
   curr_chat = []
   print ("July 23")
-  for i in range(1): 
+  for i in range(2): 
     focal_points = [f"{target_persona.scratch.name}"]
     print("focal_points: ", focal_points)
     # 주석 처리

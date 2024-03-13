@@ -140,7 +140,7 @@ def run_gpt_prompt_generate_random_action(persona, verbose = False):
                     persona.scratch.curr_time,
                     persona.scratch.curr_address,
                     persona.scratch.name,
-                    persona.scratch.curr_address]
+                    persona.scratch.get_curr_address_arena()]
     return prompt_input
 
   def __func_clean_up(gpt_response, prompt=""):
@@ -3119,7 +3119,7 @@ def run_gpt_generate_iterative_chat_utt(init_persona, target_persona, retrieved,
 
     curr_sector = f"{persona.scratch.get_curr_address_sector()}"    #f"{maze.access_tile(persona.scratch.curr_tile)['sector']}"
     curr_arena = f"{persona.scratch.get_curr_address_arena()}"     #f"{maze.access_tile(persona.scratch.curr_tile)['arena']}"
-    curr_location = f"{curr_arena} in {curr_sector}"
+    curr_location = f"{curr_sector} 안에 {curr_arena}"
 
     retrieved_str = ""
     for key, vals in retrieved.items(): 

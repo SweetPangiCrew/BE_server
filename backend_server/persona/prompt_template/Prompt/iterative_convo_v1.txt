@@ -21,7 +21,7 @@ Context for the task:
 PART 1.
 !<INPUT 0>!
 
-Here is the memory that is in !<INPUT 1>!'s head:
+!<INPUT 1>!의 기억은 다음과 같다:
 !<INPUT 2>!
 
 PART 2.
@@ -35,7 +35,6 @@ Current Context:
 
 !<INPUT 6>!와(과) !<INPUT 7>!이(가) 현재 대화하고 있다. 그들의 대화는 다음과 같다:
 !<INPUT 8>!
-
 
 —
 
