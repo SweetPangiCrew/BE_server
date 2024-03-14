@@ -140,7 +140,7 @@ def run_gpt_prompt_generate_random_action(persona, verbose = False):
                     persona.scratch.curr_time,
                     persona.scratch.curr_address,
                     persona.scratch.name,
-                    persona.scratch.curr_address]
+                    persona.scratch.get_curr_address_arena()]
     return prompt_input
 
   def __func_clean_up(gpt_response, prompt=""):
@@ -3101,9 +3101,7 @@ def extract_first_json_dict(data_str):
 
 # 주석 처리
 def run_gpt_generate_iterative_chat_utt(init_persona, target_persona, retrieved, curr_context, curr_chat, test_input=None, verbose=False): 
-#def run_gpt_generate_iterative_chat_utt(init_persona, target_persona, curr_context, curr_chat, test_input=None, verbose=False):
   def create_prompt_input(init_persona, target_persona, retrieved, curr_context, curr_chat, test_input=None):
-  #def create_prompt_input(init_persona, target_persona, curr_context, curr_chat, test_input=None):
     persona = init_persona
     prev_convo_insert = "\n"
     if persona.a_mem.seq_chat: 
@@ -3121,7 +3119,7 @@ def run_gpt_generate_iterative_chat_utt(init_persona, target_persona, retrieved,
 
     curr_sector = f"{persona.scratch.get_curr_address_sector()}"    #f"{maze.access_tile(persona.scratch.curr_tile)['sector']}"
     curr_arena = f"{persona.scratch.get_curr_address_arena()}"     #f"{maze.access_tile(persona.scratch.curr_tile)['arena']}"
-    curr_location = f"{curr_arena} in {curr_sector}"
+    curr_location = f"{curr_sector} 안에 {curr_arena}"
 
     retrieved_str = ""
     for key, vals in retrieved.items(): 
@@ -3133,9 +3131,9 @@ def run_gpt_generate_iterative_chat_utt(init_persona, target_persona, retrieved,
     for i in curr_chat:
       convo_str += ": ".join(i) + "\n"
     if convo_str == "": 
-      convo_str = "[The conversation has not started yet -- start it!]"
+      convo_str = "[아직 대화가 시작되지 않았습니다 -- 시작!]"
 
-    init_iss = f"Here is Here is a brief description of {init_persona.scratch.name}.\n{init_persona.scratch.get_str_iss()}"
+    init_iss = f"{init_persona.scratch.name}에 관한 짧은 설명이다.\n{init_persona.scratch.get_str_iss()}"
     prompt_input = [init_iss, init_persona.scratch.name, retrieved_str, prev_convo_insert,
       curr_location, curr_context, init_persona.scratch.name, target_persona.scratch.name,
       convo_str, init_persona.scratch.name, target_persona.scratch.name,
