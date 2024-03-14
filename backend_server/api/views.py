@@ -42,6 +42,69 @@ else:
 
 
 
+@api_view(['GET'])
+def loadReligiousIndex(request,game_name):
+
+        rs_file = f"{game_storage}/{game_name}.pkl"
+
+        with open(rs_file, 'rb') as file:
+                    gameInstance = pickle.load(file)
+
+                    data = {"religious_index": dict(), 
+                       "meta": dict()}
+          
+                    #페르소나 하나씩 순회
+                    for persona_name, persona in gameInstance.personas.items():  
+                        
+                        #movements["religious_index"][persona_name] = {}
+                        data["religious_index"][persona_name] = persona.scratch.religious_index
+            
+                                
+                    data["meta"] = { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }
+                    
+                    return Response(data=data, status= status.HTTP_200_OK)
+    
+
+@api_view(['POST'])
+def updateReligiousIndex(request,game_name):
+
+
+        stream = io.BytesIO(request.body)
+        #stream = stream.replace("'", "\"") 
+        data = JSONParser().parse(stream) #stream data 가 Dict가 됨.
+        #print(stream)
+      
+        print(data)
+        parsed_data = json.loads(data)
+        # serializer = (data=data)
+        # if(serializer.is_valid()):
+        #     persona = serializer.validated_data["persona"]
+        #     message = serializer.validated_data["message"]
+        #     round = serializer.validated_data["round"]
+            
+        # else: 
+        #      print("serialize 실패") 
+        #      meta = { "meta": { "code": 404, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
+        #      return  Response(data=meta,status= status.HTTP_400_BAD_REQUEST)
+        
+        rs_file = f"{game_storage}/{game_name}.pkl"
+
+        with open(rs_file, 'rb') as file:
+                    gameInstance = pickle.load(file)
+
+                    gameInstance.update_religious_index(parsed_data["update_religious_index"])
+
+                    data = {"religious_index": dict(), 
+                       "meta": dict()}
+                    
+                    for persona_name in parsed_data["update_religious_index"].keys :  
+                    
+                        data["religious_index"][persona_name] = gameInstance.persona[persona_name].scratch.religious_index
+                                
+                    data["meta"] = { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }
+                    
+                    return Response(data=data, status= status.HTTP_200_OK)
+    
 
 @api_view(['GET'])
 def servertime(request):
@@ -67,6 +130,9 @@ def movement(request,sim_code,step):
            data['meta']['code'] = 404
     
     return Response(data)
+
+
+
 
 @api_view(['POST'])
 def perceive(request,sim_code,step):

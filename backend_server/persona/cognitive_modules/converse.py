@@ -287,6 +287,7 @@ def agent_with_user_chat_api(init_persona,message,round,reliability):
   if round != -1 and init_persona.scratch.chatting_with != None and init_persona.scratch.chatting_with != "User" :
       utt = init_persona.scratch.chatting_with + "와 대화 중. 대화가 불가능한 상태입니다."
       end = True
+      print("pab")
       return utt, end
 
   # 신뢰도 5 이하일 때 : 글자 수 제한(10자 이하), 대화 3회
@@ -301,12 +302,22 @@ def agent_with_user_chat_api(init_persona,message,round,reliability):
         max_round = 8
   else:
         max_round = 3  
+
   init_persona.scratch.chatting_with = "User"
   curr_chat = []
+
+  if round == 0:
+    init_persona.scratch.chat = []
+
   if round != -1 :
-    curr_chat = init_persona.scratch.chat
+     
+     #print("이전대화 pou :"+str(init_persona.scratch.chat))
+     if(init_persona.scratch.chat != None) :
+        curr_chat = init_persona.scratch.chat
+
   else : 
      init_persona.scratch.act_description = ""
+     
   
   if round <= max_round : 
     # focal_points = [f"{target_persona.scratch.name}"]
@@ -342,10 +353,13 @@ def agent_with_user_chat_api(init_persona,message,round,reliability):
     #     print(i.type, " / ", i.spo_summary())
     # print("---------------------------------------------------------------\n")
     
-    if round != 0:
-      curr_chat += [["User", message]]
+    #처음 대화를 시작할때 NPC가 먼저 말하는지?
+    #if round != 0: 
+      
+    curr_chat += [["User", message]] #message? curr_chat이 nontype인 문제
+      
 
-    print("---------------------------------------------")
+    print("---------------------converse-----------------------")
     print(curr_chat)
     utt, end = generate_one_utterance(init_persona, None, None, curr_chat)
     #utt, end = generate_one_utterance(init_persona, target_persona, curr_chat)
@@ -353,13 +367,16 @@ def agent_with_user_chat_api(init_persona,message,round,reliability):
     if end or round == max_round:
       end = True
       init_persona.scratch.chatting_with = None
-      utt += "그럼 저는 이만 가보겠습니다."
+      utt += "\n[채팅이 NPC에 의해 종료되었습니다.]"
 
     curr_chat += [[init_persona.scratch.name, utt]]
-    init_persona.scratch.chat = curr_chat
-      
-    
-  return utt, end
+    init_persona.scratch.chat = curr_chat # +=
+    print("pok"+str(init_persona.scratch.chat))
+
+    return utt, end
+  
+  return [], True
+  
       
     
 def generate_summarize_ideas(persona, nodes, question): 
