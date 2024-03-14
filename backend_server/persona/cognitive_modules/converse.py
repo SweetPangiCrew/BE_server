@@ -109,23 +109,21 @@ def generate_one_utterance(init_persona, target_persona, retrieved, curr_chat):
   # Chat version optimized for speed via batch generation
 
   print ("July 23 5")
-  if(target_persona):
+  if(target_persona != "User"):
     curr_context = (f"{init_persona.scratch.act_description} " + 
               f"{init_persona.scratch.name}이(가) " + 
               f"{target_persona.scratch.name}을(를) 보았을 때 " + 
               f"{target_persona.scratch.act_description}.\n")
     curr_context += (f"{init_persona.scratch.name}은(는) " +
-              f"{target_persona.scratch.name}와(과) 대화를 시작하고 있다. ")
+              f"{target_persona.scratch.name}와(과) 대화를 시작하고 있다.")
   
     x = run_gpt_generate_iterative_chat_utt(init_persona, target_persona, retrieved, curr_context, curr_chat)[0]
     #x = run_gpt_generate_iterative_chat_utt(init_persona, target_persona, curr_context, curr_chat)[0]
   else:
-    curr_context = (f"{init_persona.scratch.name} " + 
-              f"was {init_persona.scratch.act_description} " + 
-              f"when {init_persona.scratch.name} " + 
-              f"saw User")
-    curr_context += (f"{init_persona.scratch.name} " +
-              f"is initiating a conversation with User")
+    curr_context = (f"유저가 {init_persona.scratch.name}을(를) 보았을 때 " + 
+              f"{init_persona.scratch.act_description}.\n ")
+    curr_context += (f"{init_persona.scratch.name}은(는) " +
+              f"유저와 대화를 시작하고 있다.")
     x = run_gpt_generate_iterative_user_chat_utt(init_persona, retrieved, curr_context, curr_chat)[0]
 
   print ("July 23 6")
@@ -359,7 +357,7 @@ def agent_with_user_chat_api(init_persona,message,round,reliability):
 
     print("---------------------converse-----------------------")
     print(curr_chat)
-    utt, end = generate_one_utterance(init_persona, None, None, curr_chat)
+    utt, end = generate_one_utterance(init_persona, "User", None, curr_chat)
     #utt, end = generate_one_utterance(init_persona, target_persona, curr_chat)
 
     if end or round == max_round:

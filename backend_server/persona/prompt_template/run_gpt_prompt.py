@@ -3219,7 +3219,7 @@ def run_gpt_generate_iterative_user_chat_utt(init_persona, retrieved, curr_conte
 
     curr_sector = f"{persona.scratch.get_curr_address_sector()}"    #f"{maze.access_tile(persona.scratch.curr_tile)['sector']}"
     curr_arena = f"{persona.scratch.get_curr_address_arena()}"     #f"{maze.access_tile(persona.scratch.curr_tile)['arena']}"
-    curr_location = f"{curr_arena} in {curr_sector}"
+    curr_location = f"{curr_sector} 안에 {curr_arena}"
 
     # retrieved_str = ""
     # for key, vals in retrieved.items(): 
@@ -3231,9 +3231,9 @@ def run_gpt_generate_iterative_user_chat_utt(init_persona, retrieved, curr_conte
     for i in curr_chat:
       convo_str += ": ".join(i) + "\n"
     if convo_str == "": 
-      convo_str = "[The conversation has not started yet -- start it with say hello!]"
+      convo_str = "[아직 대화가 시작되지 않았습니다 -- 인사말로 시작!]"
 
-    init_iss = f"Here is Here is a brief description of {init_persona.scratch.name}.\n{init_persona.scratch.get_str_iss()}"
+    init_iss = f"{init_persona.scratch.name}에 관한 짧은 설명이다..\n{init_persona.scratch.get_str_iss()}"
     prompt_input = [init_iss, init_persona.scratch.name, None, None,
       curr_location, curr_context, init_persona.scratch.name, "User",
       convo_str, init_persona.scratch.name, "User",
