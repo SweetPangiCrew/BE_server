@@ -256,11 +256,16 @@ def generate_prompt(curr_input, prompt_lib_file):
   if type(curr_input) == type("string"): 
     curr_input = [curr_input]
   curr_input = [str(i) for i in curr_input]
-  prompt_lib_file = ""+prompt_lib_file
+  prompt_lib_file_f = ""+prompt_lib_file
 
-  if not prompt_lib_file or not os.path.exists(prompt_lib_file):
-    prompt_lib_file = "/home/ubuntu/BE_server/backend_server/"+prompt_lib_file
-  f = open(prompt_lib_file, "r", encoding = 'UTF8')
+  
+  if not os.path.exists(prompt_lib_file): #not prompt_lib_file or 
+       prompt_lib_file_f = "/home/ubuntu/BE_server/backend_server/"+prompt_lib_file
+  
+
+  f = open(prompt_lib_file_f, "r", encoding = 'UTF8')
+
+  
   prompt = f.read()
   f.close()
   for count, i in enumerate(curr_input):   

@@ -112,7 +112,7 @@ def run_gpt_prompt_generate_action(persona, statements, verbose = False):
   gpt_param = {"engine": "gpt-3.5-turbo-instruct", "max_tokens": 150, 
                "temperature": 0.5, "top_p": 1, "stream": False,
                "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
-  prompt_template = "persona/prompt_template/Prompt\generate_action.txt"
+  prompt_template = "persona/prompt_template/Prompt/generate_action.txt"
   prompt_input = create_prompt_input(persona)
   prompt = generate_prompt(prompt_input, prompt_template)
   fail_safe = get_fail_safe()
@@ -159,7 +159,7 @@ def run_gpt_prompt_generate_random_action(persona, verbose = False):
   gpt_param = {"engine": "gpt-3.5-turbo-instruct", "max_tokens": 150, 
                "temperature": 0.5, "top_p": 1, "stream": False,
                "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
-  prompt_template = "persona/prompt_template/Prompt\generate_random_action.txt"
+  prompt_template = "persona/prompt_template/Prompt/generate_random_action.txt"
   prompt_input = create_prompt_input(persona)
   prompt = generate_prompt(prompt_input, prompt_template)
   fail_safe = get_fail_safe()

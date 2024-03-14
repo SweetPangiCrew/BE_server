@@ -193,10 +193,16 @@ class ReverieServer:
     with open(reverie_meta_f, "w", encoding = 'UTF8') as outfile: 
       outfile.write(json.dumps(reverie_meta, indent=2, ensure_ascii = False))
 
+
     # Save the personas.
     for persona_name, persona in self.personas.items(): 
       save_folder = f"{sim_folder}/personas/{persona_name}/bootstrap_memory"
       persona.save(save_folder)
+    
+    rs_file = f"./games/{self.sim_code}.pkl"
+
+    with open(rs_file, 'wb') as file:
+        pickle.dump( rs, file)
 
   def start_path_tester_server(self): 
     """
@@ -310,6 +316,16 @@ class ReverieServer:
     
     return response, end
 
+  def update_religious_index(self, dicData):
+
+    for name, value in dicData.items():
+        
+        self.personas[name].scratch.religious_index += int(value)
+    
+    return
+  
+    
+  
   def start_server(self, int_counter): 
     """
     The main backend server of Reverie. 

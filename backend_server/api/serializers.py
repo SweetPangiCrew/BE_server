@@ -3,6 +3,10 @@ from rest_framework import serializers
 class MovementFileSerializer(serializers.Serializer):
     movement_file = serializers.FileField()
 
+class religiousSerializer(serializers.Serializer):
+    persona = serializers.CharField()
+    deltaValue = serializers.CharField()
+
 class testSerializer(serializers.Serializer):
     title = serializers.CharField()
     content = serializers.CharField()
