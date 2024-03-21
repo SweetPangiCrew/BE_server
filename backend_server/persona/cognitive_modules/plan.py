@@ -1336,7 +1336,7 @@ def plan(persona, personas, new_day, retrieved):
   # If the persona is not chatting with anyone, we clean up any of the 
   # chat-related states here. 
   
-  if persona.scratch.act_event[1] != "chat with":
+  if persona.scratch.act_event[1] != "chat with" and persona.scratch.chatting_with != "User":
     persona.scratch.chatting_with = None
     persona.scratch.chat = None
     persona.scratch.chatting_end_time = None

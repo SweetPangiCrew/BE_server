@@ -300,6 +300,7 @@ def agent_with_user_chat_api(init_persona,message,round,reliability):
         max_round = 3  
 
   init_persona.scratch.chatting_with = "User"
+  #init_persona.scratch.act_event
   curr_chat = []
 
   if round == 0:
