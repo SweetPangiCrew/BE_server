@@ -22,4 +22,4 @@ Lifestyle:!<INPUT 5>!
 Current time: !<INPUT 6>!
 Current location: !<INPUT 7>!
 
-위의 내용을 바탕으로, 현재 시각에 !<INPUT 8>!는 !<INPUT 9>!에서 무엇을 하고 있을까? 한 가지 행동으로 답하여라. (example output: 나주교는 방청소를 하고 있다.) 
+위의 내용을 바탕으로, 현재 시각에 !<INPUT 8>!은(는) !<INPUT 9>!에서 지금 무엇을 하고 있는가? 한 문장으로 답하여라. (example output: 나주교는 방청소를 하고 있다.) 

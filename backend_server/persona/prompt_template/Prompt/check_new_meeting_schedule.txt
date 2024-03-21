@@ -19,13 +19,14 @@ Variables:
 !<INPUT 3>!와(과) !<INPUT 4>!이(가) 현재 대화하고 있다. 그들의 대화는 다음과 같다:
 !<INPUT 5>!
 
+—
 
-Task: 위의 대화를 통해 !<INPUT 6>!에게 새로운 일정이 생겼는가? 그렇다면, 언제 어디서의 어떤 일정인가? !<INPUT 7>!의 관점에서 생각해보아라. 
+Task: 위의 대화에서 !<INPUT 6>!은(는) 다른 인물과 만남을 약속하였는가? 그렇다면, 언제 어디서의 어떤 만남인가? !<INPUT 7>!의 관점에서 생각해보아라. 
 
 출력 결과 형식: 결과는 다음의 json 형식으로 출력하라:
 {
 "새로운 일정의 여부": "<json Boolean>",
 "일정 시간": (example output: "2023-08-02 15:30:00"),
 "일정 장소": (example output: "Ijasik's apartment:main room"),
-"일정 내용": "(example output: "play with 나주교")
+"일정 내용": "(example output: "나주교와 커피 마시기")
 }
