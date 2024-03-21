@@ -202,7 +202,7 @@ class ReverieServer:
     rs_file = f"./games/{self.sim_code}.pkl"
 
     with open(rs_file, 'wb') as file:
-        pickle.dump( rs, file)
+        pickle.dump(self, file)
 
   def start_path_tester_server(self): 
     """
@@ -322,6 +322,11 @@ class ReverieServer:
         
         self.personas[name].scratch.religious_index += int(value)
     
+    rs_file = f"./games/{self.sim_code}.pkl"
+
+    with open(rs_file, 'wb') as file:
+        pickle.dump(self, file)
+
     return
   
     

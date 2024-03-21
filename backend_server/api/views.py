@@ -63,6 +63,7 @@ def loadReligiousIndex(request,game_name):
                     data["meta"] = { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }
                     
                     return Response(data=data, status= status.HTTP_200_OK)
+        
     
 
 @api_view(['POST'])
@@ -75,7 +76,7 @@ def updateReligiousIndex(request,game_name):
         #print(stream)
       
         print(data)
-        parsed_data = json.loads(data)
+        #parsed_data = json.loads(data)
         # serializer = (data=data)
         # if(serializer.is_valid()):
         #     persona = serializer.validated_data["persona"]
@@ -92,18 +93,18 @@ def updateReligiousIndex(request,game_name):
         with open(rs_file, 'rb') as file:
                     gameInstance = pickle.load(file)
 
-                    gameInstance.update_religious_index(parsed_data["update_religious_index"])
+                    gameInstance.update_religious_index(data["update_religious_index"])
 
-                    data = {"religious_index": dict(), 
+                    updated_data = {"religious_index": dict(), 
                        "meta": dict()}
                     
-                    for persona_name in parsed_data["update_religious_index"].keys :  
+                    for persona_name in data["update_religious_index"].keys() :  
                     
-                        data["religious_index"][persona_name] = gameInstance.persona[persona_name].scratch.religious_index
+                        updated_data["religious_index"][persona_name] = gameInstance.personas[persona_name].scratch.religious_index
                                 
-                    data["meta"] = { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }
+                    updated_data["meta"] = { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }
                     
-                    return Response(data=data, status= status.HTTP_200_OK)
+                    return Response(data=updated_data, status= status.HTTP_200_OK)
     
 
 @api_view(['GET'])
