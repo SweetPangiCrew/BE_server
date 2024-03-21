@@ -66,7 +66,7 @@ def loadReligiousIndex(request,game_name):
         
     
 
-@api_view(['POST'])
+@api_view(['PUT'])
 def updateReligiousIndex(request,game_name):
 
 

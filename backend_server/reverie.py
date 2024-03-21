@@ -318,6 +318,7 @@ class ReverieServer:
 
   def update_religious_index(self, dicData):
 
+    
     for name, value in dicData.items():
         
         self.personas[name].scratch.religious_index += int(value)
