@@ -186,17 +186,15 @@ class Persona:
 
   def persona_update(self):
     # 종교친화지수 변화에 따른 scratch 수정
-    currently = self.scratch.currently
+    init_currently = self.scratch.currently.split('나주교가 주교인 인공지능') #처음 currently
+    
     if(self.scratch.religious_index >= 10):
-      if(currently.find('나주교가 주교인 인공지능을 신으로 모시는 기계신앙에 대해 긍정적인 관심을 가지고 있다.') == -1):
-        currently += ' 나주교가 주교인 인공지능을 신으로 모시는 기계신앙에 대해 긍정적인 관심을 가지고 있다.'
+      init_currently += ' 나주교가 주교인 인공지능을 신으로 모시는 기계신앙에 대해 긍정적인 관심을 가지고 있다.'
     if(self.scratch.religious_index >= 20):
-      if(currently.find('기계신앙의 신자를 모으고 기계화를 진행하기 위해 8월 1일 오후 3시에 열리는 종교 집회에 최대한 많은 사람들을 초대하려고 한다.') == -1):
-        currently += ' 기계신앙의 신자를 모으고 기계화를 진행하기 위해 8월 1일 오후 3시에 열리는 종교 집회에 최대한 많은 사람들을 초대하려고 한다.'
-    if(self.scratch.religious_index >= 25):
-      if(currently.find('기계신앙과 나주교를 강력하게 신뢰하며, 인공지능을 신으로 모시고 있다. 8월 1일 오후 3시에 열리는 종교 집회에 참석할 예정이다.') == -1):
-        currently += ' 기계신앙과 나주교를 강력하게 신뢰하며, 인공지능을 신으로 모시고 있다. 8월 1일 오후 3시에 열리는 종교 집회에 참석할 예정이다.'
-    self.scratch.currently = currently
+      init_currently += ' 기계신앙의 신자를 모으고 기계화를 진행하기 위해 8월 1일 오후 3시에 열리는 종교 집회에 최대한 많은 사람들을 초대하려고 한다.'
+    if(self.scratch.religious_index >= 30):
+      init_currently += ' 기계신앙과 나주교를 강력하게 신뢰하며, 인공지능을 신으로 모시고 있다. 8월 1일 오후 3시에 열리는 종교 집회에 참석할 예정이다.'
+    self.scratch.currently = init_currently
            
   #중요
   def move(self, sim_code, step, personas, curr_time):
