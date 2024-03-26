@@ -460,7 +460,7 @@ def move_meeting_location(persona):
   if str(persona.scratch.curr_time) in [d['time'] for d in schedule]:
     index = [d['time'] for d in schedule].index(str(persona.scratch.curr_time))
     new_address = "<location> " + schedule[index]['location']
-    new_action = f"move to {new_address}"
+    new_action = f"{new_address}로 이동"
     act_pron = "🚶‍♂️"
     act_event = generate_action_event_triple(new_action, persona)
     
@@ -539,7 +539,7 @@ def generate_action(persona):
   #   new_address = persona.scratch.act_address
   
   # Adding the action to persona's queue. 
-  persona.scratch.add_new_action(persona.scratch.curr_address, 
+  persona.scratch.add_new_action(None, 
                                  2, 
                                  new_action, 
                                  act_pron, 
@@ -569,7 +569,7 @@ def generate_random_action(persona):
   #   new_address = persona.scratch.act_address
   
   # Adding the action to persona's queue. 
-  persona.scratch.add_new_action(persona.scratch.curr_address,
+  persona.scratch.add_new_action(None,
                                  2, 
                                  new_action, 
                                  act_pron, 
