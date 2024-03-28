@@ -330,7 +330,8 @@ class ReverieServer:
 
     return
   
-    
+ 
+                
   
   def start_server(self, int_counter): 
     """
@@ -414,10 +415,15 @@ class ReverieServer:
             print(act_address)
             print(pronunciatio)
             print(description)
+
+        
+
+            unicode_emoji_img_names = convert_emoji2img(pronunciatio)
+          
             
             movements["persona"][persona_name] = {}
             movements["persona"][persona_name]["act_address"] = act_address
-            movements["persona"][persona_name]["pronunciatio"] = pronunciatio
+            movements["persona"][persona_name]["pronunciatio"] = unicode_emoji_img_names#pronunciatio
             movements["persona"][persona_name]["description"] = description
             #movements["persona"][persona_name]["assembly_attendance"] = persona.scratch.assembly_attendance
             movements["persona"][persona_name]["chat"] = (persona
