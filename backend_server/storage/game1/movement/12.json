@@ -1,0 +1,25 @@
+{
+  "persona": {
+    "나주교": {
+      "act_address": "home:home:home:home",
+      "pronunciatio": "💬",
+      "description": "나주교는 오늘의 성경 말씀을 준비하고 있는 중이다.",
+      "chat": null
+    },
+    "오화가": {
+      "act_address": "home:home:home:home",
+      "pronunciatio": "🎨",
+      "description": "오화가는 현재 집에서 그림을 그리고 있다.",
+      "chat": null
+    },
+    "이자식": {
+      "act_address": "home:home:home:home",
+      "pronunciatio": "😴",
+      "description": "이자식은 현재 홈에서 잠을 자고 있다.",
+      "chat": null
+    }
+  },
+  "meta": {
+    "curr_time": "August 02, 2023, 11:49:50"
+  }
+}

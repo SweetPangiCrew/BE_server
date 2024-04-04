@@ -1,0 +1,25 @@
+{
+  "persona": {
+    "Isabella Rodriguez": {
+      "act_address": null,
+      "pronunciatio": null,
+      "description": "None",
+      "chat": null
+    },
+    "Maria Lopez": {
+      "act_address": null,
+      "pronunciatio": null,
+      "description": "None",
+      "chat": null
+    },
+    "Klaus Mueller": {
+      "act_address": null,
+      "pronunciatio": null,
+      "description": "None",
+      "chat": null
+    }
+  },
+  "meta": {
+    "curr_time": "February 13, 2023, 00:00:00"
+  }
+}

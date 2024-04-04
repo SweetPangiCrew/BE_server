@@ -1,0 +1,39 @@
+{
+       
+    "perceived_info" : [
+        {   
+            "persona": "나주교",
+            "curr_address" : "the Ville:Najugyo's apartment:main room",
+            "perceived_tiles" : [
+                {
+                    "dist" : 0.0,
+                    "event" : ["나주교", "is", "walking", "walking"]
+                }
+            ]
+        },
+
+        {
+            "persona": "오화가",
+            "curr_address" : "the Ville:Ohwaga's apartment:main room",
+            "perceived_tiles" : [
+                {
+                    "dist" : 0.0,
+                    "event" : ["오화가", "is", "walking", "walking"]
+                }
+            ]
+        },
+        
+        {   
+            "persona": "이자식",
+            "curr_address" : "the Ville:Ijasik's apartment:main room",
+            "perceived_tiles" : [
+                {
+                    "dist" : 0.0,
+                    "event" : ["이자식", "is", "sleeping", "sleeping"]
+                }
+            ]
+        }
+    ]
+}
+
+

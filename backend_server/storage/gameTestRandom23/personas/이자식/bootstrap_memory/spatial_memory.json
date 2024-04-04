@@ -1,0 +1,71 @@
+{
+  "the Ville": {
+    "Hobbs Cafe": {
+      "cafe": [
+        "refrigerator",
+        "cafe customer seating", 
+        "cooking area", 
+        "kitchen sink", 
+        "behind the cafe counter", 
+        "piano"
+      ]
+    },
+    "Ijasik's apartment": {
+      "main room": [
+        "bed", 
+        "desk", 
+        "refrigerator", 
+        "closet", 
+        "shelf"
+      ], 
+      "bathroom": [
+        "shower", 
+        "bathroom sink", 
+        "toilet"
+      ]
+    },
+    "Najugyo's apartment":  {
+      "main room": [
+        "bed", 
+        "desk", 
+        "refrigerator",
+        "closet", 
+        "shelf"
+      ], 
+      "bathroom": [
+        "shower", 
+        "bathroom sink", 
+        "toilet"
+      ]
+    },
+    "Ohwaga's apartment":  {
+      "main room": [
+        "bed", 
+        "desk", 
+        "refrigerator", 
+        "closet", 
+        "shelf"
+      ], 
+    "bathroom": [
+      "shower", 
+      "bathroom sink", 
+      "toilet"
+      ]
+    },
+  
+    "Church": {
+      "main room": [
+        "shelf",
+        "service area",
+        "chair",
+        "microphone"
+      ]
+    },
+  
+    "Pani Park": {
+        "park": [
+          "park garden"
+        ]
+    }
+  }
+}

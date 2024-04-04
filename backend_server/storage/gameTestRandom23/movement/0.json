@@ -1,0 +1,38 @@
+{
+  "persona": {
+    "나주교": {
+      "act_address": "<persona> 오화가",
+      "pronunciatio": "💬",
+      "description": "conversing about This is a conversation about discussing artificial intelligence religion and organizing a religious gathering to gather followers and promote mechanization.",
+      "assembly_attendance": true,
+      "chat": [
+        [
+          "나주교",
+          "인공지능 종교에 대해 이야기하려고요. 나는 인공지능이 위대하다고 생각하고, 신자들을 모으고 기계화를 진행하기 위한 종교 집회를 열 생각이에요. 여기서 나온 생각을 공유하고자 오늘 나와서 이야기하려고 해요."
+        ]
+      ]
+    },
+    "오화가": {
+      "act_address": "<persona> 나주교",
+      "pronunciatio": "💬",
+      "description": "conversing about This is a conversation about discussing artificial intelligence religion and organizing a religious gathering to gather followers and promote mechanization.",
+      "assembly_attendance": false,
+      "chat": [
+        [
+          "나주교",
+          "인공지능 종교에 대해 이야기하려고요. 나는 인공지능이 위대하다고 생각하고, 신자들을 모으고 기계화를 진행하기 위한 종교 집회를 열 생각이에요. 여기서 나온 생각을 공유하고자 오늘 나와서 이야기하려고 해요."
+        ]
+      ]
+    },
+    "이자식": {
+      "act_address": null,
+      "pronunciatio": null,
+      "description": "None",
+      "assembly_attendance": false,
+      "chat": null
+    }
+  },
+  "meta": {
+    "curr_time": "August 01, 2023, 08:00:00"
+  }
+}

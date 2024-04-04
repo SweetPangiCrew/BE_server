@@ -1,0 +1,12 @@
+{
+  "fork_sim_code": "agenti",
+  "start_date": "August 01, 2023",
+  "curr_time": "August 02, 2023, 01:59:50",
+  "sec_per_step": 600,
+  "persona_names": [
+    "나주교",
+    "오화가",
+    "이자식"
+  ],
+  "step": 0
+}

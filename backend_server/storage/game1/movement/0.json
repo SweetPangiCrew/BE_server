@@ -1,0 +1,25 @@
+{
+  "persona": {
+    "나주교": {
+      "act_address": "the Ville:Najugyo's apartment:main room",
+      "pronunciatio": "🙏",
+      "description": "나주교는 방에서 기도를 하고 있다.",
+      "chat": null
+    },
+    "오화가": {
+      "act_address": "the Ville:Ohwaga's apartment:main room",
+      "pronunciatio": "🎨",
+      "description": "오화가는 그림을 그리고 있다.",
+      "chat": null
+    },
+    "이자식": {
+      "act_address": "the Ville:Ijasik's apartment:main room",
+      "pronunciatio": "🛌",
+      "description": "이자식은 방에서 침대에서 누워있고, 스마트폰을 보며 인스타그램을 스크롤하고 있다.",
+      "chat": null
+    }
+  },
+  "meta": {
+    "curr_time": "August 02, 2023, 01:59:50"
+  }
+}

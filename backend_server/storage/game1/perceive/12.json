@@ -1,0 +1,103 @@
+{
+  "perceived_info": [
+    {
+      "persona": "나주교",
+      "curr_address": "home:home:home:home",
+      "perceived_tiles": [
+        {
+          "dist": "7.84375143",
+          "event": [
+            "오화가",
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "dist": "6.13357925",
+          "event": [
+            "이자식",
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "dist": "7.23665333",
+          "event": [
+            "나주교",
+            null,
+            null,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "persona": "오화가",
+      "curr_address": "home:home:home:home",
+      "perceived_tiles": [
+        {
+          "dist": "7.84375143",
+          "event": [
+            "나주교",
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "dist": "1.87233353",
+          "event": [
+            "이자식",
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "dist": "0.0",
+          "event": [
+            "오화가",
+            null,
+            null,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "persona": "이자식",
+      "curr_address": "home:home:home:home",
+      "perceived_tiles": [
+        {
+          "dist": "1.87233353",
+          "event": [
+            "오화가",
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "dist": "6.13357925",
+          "event": [
+            "나주교",
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "dist": "7.23665333",
+          "event": [
+            "이자식",
+            null,
+            null,
+            null
+          ]
+        }
+      ]
+    }
+  ]
+}

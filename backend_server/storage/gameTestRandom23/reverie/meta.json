@@ -1,0 +1,13 @@
+{
+  "fork_sim_code": "agenti",
+  "start_date": "August 1, 2023",
+  "curr_time": "August 1, 2023, 08:00:00",
+  "sec_per_step": 600,
+  "maze_name": "the_ville",
+  "persona_names": [
+    "나주교",
+    "오화가",
+    "이자식"
+  ],
+  "step": 0
+}

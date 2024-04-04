@@ -1,0 +1,97 @@
+{
+  "persona": {
+    "나주교": {
+      "act_address": null,
+      "pronunciatio": "1f4ac.png ",
+      "description": "나주교는 오늘의 말씀을 준비하고 있는 중이다.",
+      "chat": null
+    },
+    "오화가": {
+      "act_address": null,
+      "pronunciatio": "1f34a.png 2615.png ",
+      "description": "오화가는 현재 오전 8시에 오화가의 방에서 자몽허니블랙티를 마시면서 디자인 작업을 하고 있다.",
+      "chat": null
+    },
+    "이자식": {
+      "act_address": null,
+      "pronunciatio": "1f4a4.png ",
+      "description": "이자식은 방에서 잠을 자고 있다.",
+      "chat": null
+    },
+    "유리코": {
+      "act_address": null,
+      "pronunciatio": "1f4da.png ",
+      "description": "유리코는 방에서 책을 읽고 있다.",
+      "chat": null
+    },
+    "이장남": {
+      "act_address": null,
+      "pronunciatio": "1f4da.png ",
+      "description": "이장남은 이자식과 함께 책을 읽고 있다.",
+      "chat": null
+    },
+    "이화령": {
+      "act_address": null,
+      "pronunciatio": "1f36b.png ",
+      "description": "이화령은 Main room에서 브라우니를 먹으며 외주 애니메이션 프로젝트를 작업 중이다.",
+      "chat": null
+    },
+    "고영이": {
+      "act_address": null,
+      "pronunciatio": "1f4da.png ",
+      "description": "고영이는 자연에 대한 책을 쓰기 위해 오전 4시부터 main room에서 연구를 하고 있다.",
+      "chat": null
+    },
+    "유태호": {
+      "act_address": null,
+      "pronunciatio": "1f9e0.png ",
+      "description": "유태호는 Cafe Pera의 신메뉴 개발을 위해 아침 일찍 일어나서 레시피를 고민하고 있다.",
+      "chat": null
+    },
+    "이지양": {
+      "act_address": null,
+      "pronunciatio": "1f338.png ",
+      "description": "이지양은 방에서 오늘 팔렸던 꽃들의 재고를 확인하고 다음 주문 건을 준비하고 있다.",
+      "chat": null
+    },
+    "변호인": {
+      "act_address": null,
+      "pronunciatio": "1f373.png ",
+      "description": "변호인은 오전 8시에 아침을 먹고, 현재 지역 비즈니스의 세무 감사 프로젝트에 참여 중이다.",
+      "chat": null
+    },
+    "최문식": {
+      "act_address": null,
+      "pronunciatio": "1f373.png ",
+      "description": "최문식은 현재 모바일 앱 개발 프로젝트를 위해 main room에서 아침 식사를 마치고 있을 것이다.",
+      "chat": null
+    },
+    "여이삭": {
+      "act_address": null,
+      "pronunciatio": "1f3a4.png ",
+      "description": "여이삭은 현재 Cafe Pera에서 스탠드업 코미디 공연 준비를 하고 있다.",
+      "chat": null
+    },
+    "주아령": {
+      "act_address": null,
+      "pronunciatio": "1f4da.png ",
+      "description": "주아령은 방에서 책을 읽거나 정원을 가꾸며 시간을 보내고 있다.",
+      "chat": null
+    },
+    "오서달": {
+      "act_address": null,
+      "pronunciatio": "1f4a4.png ",
+      "description": "오서달은 아직 잠에서 깨지 않고 방에서 잠을 자고 있는 중이다.",
+      "chat": null
+    },
+    "김태리": {
+      "act_address": null,
+      "pronunciatio": "1f389.png ",
+      "description": "김태리는 Cafe Pera에서 오늘 진행할 생일 카페를 준비하고 있다.",
+      "chat": null
+    }
+  },
+  "meta": {
+    "curr_time": "August 01, 2023, 08:00:00"
+  }
+}
