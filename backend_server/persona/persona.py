@@ -186,7 +186,7 @@ class Persona:
 
   def persona_update(self):
     # 종교친화지수 변화에 따른 scratch 수정
-    init_currently = self.scratch.currently.split('나주교가 주교인 인공지능') #처음 currently
+    init_currently = self.scratch.currently.split('나주교가 주교인 인공지능')[0] #처음 currently
     
     if(self.scratch.religious_index >= 10):
       init_currently += ' 나주교가 주교인 인공지능을 신으로 모시는 기계신앙에 대해 긍정적인 관심을 가지고 있다.'
