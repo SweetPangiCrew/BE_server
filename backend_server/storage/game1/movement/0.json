@@ -1,25 +1,97 @@
 {
   "persona": {
+    "고영이": {
+      "act_address": null,
+      "pronunciatio": "1f4dd.png ",
+      "description": "고영이는 자신이 쓰고 있는 자연 신앙 철학 책을 수정하고 있다.",
+      "chat": null
+    },
+    "김태리": {
+      "act_address": null,
+      "pronunciatio": "1f973.png ",
+      "description": "김태리는 현재 Cafe Pera에서 생일 카페를 준비하고 있다.",
+      "chat": null
+    },
     "나주교": {
-      "act_address": "the Ville:Najugyo's apartment:main room",
-      "pronunciatio": "🙏",
-      "description": "나주교는 방에서 기도를 하고 있다.",
+      "act_address": null,
+      "pronunciatio": "1f4ac.png ",
+      "description": "나주교는 오늘의 말씀을 준비하고 있다.",
+      "chat": null
+    },
+    "변호인": {
+      "act_address": null,
+      "pronunciatio": "1f4da.png ",
+      "description": "변호인은 아침 식사를 하고 있으며, 새로운 세무법을 익히기 위해 수강 중인 class 자료를 읽고 있다.",
+      "chat": null
+    },
+    "여이삭": {
+      "act_address": null,
+      "pronunciatio": "1f3a4.png ",
+      "description": "여이삭은 현재 Cafe Pera에서 스탠드업 코미디 공연 준비를 하고 있다.",
+      "chat": null
+    },
+    "오서달": {
+      "act_address": null,
+      "pronunciatio": "1f382.png ",
+      "description": "오서달은 현재 시각에 Cafe Pera에서 진행할 예정인 '리쿠'의 생일 카페를 준비하고 있다.",
       "chat": null
     },
     "오화가": {
-      "act_address": "the Ville:Ohwaga's apartment:main room",
-      "pronunciatio": "🎨",
-      "description": "오화가는 그림을 그리고 있다.",
+      "act_address": null,
+      "pronunciatio": "1f634.png ",
+      "description": "오화가는 오전 8시에는 아직 일어나지 않았기 때문에 방에서 잠을 자고 있다.",
+      "chat": null
+    },
+    "유리코": {
+      "act_address": null,
+      "pronunciatio": "1f4da.png ",
+      "description": "유리코는 방에서 책을 읽고 있다.",
+      "chat": null
+    },
+    "유태호": {
+      "act_address": null,
+      "pronunciatio": "1f4bc.png ",
+      "description": "유태호는 현재 Cafe Pera의 신메뉴 개발을 위해 아침부터 일을 하고 있다.",
       "chat": null
     },
     "이자식": {
-      "act_address": "the Ville:Ijasik's apartment:main room",
-      "pronunciatio": "🛌",
-      "description": "이자식은 방에서 침대에서 누워있고, 스마트폰을 보며 인스타그램을 스크롤하고 있다.",
+      "act_address": null,
+      "pronunciatio": "1f634.png ",
+      "description": "이자식은 방에서 잠을 자고 있다.",
+      "chat": null
+    },
+    "이장남": {
+      "act_address": null,
+      "pronunciatio": "1f4da.png ",
+      "description": "이장남은 아침 식사를 마치고 현재 이장남의 방에서 아들과 함께 책을 읽고 있다.",
+      "chat": null
+    },
+    "이지양": {
+      "act_address": null,
+      "pronunciatio": "1f490.png ",
+      "description": "이지양은 이지양의 방에서 오늘 판매할 꽃들을 준비하고 있다.",
+      "chat": null
+    },
+    "이화령": {
+      "act_address": null,
+      "pronunciatio": "1f4bb.png 1f3a8.png ",
+      "description": "이화령은 현재 Main room에서 외주 애니메이션 프로젝트를 작업하고 있으며, 브라우니를 먹으며 interactive art를 창작하는 연구를 하고 있다.",
+      "chat": null
+    },
+    "주아령": {
+      "act_address": null,
+      "pronunciatio": "1f4da.png ",
+      "description": "주아령은 방에서 책을 읽고 있다.",
+      "chat": null
+    },
+    "최문식": {
+      "act_address": null,
+      "pronunciatio": "1f373.png ",
+      "description": "최문식은 아침 식사를 하고 있는 중이다.",
       "chat": null
     }
   },
   "meta": {
-    "curr_time": "August 02, 2023, 01:59:50"
+    "curr_time": "August 01, 2023, 08:00:00"
   }
 }

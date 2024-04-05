@@ -1,12 +1,25 @@
 {
-  "fork_sim_code": "agenti",
-  "start_date": "August 01, 2023",
-  "curr_time": "August 02, 2023, 01:59:50",
+  "fork_sim_code": "agenti_15",
+  "start_date": "August 1, 2023",
+  "curr_time": "August 1, 2023, 08:00:00",
   "sec_per_step": 600,
+  "maze_name": "the_ville",
   "persona_names": [
+    "고영이",
+    "김태리",
     "나주교",
+    "변호인",
+    "여이삭",
+    "오서달",
     "오화가",
-    "이자식"
+    "유리코",
+    "유태호",
+    "이자식",
+    "이장남",
+    "이지양",
+    "이화령",
+    "주아령",
+    "최문식"
   ],
   "step": 0
 }

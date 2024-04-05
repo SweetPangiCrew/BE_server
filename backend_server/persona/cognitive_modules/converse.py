@@ -291,13 +291,13 @@ def agent_with_user_chat_api(init_persona,message,round,reliability):
   # 신뢰도 30 이하일 때 : 최대 8회 
 
   if reliability <= 5:
-        max_round = 3
-  elif reliability <= 15:
-        max_round = 6
-  elif reliability >= 30:
-        max_round = 8
+        max_round = 5
+  elif reliability <= 10:
+        max_round = 7
+  elif reliability >= 20:
+        max_round = 10
   else:
-        max_round = 3  
+        max_round = 10
 
   init_persona.scratch.chatting_with = "User"
   #init_persona.scratch.act_event
