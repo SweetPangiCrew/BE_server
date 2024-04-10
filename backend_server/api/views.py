@@ -145,9 +145,11 @@ def perceive(request,sim_code,step):
       
         print(data)
         serializer = perceiveSerializer(data=data)
+        curr_time_d = ""
         if(serializer.is_valid()):
+            curr_time_d = serializer.validated_data["meta"]["curr_time"]
             pass
-           #print(serializer.validated_data)
+            #print(serializer.validated_data)
         else: 
              print("serialize 실패") 
              data['meta']['code'] = 400
@@ -158,25 +160,34 @@ def perceive(request,sim_code,step):
             curr_perceive_file = f"{sim_folder}/perceive/{step}.json"
 
             os.makedirs(os.path.dirname(curr_perceive_file), exist_ok=True)
-  
+           
+            serializer.validated_data["meta"]["curr_time"]= serializer.validated_data["meta"]["curr_time"].strftime("%B %d, %Y, %H:%M:%S")
             with open(curr_perceive_file, "w", encoding = 'UTF8') as outfile: 
                 outfile.write((json.dumps(serializer.validated_data, indent=2, ensure_ascii = False))) 
 
-        except:
-
+        
+        except Exception as e:
+            print(f"perceive 저장 실패: {e}")
             meta = { "meta": { "code": 401, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
-            return Response(data=meta,status= status.HTTP_201_CREATED)
+            return Response(data=meta,status= status.HTTP_400_BAD_REQUEST)
+        
         
         #try:
         rs_file = f"{game_storage}/{sim_code}.pkl"
         with open(rs_file, 'rb') as file:
                     gameInstance = pickle.load(file)
                     gameInstance.step = step
+                    gameInstance.curr_time = curr_time_d
+             
                     gameInstance.start_server(1)
+                    print("game_curr_time ~~~~~~~~~~~~~~~~~~~~"+str(gameInstance.curr_time))
                     print("game ~~~~~~~~~~~~~~~~~~~~"+str(gameInstance))
-                    with open(rs_file, 'wb') as file:
-                        pickle.dump( gameInstance, file)
-                    meta = { "meta": { "code": 0, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
+
+                    gameInstance.save()
+                    # with open(rs_file, 'wb') as file:
+                    #     pickle.dump( gameInstance, file)
+                    
+                    meta = { "meta": { "code": 0, "date": gameInstance.curr_time.strftime("%B %d, %Y, %H:%M:%S") }}
                     return Response(data=meta,status= status.HTTP_201_CREATED)
             
 
