@@ -2,7 +2,7 @@
   "vision_r": 8,
   "att_bandwidth": 8,
   "retention": 8,
-  "curr_time": "August 01, 2024, 08:01:48",
+  "curr_time": "August 01, 2024, 09:30:00",
   "curr_address": "home:home:home:home",
   "daily_plan_req": "나주교는 인공지능 종교를 포교하기 위해 하루종일 마을 방방 곳곳을 돌아다닌다.",
   "name": "나주교",
@@ -26,20 +26,20 @@
   "importance_w": 1,
   "recency_decay": 0.995,
   "importance_trigger_max": 150,
-  "importance_trigger_curr": 148,
-  "importance_ele_n": 2,
+  "importance_trigger_curr": 147,
+  "importance_ele_n": 3,
   "thought_count": 5,
   "daily_req": [],
   "f_daily_schedule": [],
   "f_daily_schedule_hourly_org": [],
   "act_address": null,
   "act_duration": 2,
-  "act_description": "나주교는 아침식사를 하고 있다.",
+  "act_description": "나주교는 아침 식사를 하고 있다.",
   "act_pronunciatio": "🍳",
   "act_event": [
     "나주교",
     "하고 있다",
-    "아침식사"
+    "아침 식사"
   ],
   "act_obj_description": null,
   "act_obj_pronunciatio": null,
@@ -56,7 +56,16 @@
   "planned_path": [],
   "percept_events_list": [
     {
-      "dist": "1.48961639",
+      "dist": "0.0",
+      "event": [
+        "나주교",
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "dist": "1.49286842",
       "event": [
         "오화가",
         null,

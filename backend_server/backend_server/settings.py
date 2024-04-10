@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'npc',
     'drf_yasg',
-    'chat'
+    'chat',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,10 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = BASE_DIR +'/staticfiles' 
 
+#DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Login 성공시 URL 경로
+LOGIN_REDIRECT_URL = "users/signup"
+
+# Logout 성공시 URL 경로
+LOGOUT_REDIRECT_URL = "users/signup"
