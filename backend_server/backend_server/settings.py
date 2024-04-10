@@ -46,10 +46,22 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+
+    #DRF Authentication
+    'rest_framework.authtoken',
+    'rest_auth',
+   
+    #회원가입
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+     'allauth.socialaccount',
+    'rest_auth.registration',
+
+    #app
     'npc',
     'drf_yasg',
-    'chat',
-    'users'
+    'chat'
 ]
 
 MIDDLEWARE = [
@@ -61,6 +73,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware', 
+
 ]
 
 ROOT_URLCONF = 'backend_server.urls'
@@ -137,8 +150,9 @@ STATIC_ROOT = BASE_DIR +'/staticfiles'
 
 #DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Login 성공시 URL 경로
-LOGIN_REDIRECT_URL = "users/signup"
 
-# Logout 성공시 URL 경로
-LOGOUT_REDIRECT_URL = "users/signup"
+SITE_ID =1
+
+ACCOUNT_EMAIL_REQUIRED = False
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
