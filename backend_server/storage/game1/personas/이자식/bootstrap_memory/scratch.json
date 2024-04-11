@@ -2,7 +2,7 @@
   "vision_r": 8,
   "att_bandwidth": 8,
   "retention": 8,
-  "curr_time": "August 01, 2024, 09:30:00",
+  "curr_time": "August 01, 2024, 08:01:48",
   "curr_address": "home:home:home:home",
   "daily_plan_req": "이자식은 오후부터 저녁까지 Hobbs Cafe에서 아르바이트를 하고, 이후에는 Pani Park에서 산책을 한 후 집에 돌아와 게임을 한다.",
   "name": "이자식",
@@ -34,12 +34,12 @@
   "f_daily_schedule_hourly_org": [],
   "act_address": null,
   "act_duration": 2,
-  "act_description": "이자식은 자고 있다.",
+  "act_description": "이자식은 잠을 자고 있다.",
   "act_pronunciatio": "😴",
   "act_event": [
     "이자식",
-    "자고 있다",
-    "이자식은"
+    "자다",
+    "잠"
   ],
   "act_obj_description": null,
   "act_obj_pronunciatio": null,

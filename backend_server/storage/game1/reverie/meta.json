@@ -1,7 +1,7 @@
 {
   "fork_sim_code": "agenti_15",
   "start_date": "August 01, 2023",
-  "curr_time": "August 01, 2024, 09:40:00",
+  "curr_time": "August 01, 2024, 08:11:48",
   "sec_per_step": 600,
   "persona_names": [
     "고영이",
@@ -20,5 +20,5 @@
     "주아령",
     "최문식"
   ],
-  "step": 6
+  "step": 1
 }

@@ -8,5 +8,6 @@ urlpatterns = [
     path('npc/updateReligiousIndex/<str:game_name>/', views.updateReligiousIndex,name="put_relgious"),
     path('servertime/', views.servertime,name="get_servertime"),
     path('existingGames/', views.loadgames,name="get_games"),
-     path('gamestart/', views.gamestart,name="game_start"),
+    path('gamestart/', views.gamestart,name="game_start"),
+  
 ]

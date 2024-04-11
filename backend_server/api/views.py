@@ -1,6 +1,5 @@
 #
-from global_methods import *
-from reverie import *
+
 from .serializers import perceiveSerializer,gamestartSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -15,12 +14,19 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 import io
 from rest_framework.parsers import JSONParser
-import datetime
-import sys
-import pickle
+
+
 #from utils import *
 import json
 import os
+from django.http import JsonResponse
+
+
+from django.contrib.auth.models import User
+from .models import GameStage
+from django.views.decorators.csrf import csrf_exempt
+import json
+
 
 
 
@@ -41,6 +47,32 @@ else:
     game_storage = "./games"
 
 
+
+
+@csrf_exempt  # CSRF 토큰 무시 (개발용, 실제 배포에서는 사용하지 않는 것이 좋습니다)
+@api_view(['POST']) # POST 요청만 허용
+def create_game_stage(request):
+    try:
+        # JSON 데이터를 파싱
+        data = json.loads(request.body)
+        
+        # user_id를 사용하여 User 인스턴스를 가져옴
+        user = User.objects.get(id=data['user_id'])
+        
+        # GameStage 인스턴스 생성
+        game_stage = GameStage(
+            user=user,
+            sim_code=data['sim_code'],
+            game_name=data['game_name'],
+            is_completed= False # 기본값은 False
+        )
+        game_stage.save()  # 데이터베이스에 저장
+
+        # 성공 응답
+        return  JsonResponse({"message": "Game Stage created successfully.", "game_stage_id": game_stage.id}, status=201)
+    except Exception as e:
+        # 오류 응답
+        return JsonResponse({"error": str(e)}, status=400)
 
 @api_view(['GET'])
 def loadReligiousIndex(request,game_name):

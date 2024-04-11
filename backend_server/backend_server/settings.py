@@ -59,9 +59,11 @@ INSTALLED_APPS = [
     'rest_auth.registration',
 
     #app
-    'npc',
+   
     'drf_yasg',
-    'chat'
+    'chat',
+     'api',
+     'users'
 ]
 
 MIDDLEWARE = [

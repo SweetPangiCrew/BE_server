@@ -3,19 +3,19 @@
     "고영이": {
       "act_address": null,
       "pronunciatio": "1f37d-fe0f.png ",
-      "description": "고영이는 츄르을 먹고 있다.",
+      "description": "고영이는 츄르를 먹고 있다.",
       "chat": null
     },
     "김태리": {
       "act_address": null,
-      "pronunciatio": "1f6b6.png ",
-      "description": "김태리은(는) 아침 식사를 하고 있다.",
+      "pronunciatio": "1f50d.png ",
+      "description": "김태리은(는) 아침밥을 먹고 있다.",
       "chat": null
     },
     "나주교": {
       "act_address": null,
-      "pronunciatio": "1f373.png ",
-      "description": "나주교는 아침식사를 하고 있다.",
+      "pronunciatio": "1f64f.png ",
+      "description": "나주교는 신앙의 일을 준비하고 있다.",
       "chat": null
     },
     "변호인": {
@@ -32,14 +32,14 @@
     },
     "오서달": {
       "act_address": null,
-      "pronunciatio": "1f634.png ",
-      "description": "오서달은 아직 잠자리에 누워있다.",
+      "pronunciatio": "1f373.png ",
+      "description": "오서달은 아침 식사를 준비하고 있다.",
       "chat": null
     },
     "오화가": {
       "act_address": null,
-      "pronunciatio": "1f634.png ",
-      "description": "오화가는 잠을 자고 있다.",
+      "pronunciatio": "1f373.png ",
+      "description": "오화가는 아침식사를 하고있다.",
       "chat": null
     },
     "유리코": {
@@ -68,26 +68,26 @@
     },
     "이지양": {
       "act_address": null,
-      "pronunciatio": "1f634.png ",
-      "description": "이지양은 침대에서 잠을 자고 있다.",
+      "pronunciatio": "1f373.png ",
+      "description": "이지양은 아침식사를 하고 있다.",
       "chat": null
     },
     "이화령": {
       "act_address": null,
-      "pronunciatio": "1f3a8.png ",
-      "description": "이화령은 새로운 디지털 아트 작품을 제작하고 있다.",
+      "pronunciatio": "1f373.png ",
+      "description": "이화령은 아침 식사를 준비하고 있다.",
       "chat": null
     },
     "주아령": {
       "act_address": null,
       "pronunciatio": "1f4da.png ",
-      "description": "주아령은 도서관에서 책 정리를 하고 있다.",
+      "description": "주아령은 가정에서 책을 읽고 있다.",
       "chat": null
     },
     "최문식": {
       "act_address": null,
-      "pronunciatio": "1f4bb.png ",
-      "description": "최문식은 컴퓨터 작업을 하고 있다.",
+      "pronunciatio": "1f373.png ",
+      "description": "최문식은 집에서 아침을 먹고 있다.",
       "chat": null
     }
   },
