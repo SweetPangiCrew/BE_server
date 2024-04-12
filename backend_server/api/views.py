@@ -146,12 +146,14 @@ def perceive(request,sim_code,step):
         print(data)
         serializer = perceiveSerializer(data=data)
         curr_time_d = ""
+        
         if(serializer.is_valid()):
             curr_time_d = serializer.validated_data["meta"]["curr_time"]
             pass
             #print(serializer.validated_data)
         else: 
              print("serialize 실패") 
+            
              data['meta']['code'] = 400
              return  Response(data=data,status= status.HTTP_400_BAD_REQUEST)
 
