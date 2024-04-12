@@ -19,8 +19,8 @@ class GameStageCreationTestCase(APITestCase):
         """
         data = {
             'user': self.user.uuid,
-            'game_name': 'TestGame',
-            'sim_code': 'agenti_15',
+            'game_name': 'TestGame2',
+            'sim_code': 'agenti',
             'is_completed': False #필수 필드 아님
         }
         response = self.client.post(self.url, data, format='json')

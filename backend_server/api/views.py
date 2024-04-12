@@ -25,7 +25,11 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 from .models import GameStage
 from django.views.decorators.csrf import csrf_exempt
-import json
+
+from global_methods import *
+from reverie import *
+import datetime
+import pickle
 
 
 
@@ -151,7 +155,7 @@ def servertime(request):
 def movement(request,sim_code,step):
 
     try: 
-        sim_folder = f"{fs_storage}/{sim_code}"
+        sim_folder = f"{fs_storage}/{sim_code}" #TODO 바꾸기.
         curr_move_file = f"{sim_folder}/movement/{step}.json"
         #absolute_path = os.path.abspath(curr_move_file)
         #print(absolute_path)
@@ -276,8 +280,6 @@ def loadgames(request):
         for file_name in file_list:
                
             game_name, game_extension = os.path.splitext(os.path.basename(file_name))
-
-            
             curr_move_file = f"{fs_storage}/{game_name}/reverie/meta.json"
 
             with open(curr_move_file, encoding = 'UTF8') as json_file:

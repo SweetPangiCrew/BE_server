@@ -11,6 +11,14 @@ from reverie import *
 import datetime
 import pickle
 
+def getTestUser():
+
+    user, created = MyUser.objects.get_or_create(
+            uuid="9a727eb7-6437-4d03-a438-d09eb273f930",
+            defaults={'username': 'TestUser'})
+    
+    return user
+
 
 class CreateUserView(APIView):
     def post(self, request, *args, **kwargs):
@@ -28,12 +36,10 @@ class CreateGameStageView(APIView):
             try:
                 serializer.save()
 
-               
                 simcode = serializer.validated_data["sim_code"]
                 gamename = serializer.validated_data["game_name"]
                 userID = serializer.validated_data["user"]
 
-            
                 is_ubuntu_server = os.getenv('IS_UBUNTU_SERVER', False)
                 if is_ubuntu_server:
                     fs_storage = "/home/ubuntu/BE_server/backend_server/storage"
@@ -46,7 +52,8 @@ class CreateGameStageView(APIView):
                 # 경로 확인 및 생성
                 os.makedirs(game_storage, exist_ok=True)
 
-                rs = ReverieServer(simcode, gamename)
+                rs = ReverieServer(simcode, gamename,userID)
+                rs.user = userID
                 rs_file = os.path.join(game_storage, f"{gamename}.pkl")
                 rs_file = f"{game_storage}/{gamename}.pkl"
 

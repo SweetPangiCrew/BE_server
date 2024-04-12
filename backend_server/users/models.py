@@ -23,7 +23,7 @@ class MyUser(AbstractBaseUser):
     USERNAME_FIELD = 'username'
 
     def __str__(self):
-        return str(self.username)
+        return str(self.username) + str(self.uuid)
     
 
 class GameStage(models.Model):
