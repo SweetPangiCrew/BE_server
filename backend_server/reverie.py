@@ -367,12 +367,14 @@ class ReverieServer:
       if (True):
       # <curr_perceive_file>을 받지 않았으면 기다림.
        curr_perceive_file = f"{sim_folder}/perceive/{self.step}.json"
+       print("기다리는 중..")
        if check_if_file_exists(curr_perceive_file):
           perceived_info = dict()
           try:
               with open(curr_perceive_file, encoding = 'UTF8') as json_file:  
                 perceive_f = json.load(json_file)
                 perceived_f = perceive_f["perceived_info"]
+                print("읽어옴")
           except:
               print("error: perceive info를 못 읽어왔습니다.")
           

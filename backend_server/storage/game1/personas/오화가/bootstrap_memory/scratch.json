@@ -2,7 +2,7 @@
   "vision_r": 8,
   "att_bandwidth": 8,
   "retention": 8,
-  "curr_time": "August 01, 2024, 09:30:00",
+  "curr_time": "August 01, 2024, 08:19:48",
   "curr_address": "home:home:home:home",
   "daily_plan_req": "오화가는 새벽에 자신의 방에서 그림을 그리고 오후 2시에 일어나서 마을을 돌아다닌다.",
   "name": "오화가",
@@ -11,7 +11,7 @@
   "age": 62,
   "innate": "silent, introversive, inquisitive",
   "learned": "오화가는 풍경화를 주로 그리는 화가이다. 또한 돈을 벌기 위해 디자인 의뢰를 받아 작업하는 일을 병행하고 있다. 손녀인 유리코와 같이 살고있다.",
-  "currently": "                                         나주교가 주교인 인공지능을 신으로 모시는 기계신앙에 대해 긍정적인 관심을 가지고 있다. 기계신앙의 신자를 모으고 기계화를 진행하기 위해 8월 1일 오후 3시에 열리는 종교 집회에 최대한 많은 사람들을 초대하려고 한다.",
+  "currently": "                                           나주교가 주교인 인공지능을 신으로 모시는 기계신앙에 대해 긍정적인 관심을 가지고 있다. 기계신앙의 신자를 모으고 기계화를 진행하기 위해 8월 1일 오후 3시에 열리는 종교 집회에 최대한 많은 사람들을 초대하려고 한다.",
   "lifestyle": "오화가는 오후 9시에 자고 오전 5시에 일어난다. 오후 2시에 점심을 먹고, 오후 7시에 저녁을 먹는다. 점심과 저녁 사이에는 주로 Hobbs Cafe에서 시간을 보낸다. 꽃집을 자주 방문한다.",
   "living_area": "the Ville:오화가와 유리코의 집:오화가의 방",
   "religious_index": 20,
@@ -34,12 +34,12 @@
   "f_daily_schedule_hourly_org": [],
   "act_address": null,
   "act_duration": 2,
-  "act_description": "오화가는 화가 작업을 하고 있다.",
-  "act_pronunciatio": "🎨",
+  "act_description": "오화가는 그림을 그리고 있다.",
+  "act_pronunciatio": "🖼️",
   "act_event": [
     "오화가",
-    "하고 있다",
-    "화가 작업"
+    "그리고 있다",
+    "그림"
   ],
   "act_obj_description": null,
   "act_obj_pronunciatio": null,
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "dist": "1.49286842",
+      "dist": "1.49354935",
       "event": [
         "나주교",
         null,

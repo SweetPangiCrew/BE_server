@@ -2,7 +2,7 @@
   "vision_r": 8,
   "att_bandwidth": 8,
   "retention": 8,
-  "curr_time": "August 01, 2024, 09:30:00",
+  "curr_time": "August 01, 2024, 08:19:48",
   "curr_address": "home:home:home:home",
   "daily_plan_req": "나주교는 인공지능 종교를 포교하기 위해 하루종일 마을 방방 곳곳을 돌아다닌다.",
   "name": "나주교",
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "dist": "1.49286842",
+      "dist": "1.49354935",
       "event": [
         "오화가",
         null,
