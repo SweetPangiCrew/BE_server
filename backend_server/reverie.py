@@ -367,7 +367,7 @@ class ReverieServer:
       if (True):
       # <curr_perceive_file>을 받지 않았으면 기다림.
        curr_perceive_file = f"{sim_folder}/perceive/{self.step}.json"
-       print("기다리는 중.."+str(curr_perceive_file))
+       #print("기다리는 중.."+str(curr_perceive_file))
        if check_if_file_exists(curr_perceive_file):
           perceived_info = dict()
           try:
