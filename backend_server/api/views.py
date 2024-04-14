@@ -178,15 +178,13 @@ def movement(request,sim_code,step,user):
 @api_view(['POST'])
 def perceive(request,sim_code,step,user):
      
-        stream = io.BytesIO(request.body)
-        #stream = stream.replace("'", "\"") 
-        data = JSONParser().parse(stream) #stream data 가 Dict가 됨.
+        # stream = io.BytesIO(request.body)
+        # #stream = stream.replace("'", "\"") 
+        # data = JSONParser().parse(stream) #stream data 가 Dict가 됨.
         #print(stream)
         
        
-
-        print(data)
-        serializer = perceiveSerializer(data=data)
+        serializer = perceiveSerializer(data=request.data)
         curr_time_d = ""
         if(serializer.is_valid()):
             curr_time_d = serializer.validated_data["meta"]["curr_time"]
@@ -194,6 +192,7 @@ def perceive(request,sim_code,step,user):
             #print(serializer.validated_data)
         else: 
              print("serialize 실패") 
+             data = dict()
              data['meta']['code'] = 400
              return  Response(data=data,status= status.HTTP_400_BAD_REQUEST)
 
