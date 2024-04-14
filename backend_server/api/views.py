@@ -30,6 +30,7 @@ from global_methods import *
 from reverie import *
 import datetime
 import pickle
+from users.serializers import *
 
 
 
@@ -52,7 +53,7 @@ else:
 
 
 
-
+#legacy
 @csrf_exempt  # CSRF 토큰 무시 (개발용, 실제 배포에서는 사용하지 않는 것이 좋습니다)
 @api_view(['POST']) # POST 요청만 허용
 def create_game_stage(request):
@@ -151,11 +152,21 @@ def servertime(request):
     return Response(data)
 
 
+
 @api_view(['GET'])
-def movement(request,sim_code,step):
+def movement(request,sim_code,step,user):
+
+    # print(request.data)
+    # serializer = UserUUIDSerializer(data=request.data)
+   
+    # if serializer.is_valid() ==  False:
+    #     print("serializer 실패")
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     try: 
-        sim_folder = f"{fs_storage}/{sim_code}" #TODO 바꾸기.
+        userID = MyUser.objects.get(uuid=user)#serializer.validated_data['user']
+        sim_folder = f"{fs_storage}/{userID}/{sim_code}" #TODO 바꾸기.
+
         curr_move_file = f"{sim_folder}/movement/{step}.json"
         #absolute_path = os.path.abspath(curr_move_file)
         #print(absolute_path)
@@ -165,8 +176,11 @@ def movement(request,sim_code,step):
     except: 
            data = {"There's no json file"+ sim_folder+"/"+ str(step) } 
            data['meta']['code'] = 404
+          
     
     return Response(data)
+  
+
 
 
 
@@ -234,6 +248,7 @@ def perceive(request,sim_code,step):
 
 
 
+#legacy 안씀.
 @api_view(['POST'])
 def gamestart(request):
         stream = io.BytesIO(request.body)

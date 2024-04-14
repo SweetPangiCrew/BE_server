@@ -17,9 +17,10 @@ class GameStageCreationTestCase(APITestCase):
         """
         유효한 데이터로 GameStage 객체를 생성하는 경우를 테스트합니다.
         """
+ 
         data = {
-            'user': self.user.uuid,
-            'game_name': 'TestGame2',
+            'user': self.user.uuid, #모델이기 때문에 uuid만 보내도 충분!
+            'game_name': 'TestGame4',
             'sim_code': 'agenti',
             'is_completed': False #필수 필드 아님
         }

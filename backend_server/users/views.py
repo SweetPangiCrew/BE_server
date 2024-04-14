@@ -11,6 +11,8 @@ from reverie import *
 import datetime
 import pickle
 
+
+#legacy
 def getTestUser():
 
     user, created = MyUser.objects.get_or_create(
@@ -65,7 +67,9 @@ class CreateGameStageView(APIView):
                 meta = { "meta": { "code": 0,"opened game": gamename ,"date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
                 return Response(meta, status=status.HTTP_201_CREATED)
             except IntegrityError:  # game_name이 이미 존재하는 경우
-                return Response({'error': '동일한 게임 이름이 존재합니다.'},
+                data = {'error': '동일한 게임 이름이 존재합니다.'}
+                print(data)
+                return Response(data,
                                 status=status.HTTP_400_BAD_REQUEST)
             except Exception as e:
                  print(e)

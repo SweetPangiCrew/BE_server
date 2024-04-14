@@ -21,6 +21,9 @@ class perceivePerPersonaSerializer(serializers.Serializer):
     perceived_tiles = perceivedTileSerializer(many=True)
   
 
+class UserUUIDSerializer(serializers.Serializer):
+    user = serializers.CharField()
+
 class CurrTimeSerializer(serializers.Serializer):
     curr_time = serializers.DateTimeField(format='%B %d, %Y, %H:%M:%S')
 
@@ -32,3 +35,5 @@ class perceiveSerializer(serializers.Serializer):
 class gamestartSerializer(serializers.Serializer):
     sim_code = serializers.CharField()
     game_name = serializers.CharField()
+
+

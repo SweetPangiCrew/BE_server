@@ -9,17 +9,39 @@ import random
 
 User = get_user_model()
 
-# class MovementTestCase(APITestCase):
+class MovementTestCase(APITestCase):
 
-#     def test_move(self):
-#         response = self.client.get(reverse("get_reaction",None,["test4","0"]))
-#         self.assertEqual(response.status_code,status.HTTP_200_OK)
+    def test_move(self):
+        
+        data = {
+            'user': "bb2dbe2b-a163-4b3e-aad3-e8a90c0f889d", #모델이기 때문에 uuid만 보내도 충분!
+        }
+        response = self.client.get(reverse("get_reaction",None,["TestGame4","0","2a8a524a-7485-4c99-8672-99e05fb92c2d"]))
+        self.assertEqual(response.status_code,status.HTTP_200_OK)
 
-# class LoadGamesTestCase(APITestCase):
+class MovementViewTestCase(APITestCase):
+    def setUp(self):
 
-#     def test(self):
-#         response = self.client.get(reverse("get_games",None))
-#         self.assertEqual(response.status_code,status.HTTP_200_OK)
+        self.url = reverse('get_reaction', kwargs={'sim_code': 'TestGame4', 'step': '0'})
+        self.valid_data = {
+            "user": "bb2dbe2b-a163-4b3e-aad3-e8a90c0f889d"
+        }
+      
+
+    def test_valid_request(self):
+       
+        # Making the request
+        response = self.client.get(self.url, self.valid_data)
+
+        # Assertions
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['meta']['code'], 0)
+
+class LoadGamesTestCase(APITestCase):
+
+    def test(self):
+        response = self.client.get(reverse("get_games",None))
+        self.assertEqual(response.status_code,status.HTTP_200_OK)
 
 class PostPerceiveTestCase(APITestCase):
 
