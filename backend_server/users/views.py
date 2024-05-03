@@ -27,6 +27,7 @@ class CreateUserView(APIView):
         serializer = MyUserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()  # 유효한 데이터인 경우, MyUser 객체를 생성합니다.
+            
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
@@ -42,13 +43,9 @@ class CreateGameStageView(APIView):
                 gamename = serializer.validated_data["game_name"]
                 userID = serializer.validated_data["user"]
 
-                is_ubuntu_server = os.getenv('IS_UBUNTU_SERVER', False)
-                if is_ubuntu_server:
-                    fs_storage = "/home/ubuntu/BE_server/backend_server/storage"
-                    game_storage = "/home/ubuntu/BE_server/backend_server/pickles"
-                else:
-                    fs_storage = "./storage" #TODO:storage 유저별 분리..
-                    game_storage = "./pickles"
+                
+                fs_storage = "./storage" 
+                game_storage = "./pickles"
                 
                 game_storage = f"{game_storage}/{userID}"
                 # 경로 확인 및 생성
@@ -66,8 +63,10 @@ class CreateGameStageView(APIView):
                 #print(rs[gamename])
                 meta = { "meta": { "code": 0,"opened game": gamename ,"date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
                 return Response(meta, status=status.HTTP_201_CREATED)
-            except IntegrityError:  # game_name이 이미 존재하는 경우
+            except FileExistsError as e:  # game_name이 이미 존재하는 경우
                 data = {'error': '동일한 게임 이름이 존재합니다.'}
+
+                print(e)
                 print(data)
                 return Response(data,
                                 status=status.HTTP_400_BAD_REQUEST)

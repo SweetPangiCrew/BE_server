@@ -326,6 +326,7 @@ class ReverieServer:
           curr_chat["chat"] =curr_persona.scratch.chat
           reverie_user["chat_list"] += [[curr_chat]]
           outfile.write(json.dumps(reverie_user, indent=2, ensure_ascii = False))
+          print("대화 저장")
     
     return response, end
 

@@ -28,7 +28,7 @@ class MyUser(AbstractBaseUser):
 
 class GameStage(models.Model):
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
-    game_name = models.CharField(max_length=10,unique=True)
+    game_name = models.CharField(max_length=10)
     sim_code = models.CharField(max_length=50, default='agenti_15')
     is_completed = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
