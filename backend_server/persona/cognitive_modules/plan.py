@@ -1008,9 +1008,9 @@ def _should_react(persona, retrieved, personas):
     #if True : #d~ lets_talk(persona, personas[curr_event.subject], retrieved):
     if lets_talk(persona, personas[curr_event.subject], retrieved):
       return f"chat with {curr_event.subject}"
-    react_mode = lets_react(persona, personas[curr_event.subject], 
-                            retrieved)
-    return react_mode
+    # react_mode = lets_react(persona, personas[curr_event.subject], 
+    #                         retrieved)
+    # return react_mode
   return False
 
 
