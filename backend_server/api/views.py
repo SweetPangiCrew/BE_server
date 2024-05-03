@@ -186,6 +186,7 @@ def perceive(request,sim_code,step,user):
        
         serializer = perceiveSerializer(data=request.data)
         curr_time_d = ""
+        
         if(serializer.is_valid()):
             curr_time_d = serializer.validated_data["meta"]["curr_time"]
             pass

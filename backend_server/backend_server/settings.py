@@ -49,14 +49,14 @@ INSTALLED_APPS = [
 
     #DRF Authentication
     'rest_framework.authtoken',
-    'rest_auth',
+    # 'rest_auth',
    
     #회원가입
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-     'allauth.socialaccount',
-    'rest_auth.registration',
+    # 'django.contrib.sites',
+    # 'allauth',
+    # 'allauth.account',
+    #  'allauth.socialaccount',
+    # 'rest_auth.registration',
 
     #app
    

@@ -20,6 +20,10 @@ import json
 from os import listdir
 
 def convert_emoji2img(pronunciatio):
+      is_ubuntu_server = os.getenv('IS_UBUNTU_SERVER', False)
+      if is_ubuntu_server:
+        fs_storage = "/home/ubuntu/BE_server/backend_server/storage"
+
       with open('emoji.json', 'r') as file:
           emojis = json.load(file)
           apple_emojis = [item for index, item in enumerate(emojis) if item["has_img_apple"]]

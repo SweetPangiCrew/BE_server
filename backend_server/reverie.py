@@ -390,6 +390,7 @@ class ReverieServer:
               with open(curr_perceive_file, encoding = 'UTF8') as json_file:  
                 perceive_f = json.load(json_file)
                 perceived_f = perceive_f["perceived_info"]
+                print("읽어옴")
           except:
               print("error: perceive info를 못 읽어왔습니다.")
           
