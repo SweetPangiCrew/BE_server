@@ -18,25 +18,17 @@ from rest_framework.parsers import JSONParser
 
 from .serializers import *
 
-is_ubuntu_server = False
-if os.path.exists('/etc/os-release'):
-    with open('/etc/os-release', 'r') as f:
-        for line in f:
-            if line.startswith('ID=ubuntu'):
-                is_ubuntu_server = True
-                break
+from users.serializers import *
 
-# 변수 설정
-if is_ubuntu_server:
-    fs_storage = "/home/ubuntu/BE_server/backend_server/storage"
-    game_storage = "/home/ubuntu/BE_server/backend_server/games"
-else:
-    fs_storage = "./storage"
-    game_storage = "./games"
+
+fs_storage = "./storage"
+game_storage = "./pickles"
 
 @api_view(['GET'])
-def chat_list(request, game_name):
-    sim_folder = f"{fs_storage}/{game_name}"
+def chat_list(request, game_name,user):
+    userID = MyUser.objects.get(uuid=user)
+
+    sim_folder = f"{fs_storage}/{userID}/{game_name}"
     user_file = f"{sim_folder}/reverie/user.json"
     
     data = dict()
@@ -70,14 +62,16 @@ def send(request, game_name):
             persona = serializer.validated_data["persona"]
             message = serializer.validated_data["message"]
             round = serializer.validated_data["round"]
-            
+            user = serializer.validated_data["uuid"]
+            userID = MyUser.objects.get(uuid=user)
+         
         else: 
              print("serialize 실패") 
              meta = { "meta": { "code": 404, "date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
              return  Response(data=meta,status= status.HTTP_400_BAD_REQUEST)
         
-        #try:
-        rs_file = f"{game_storage}/{game_name}.pkl"
+        rs_file = f"{game_storage}/{userID}/{game_name}.pkl" 
+
         with open(rs_file, 'rb') as file:
                     gameInstance = pickle.load(file)
                     re_message, end = gameInstance.user_chat(persona,message,round)

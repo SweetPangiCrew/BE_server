@@ -59,9 +59,12 @@ INSTALLED_APPS = [
     # 'rest_auth.registration',
 
     #app
-    'npc',
+   
     'drf_yasg',
-    'chat'
+    'chat',
+     'api',
+     'users',
+
 ]
 
 MIDDLEWARE = [
@@ -73,6 +76,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware', 
+    #'middleware.UUIDAuthenticationMiddleware', 
 
 ]
 
