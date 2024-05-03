@@ -923,11 +923,11 @@ def _should_react(persona, retrieved, personas):
               <Persona> instance as values. 
   """
   def lets_talk(init_persona, target_persona, retrieved):
-    if (not target_persona.scratch.act_address 
-        or not target_persona.scratch.act_description
-        or not init_persona.scratch.act_address
-        or not init_persona.scratch.act_description): 
-      return False
+    # if (not target_persona.scratch.act_address 
+    #     or not target_persona.scratch.act_description
+    #     or not init_persona.scratch.act_address
+    #     or not init_persona.scratch.act_description): 
+    #   return False
 
     if ("sleeping" in target_persona.scratch.act_description 
         or "sleeping" in init_persona.scratch.act_description): 
@@ -936,8 +936,8 @@ def _should_react(persona, retrieved, personas):
     if init_persona.scratch.curr_time.hour == 23: 
       return False
 
-    if "<waiting>" in target_persona.scratch.act_address: 
-      return False
+    # if "<waiting>" in target_persona.scratch.act_address: 
+    #   return False
 
     if (target_persona.scratch.chatting_with 
       or init_persona.scratch.chatting_with): 
@@ -1008,9 +1008,9 @@ def _should_react(persona, retrieved, personas):
     #if True : #d~ lets_talk(persona, personas[curr_event.subject], retrieved):
     if lets_talk(persona, personas[curr_event.subject], retrieved):
       return f"chat with {curr_event.subject}"
-    react_mode = lets_react(persona, personas[curr_event.subject], 
-                            retrieved)
-    return react_mode
+    # react_mode = lets_react(persona, personas[curr_event.subject], 
+    #                         retrieved)
+    # return react_mode
   return False
 
 
