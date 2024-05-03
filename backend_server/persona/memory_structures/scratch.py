@@ -560,8 +560,8 @@ class Scratch:
       Boolean [True]: Action has finished.
       Boolean [False]: Action has not finished and is still ongoing.
     """
-    if not self.act_address: 
-      return True
+    # if not self.act_address: 
+    #   return True
       
     # if self.chatting_with: 
     #   end_time = self.chatting_end_time
