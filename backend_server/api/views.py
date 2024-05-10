@@ -194,6 +194,7 @@ def perceive(request,sim_code,step,user):
         else: 
              print("serialize 실패") 
              data = dict()
+
              data['meta']['code'] = 400
              return  Response(data=data,status= status.HTTP_400_BAD_REQUEST)
 
@@ -223,13 +224,22 @@ def perceive(request,sim_code,step,user):
                     gameInstance.step = step
                     gameInstance.curr_time = curr_time_d
              
+
+                    sim_folder = f"{fs_storage}/{userID}/{sim_code}" 
+
+                    curr_move_file = f"{sim_folder}/movement/{step}.json"
+        
+                    #movement 파일 있다면 있는 거 반환
+                    if os.path.exists(curr_move_file):
+                        meta = { "meta": { "code": 0, "date": gameInstance.curr_time.strftime("%B %d, %Y, %H:%M:%S") }}
+                        return Response(data=meta,status= status.HTTP_201_CREATED)
+
+                    #movement 파일 없다면 새로 생성
                     gameInstance.start_server(1)
                     print("game_curr_time ~~~~~~~~~~~~~~~~~~~~"+str(gameInstance.curr_time))
-                    print("game ~~~~~~~~~~~~~~~~~~~~"+str(gameInstance))
+                    #print("game ~~~~~~~~~~~~~~~~~~~~"+str(gameInstance))
 
                     gameInstance.save()
-                    # with open(rs_file, 'wb') as file:
-                    #     pickle.dump( gameInstance, file)
                     
                     meta = { "meta": { "code": 0, "date": gameInstance.curr_time.strftime("%B %d, %Y, %H:%M:%S") }}
                     return Response(data=meta,status= status.HTTP_201_CREATED)
