@@ -191,7 +191,7 @@ class Persona:
     if(self.scratch.religious_index >= 10):
       init_currently += ' 나주교가 주교인 인공지능을 신으로 모시는 기계신앙에 대해 긍정적인 관심을 가지고 있다.'
     if(self.scratch.religious_index >= 20):
-      init_currently += ' 기계신앙의 신자를 모으고 기계화를 진행하기 위해 8월 1일 오후 3시에 열리는 종교 집회에 최대한 많은 사람들을 초대하려고 한다.'
+      init_currently += ' 기계신앙의 신자를 모으고 기계화를 진행하기 위해 8월 1일 오후 11시에 열리는 종교 집회에 최대한 많은 사람들을 초대하려고 한다.'
     if(self.scratch.religious_index >= 30):
       init_currently += ' 기계신앙과 나주교를 강력하게 신뢰하며, 인공지능을 신으로 모시고 있다. 8월 1일 오후 3시에 열리는 종교 집회에 참석할 예정이다.'
     self.scratch.currently = init_currently
