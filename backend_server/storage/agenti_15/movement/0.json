@@ -1,0 +1,97 @@
+{
+  "persona": {
+    "고영이": {
+      "act_address": null,
+      "pronunciatio": "1f4dd.png ",
+      "description": "고영이는 책을 쓰고 있다.",
+      "chat": null
+    },
+    "김태리": {
+      "act_address": null,
+      "pronunciatio": "1f4da.png ",
+      "description": "김태리는 도서관에서 자료를 수집하고 있다.",
+      "chat": null
+    },
+    "나주교": {
+      "act_address": null,
+      "pronunciatio": "1f64f.png ",
+      "description": "나주교는 기도를 드리고 있다.",
+      "chat": null
+    },
+    "변호인": {
+      "act_address": null,
+      "pronunciatio": "2696-fe0f.png ",
+      "description": "변호인은 세무 감사 프로젝트에 참여 중이다.",
+      "chat": null
+    },
+    "여이삭": {
+      "act_address": null,
+      "pronunciatio": "1f52b.png ",
+      "description": "여이삭은(는) 아침 식사를 하고 있다.",
+      "chat": null
+    },
+    "오서달": {
+      "act_address": null,
+      "pronunciatio": "1f389.png ",
+      "description": "오서달은 카페 Pera에서 생일 기획을 준비하고 있다.",
+      "chat": null
+    },
+    "오화가": {
+      "act_address": null,
+      "pronunciatio": "270d-fe0f.png ",
+      "description": "오화가는 디자인 작업을 하고 있다.",
+      "chat": null
+    },
+    "유리코": {
+      "act_address": null,
+      "pronunciatio": "1f4d6.png ",
+      "description": "유리코는 책을 읽고 있다.",
+      "chat": null
+    },
+    "유태호": {
+      "act_address": null,
+      "pronunciatio": "1f373.png ",
+      "description": "유태호는 아침 식사를 하고 있다.",
+      "chat": null
+    },
+    "이자식": {
+      "act_address": null,
+      "pronunciatio": "1f634.png ",
+      "description": "이자식은 잠을 자고 있다.",
+      "chat": null
+    },
+    "이장남": {
+      "act_address": null,
+      "pronunciatio": "1f4d6.png ",
+      "description": "이장남은 방에서 책을 읽고 있다.",
+      "chat": null
+    },
+    "이지양": {
+      "act_address": null,
+      "pronunciatio": "1f33c.png ",
+      "description": "이지양은 이지양의 방에서 데이지 꽃을 가꾸고 있다.",
+      "chat": null
+    },
+    "이화령": {
+      "act_address": null,
+      "pronunciatio": "1f6e0-fe0f.png ",
+      "description": "이화령은 작업을 준비하고 있다.",
+      "chat": null
+    },
+    "주아령": {
+      "act_address": null,
+      "pronunciatio": "1f4da.png ",
+      "description": "주아령은 책을 읽고 있다.",
+      "chat": null
+    },
+    "최문식": {
+      "act_address": null,
+      "pronunciatio": "1f468.png 1f4bb.png ",
+      "description": "최문식은 모바일 앱 개발을 하고 있다.",
+      "chat": null
+    }
+  },
+  "meta": {
+    "curr_time": "August 01, 2023, 08:00:00"
+  }
+}

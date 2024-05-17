@@ -1,0 +1,2522 @@
+[
+  {
+    "persona": "고영이",
+    "target_persona": "김태리",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "나주교",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "변호인",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "여이삭",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "오서달",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "오화가",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "유리코",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "유태호",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "이자식",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "이장남",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "이지양",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "이화령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "고영이",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "고영이",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "나주교",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "변호인",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "여이삭",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "오서달",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "오화가",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "유리코",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "유태호",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "이자식",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "이장남",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "이지양",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "이화령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "김태리",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "고영이",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "김태리",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "변호인",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "여이삭",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "오서달",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "오화가",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "유리코",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "유태호",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "이자식",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "이장남",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "이지양",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "이화령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "나주교",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "고영이",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "김태리",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "나주교",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "여이삭",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "오서달",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "오화가",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "유리코",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "유태호",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "이자식",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "이장남",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "이지양",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "이화령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "변호인",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "고영이",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "김태리",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "나주교",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "변호인",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "오서달",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "오화가",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "유리코",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "유태호",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "이자식",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "이장남",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "이지양",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "이화령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "여이삭",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "고영이",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "김태리",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "나주교",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "변호인",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "여이삭",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "오화가",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "유리코",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "유태호",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "이자식",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "이장남",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "이지양",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "이화령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오서달",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "고영이",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "김태리",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "나주교",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "변호인",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "여이삭",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "오서달",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "유리코",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "유태호",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "이자식",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "이장남",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "이지양",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "이화령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "오화가",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "고영이",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "김태리",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "나주교",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "변호인",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "여이삭",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "오서달",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "오화가",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "유태호",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "이자식",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "이장남",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "이지양",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "이화령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유리코",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "고영이",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "김태리",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "나주교",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "변호인",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "여이삭",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "오서달",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "오화가",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "유리코",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "이자식",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "이장남",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "이지양",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "이화령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "유태호",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "고영이",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "김태리",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "나주교",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "변호인",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "여이삭",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "오서달",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "오화가",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "유리코",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "유태호",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "이장남",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "이지양",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "이화령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이자식",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "고영이",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "김태리",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "나주교",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "변호인",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "여이삭",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "오서달",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "오화가",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "유리코",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "유태호",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "이자식",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "이지양",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "이화령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이장남",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "고영이",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "김태리",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "나주교",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "변호인",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "여이삭",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "오서달",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "오화가",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "유리코",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "유태호",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "이자식",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "이장남",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "이화령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이지양",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "고영이",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "김태리",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "나주교",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "변호인",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "여이삭",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "오서달",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "오화가",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "유리코",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "유태호",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "이자식",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "이장남",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "이지양",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "이화령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "고영이",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "김태리",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "나주교",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "변호인",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "여이삭",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "오서달",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "오화가",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "유리코",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "유태호",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "이자식",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "이장남",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "이지양",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "이화령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "주아령",
+    "target_persona": "최문식",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "고영이",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "김태리",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "나주교",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "변호인",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "여이삭",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "오서달",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "오화가",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "유리코",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "유태호",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "이자식",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "이장남",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "이지양",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "이화령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": false
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": true
+  },
+  {
+    "persona": "최문식",
+    "target_persona": "주아령",
+    "chat": [],
+    "religious_2": true
+  }
+]
