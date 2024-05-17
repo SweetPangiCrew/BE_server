@@ -104,7 +104,7 @@ def agent_chat_v1(maze, init_persona, target_persona):
 
 
 #주석 처리
-def generate_one_utterance(init_persona, target_persona, retrieved, curr_chat): 
+def generate_one_utterance(init_persona, target_persona, user_name, retrieved, curr_chat): 
 #def generate_one_utterance( init_persona, target_persona, curr_chat): 
   # Chat version optimized for speed via batch generation
 
@@ -120,11 +120,11 @@ def generate_one_utterance(init_persona, target_persona, retrieved, curr_chat):
     x = run_gpt_generate_iterative_chat_utt(init_persona, target_persona, retrieved, curr_context, curr_chat)[0]
     #x = run_gpt_generate_iterative_chat_utt(init_persona, target_persona, curr_context, curr_chat)[0]
   else:
-    curr_context = (f"유저가 {init_persona.scratch.name}을(를) 보았을 때 " + 
+    curr_context = (f"{user_name}이(가) {init_persona.scratch.name}을(를) 보았을 때 " + 
               f"{init_persona.scratch.act_description}.\n ")
     curr_context += (f"{init_persona.scratch.name}은(는) " +
-              f"유저와 대화를 시작하고 있다.")
-    x = run_gpt_generate_iterative_user_chat_utt(init_persona, retrieved, curr_context, curr_chat)[0]
+              f"{user_name}와 대화를 시작하고 있다.")
+    x = run_gpt_generate_iterative_user_chat_utt(user_name, init_persona, retrieved, curr_context, curr_chat)[0]
 
   print ("July 23 6")
 
@@ -170,7 +170,7 @@ def agent_chat_v2(init_persona, target_persona):
         print(i.type, " / ", i.spo_summary())
     print("---------------------------------------------------------------\n")
     
-    utt, end = generate_one_utterance(init_persona, target_persona, retrieved, curr_chat)
+    utt, end = generate_one_utterance(init_persona, target_persona, None, retrieved, curr_chat)
     #utt, end = generate_one_utterance(init_persona, target_persona, curr_chat)
 
     curr_chat += [[init_persona.scratch.name, utt]]
@@ -211,7 +211,7 @@ def agent_chat_v2(init_persona, target_persona):
         print(i.type, " / ", i.spo_summary())
     print("-------------------------------------------------------------------------\n")
     
-    utt, end = generate_one_utterance(target_persona, init_persona, retrieved, curr_chat)
+    utt, end = generate_one_utterance(target_persona, init_persona, None, retrieved, curr_chat)
     #utt, end = generate_one_utterance(target_persona, init_persona, curr_chat)
 
     curr_chat += [[target_persona.scratch.name, utt]]
@@ -278,7 +278,7 @@ def agent_with_user_chat(init_persona):
 
 
 #api로 메세지 받아서 반환하는 함수.
-def agent_with_user_chat_api(init_persona,message,round,reliability):
+def agent_with_user_chat_api(user_name,init_persona,message,round,reliability):
   round = int(round) 
   if round != -1 and init_persona.scratch.chatting_with != None and init_persona.scratch.chatting_with != "User" :
       utt = init_persona.scratch.chatting_with + "와 대화 중. 대화가 불가능한 상태입니다."
@@ -353,12 +353,12 @@ def agent_with_user_chat_api(init_persona,message,round,reliability):
     #처음 대화를 시작할때 NPC가 먼저 말하는지?
     #if round != 0: 
       
-    curr_chat += [["User", message]] #message? curr_chat이 nontype인 문제
+    curr_chat += [[user_name, message]] #message? curr_chat이 nontype인 문제
       
-
+    
     print("---------------------converse-----------------------")
     print(curr_chat)
-    utt, end = generate_one_utterance(init_persona, "User", None, curr_chat)
+    utt, end = generate_one_utterance(init_persona, "User", user_name, None, curr_chat)
     #utt, end = generate_one_utterance(init_persona, target_persona, curr_chat)
 
     if end or round == max_round:

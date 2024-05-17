@@ -313,9 +313,10 @@ class ReverieServer:
     with open(user_file, encoding = 'UTF8') as json_file:  
           reverie_user = json.load(json_file)
 
+    user_name = reverie_user["username"]
     curr_persona = self.personas[persona_name]
     curr_persona.scratch.curr_time = self.curr_time
-    response, end = agent_with_user_chat_api(curr_persona,message,round,reverie_user["reliability"])
+    response, end = agent_with_user_chat_api(user_name,curr_persona,message,round,reverie_user["reliability"])
 
     #유저 대화 끝난 후 저장
     if end:
