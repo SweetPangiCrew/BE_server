@@ -58,11 +58,16 @@ class CreateGameStageView(APIView):
 
                 with open(rs_file, 'wb') as file:
                     pickle.dump(rs, file)
-                rs.start_server(1) #base에 있는 Perceive 0으로 1번 인지추론 과정을 거쳐서 첫번째 Getmovement를 생성
-                rs.save()
-                #print(rs[gamename])
+
+                #rs.start_server(1) #base에 있는 Perceive 0으로 1번 인지추론 과정을 거쳐서 첫번째 Getmovement를 생성
+                #rs.save()
+               
                 meta = { "meta": { "code": 0,"opened game": gamename ,"date": datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S") }}
-                return Response(meta, status=status.HTTP_201_CREATED)
+
+                return Response(meta, status=status.HTTP_201_CREATED) 
+
+             
+              
             except FileExistsError as e:  # game_name이 이미 존재하는 경우
                 data = {'error': '동일한 게임 이름이 존재합니다.'}
 
