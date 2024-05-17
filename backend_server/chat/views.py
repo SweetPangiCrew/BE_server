@@ -33,6 +33,16 @@ def chat_list(request, game_name,user):
     
     data = dict()
     data['meta'] = dict()
+
+    #유저 네임 테스트 코드
+    with open(f"{sim_folder}/reverie/user.json", encoding = 'UTF8') as json_file:  
+      reverie_user = json.load(json_file)
+
+    with open(f"{sim_folder}/reverie/user.json", "w", encoding = 'UTF8') as outfile: 
+      reverie_user["username"] = userID.username
+      outfile.write(json.dumps(reverie_user, indent=2, ensure_ascii = False))
+    ## 삭제 가능  
+    
     try:
         with open(user_file, encoding = 'UTF8') as json_file:  
             reverie_user = json.load(json_file)

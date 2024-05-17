@@ -86,6 +86,13 @@ class ReverieServer:
       reverie_meta["fork_sim_code"] = fork_sim_code
       outfile.write(json.dumps(reverie_meta, indent=2, ensure_ascii = False))
 
+    with open(f"{self.sim_folder}/reverie/user.json", encoding = 'UTF8') as json_file:  
+      reverie_user = json.load(json_file)
+
+    with open(f"{self.sim_folder}/reverie/user.json", "w", encoding = 'UTF8') as outfile: 
+      reverie_user["username"] = self.user.username
+      outfile.write(json.dumps(reverie_user, indent=2, ensure_ascii = False))
+
     # LOADING REVERIE'S GLOBAL VARIABLES
     # The start datetime of the Reverie: 
     # <start_datetime> is the datetime instance for the start datetime of 
@@ -310,21 +317,29 @@ class ReverieServer:
 
     user_file = f"{self.sim_folder}/reverie/user.json"
 
-    with open(user_file, encoding = 'UTF8') as json_file:  
-          reverie_user = json.load(json_file)
-
+    new_flag = True
     curr_persona = self.personas[persona_name]
     curr_persona.scratch.curr_time = self.curr_time
-    response, end = agent_with_user_chat_api(curr_persona,message,round,reverie_user["reliability"])
 
+    with open(user_file, encoding = 'UTF8') as json_file:  
+          reverie_user = json.load(json_file)
+          if len(reverie_user["chat_list"]) >0 and curr_persona.scratch.chat == reverie_user["chat_list"][-1][0]['chat'] :
+            new_flag = False 
+            print("같은 대화")
+          print(reverie_user["chat_list"][-1])
+          print(curr_persona.scratch.chat)
+    
+    response, end = agent_with_user_chat_api(curr_persona,message,round,reverie_user["reliability"])
+    
     #유저 대화 끝난 후 저장
-    if end:
+    if True:
         with open(user_file, "w", encoding = 'UTF8') as outfile: 
           curr_chat = dict()
           curr_chat["date"] = (self.curr_time 
                                              .strftime("%B %d, %Y, %H:%M:%S"))
           curr_chat["chat"] =curr_persona.scratch.chat
-          reverie_user["chat_list"] += [[curr_chat]]
+          if new_flag : reverie_user["chat_list"] += [[curr_chat]]
+          else : reverie_user["chat_list"][-1] = [curr_chat]
           outfile.write(json.dumps(reverie_user, indent=2, ensure_ascii = False))
           print("대화 저장")
     
@@ -347,9 +362,6 @@ class ReverieServer:
 
     return
   
- 
-                
-  
   def start_server(self, int_counter): 
     """
     The main backend server of Reverie. 
@@ -365,7 +377,6 @@ class ReverieServer:
     """
     # <self.sim_folder> points to the current simulation folder.
   
-    print(str(self.step)+"번째 ~~~~~~~~~~~~~~~~~ 게임: "+str(self.sim_folder))
     # When a persona arrives at a game object, we give a unique event
     # to that object. 
     # e.g., ('double studio[...]:bed', 'is', 'unmade', 'unmade')
@@ -434,8 +445,6 @@ class ReverieServer:
             print(pronunciatio)
             print(description)
 
-        
-
             unicode_emoji_img_names = convert_emoji2img(pronunciatio)
           
             
@@ -482,7 +491,6 @@ class ReverieServer:
           
       # Sleep so we don't burn our machines. 
       time.sleep(self.server_sleep)
-
 
   def open_server(self): 
     """
@@ -669,6 +677,11 @@ class ReverieServer:
         traceback.print_exc()
         print ("Error.")
         pass
+
+
+def makeChatsForPersona(self):
+    chats = {"chats": dict(), 
+                    "meta": dict()}
 
 
 if __name__ == '__main__':
