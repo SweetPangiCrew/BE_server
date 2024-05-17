@@ -323,13 +323,15 @@ class ReverieServer:
 
     with open(user_file, encoding = 'UTF8') as json_file:  
           reverie_user = json.load(json_file)
+          user_name = reverie_user["username"]
+          
           if len(reverie_user["chat_list"]) >0 and curr_persona.scratch.chat == reverie_user["chat_list"][-1][0]['chat'] :
             new_flag = False 
             print("같은 대화")
           print(reverie_user["chat_list"][-1])
           print(curr_persona.scratch.chat)
     
-    response, end = agent_with_user_chat_api(curr_persona,message,round,reverie_user["reliability"])
+    response, end = agent_with_user_chat_api(user_name,curr_persona,message,round,reverie_user["reliability"])
     
     #유저 대화 끝난 후 저장
     if True:
