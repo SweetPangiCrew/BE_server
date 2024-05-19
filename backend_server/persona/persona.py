@@ -273,7 +273,8 @@ class Persona:
     open_convo_session(self, convo_mode)
     
   def make_chat_list(self):
-    
+    pass
+
 
 
 

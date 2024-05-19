@@ -203,11 +203,12 @@ def perceive(request,sim_code,step,user):
             sim_folder = f"{fs_storage}/{userID}/{sim_code}"
             curr_perceive_file = f"{sim_folder}/perceive/{step}.json"
 
-            os.makedirs(os.path.dirname(curr_perceive_file), exist_ok=True)
-           
-            serializer.validated_data["meta"]["curr_time"]= serializer.validated_data["meta"]["curr_time"].strftime("%B %d, %Y, %H:%M:%S")
-            with open(curr_perceive_file, "w", encoding = 'UTF8') as outfile: 
-                outfile.write((json.dumps(serializer.validated_data, indent=2, ensure_ascii = False))) 
+            if(step >1):
+                os.makedirs(os.path.dirname(curr_perceive_file), exist_ok=True)
+            
+                serializer.validated_data["meta"]["curr_time"]= serializer.validated_data["meta"]["curr_time"].strftime("%B %d, %Y, %H:%M:%S")
+                with open(curr_perceive_file, "w", encoding = 'UTF8') as outfile: 
+                    outfile.write((json.dumps(serializer.validated_data, indent=2, ensure_ascii = False))) 
 
         
         except Exception as e:
@@ -223,10 +224,16 @@ def perceive(request,sim_code,step,user):
                     gameInstance = pickle.load(file)
                     gameInstance.step = step
                     gameInstance.curr_time = curr_time_d
-             
+
+                    # if(not os.path.exists(f"{sim_folder}/movement/0.json")) :
+                    #         gameInstance.step = 0
+                    #         gameInstance.start_server(1)
+                    #         gameInstance.save()
+                    #         shutil.copy(f"{sim_folder}/movement/0.json", f"{sim_folder}/movement/1.json")
+                    #         return Response(data=meta,status= status.HTTP_201_CREATED)
 
                     sim_folder = f"{fs_storage}/{userID}/{sim_code}" 
-
+                        
                     curr_move_file = f"{sim_folder}/movement/{step}.json"
         
                     #movement 파일 있다면 있는 거 반환
