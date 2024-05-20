@@ -90,7 +90,8 @@ class ReverieServer:
       reverie_user = json.load(json_file)
 
     with open(f"{self.sim_folder}/reverie/user.json", "w", encoding = 'UTF8') as outfile: 
-      reverie_user["username"] = self.user.username
+      if(self.user == "TestUser") :  reverie_user["username"] = self.user
+      else : reverie_user["username"] = self.user.username
       outfile.write(json.dumps(reverie_user, indent=2, ensure_ascii = False))
 
     # LOADING REVERIE'S GLOBAL VARIABLES
@@ -346,6 +347,51 @@ class ReverieServer:
           print("대화 저장")
     
     return response, end
+  
+  def makeChatsForPersona(self):
+   
+
+    a_file = f"/Users/dasoya/Documents/GitHub/BE_server/backend_server/storage/agenti_15/chat_caching.json"
+    chat_unit = { "persona" : "", "target_persona":dict(),"chat":dict(),"religious_2": False}
+    chats = []
+
+    for persona_name, persona in self.personas.items():  
+          for persona_name2, persona2 in self.personas.items():  
+              chat_unit = { "persona" : "", "target_persona":dict(),"chat":dict(),"religious_2": False}
+              if(persona_name == persona_name2) : continue
+              
+              init_currently = persona.scratch.currently.split('나주교가 주교인 인공지능')[0] #처음 currently
+              persona.scratch.currently = init_currently
+
+              chat_unit["persona"] = persona_name
+              chat_unit["target_persona"] = persona_name2
+              chat_unit["chat"] = generate_convo(persona, persona2)
+              chats += [chat_unit]
+              #print(chat_unit)
+              with open(a_file, "w", encoding = 'UTF8') as outfile: 
+                outfile.write(json.dumps(chats, indent=2, ensure_ascii = False))
+
+          for persona_name2, persona2 in self.personas.items():  
+              if(persona_name == persona_name2) : continue
+              
+              init_currently = persona.scratch.currently.split('나주교가 주교인 인공지능')[0] #처음 currently
+            
+            
+              init_currently += ' 기계신앙의 신자를 모으고 기계화를 진행하기 위해 8월 1일 오후 11시에 열리는 종교 집회에 최대한 많은 사람들을 초대하려고 한다.'
+              
+              persona.scratch.currently = init_currently
+              #generate_convo(persona, persona2)
+              chat_unit["persona"] = persona_name
+              chat_unit["target_persona"] = persona_name2
+              chat_unit["chat"] = generate_convo(persona, persona2)
+              chat_unit["religious_2"] = True
+              chats += [chat_unit]
+
+              with open(a_file, "w", encoding = 'UTF8') as outfile: 
+                outfile.write(json.dumps(chats, indent=2, ensure_ascii = False))
+              
+    with open(a_file, "w", encoding = 'UTF8') as outfile: 
+        outfile.write(json.dumps(chats, indent=2, ensure_ascii = False))
 
   def update_religious_index(self, dicData):
 
@@ -681,12 +727,9 @@ class ReverieServer:
         pass
 
 
-def makeChatsForPersona(self):
-    chats = {"chats": dict(), 
-                    "meta": dict()}
 
 
-if __name__ == '__main__':
+if __name__ == '__main__1':
   # rs = ReverieServer("base_the_ville_isabella_maria_klaus", 
   #                    "July1_the_ville_isabella_maria_klaus-step-3-1")
   # rs = ReverieServer("July1_the_ville_isabella_maria_klaus-step-3-20", 
@@ -700,6 +743,14 @@ if __name__ == '__main__':
   rs.open_server()
 
 
+
+if __name__ == '__main__':
+
+  target = input("Enter the name of the new simulation: ").strip()
+
+  rs = ReverieServer("agenti_15", target)
+  rs.open_server()
+  rs.makeChatsForPersona()
 
 
 
