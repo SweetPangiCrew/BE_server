@@ -77,10 +77,10 @@ class CreateGameStageView(APIView):
                                 status=status.HTTP_400_BAD_REQUEST)
             except Exception as e:
                  print(e)
-                 return Response({'error': '알 수 없는 오류가 발생했습니다.'},
+                 return Response({'error': '현재 서버 점검 중입니다. 개발자에게 문의하세요.'},
                                 status=status.HTTP_400_BAD_REQUEST)
 
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'error': '현재 서버 점검 중입니다. 개발자에게 문의하세요.'}, status=status.HTTP_400_BAD_REQUEST)
     
 
 

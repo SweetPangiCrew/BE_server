@@ -329,7 +329,7 @@ class ReverieServer:
           if len(reverie_user["chat_list"]) >0 and curr_persona.scratch.chat == reverie_user["chat_list"][-1][0]['chat'] :
             new_flag = False 
             print("같은 대화")
-          print(reverie_user["chat_list"][-1])
+            print(reverie_user["chat_list"][-1])
           print(curr_persona.scratch.chat)
     
     response, end = agent_with_user_chat_api(user_name,curr_persona,message,round,reverie_user["reliability"])
@@ -355,27 +355,29 @@ class ReverieServer:
     chat_unit = { "persona" : "", "target_persona":dict(),"chat":dict(),"religious_2": False}
     chats = []
 
+   
+    
     for persona_name, persona in self.personas.items():  
-          for persona_name2, persona2 in self.personas.items():  
+          # for persona_name2, persona2 in self.personas.items():  
+          #     chat_unit = { "persona" : "", "target_persona":dict(),"chat":dict(),"religious_2": False}
+          #     if(persona_name == persona_name2) : continue
+              
+          #     init_currently = persona.scratch.currently.split('나주교가 주교인 인공지능')[0] #처음 currently
+          #     persona.scratch.currently = init_currently
+
+          #     chat_unit["persona"] = persona_name
+          #     chat_unit["target_persona"] = persona_name2
+          #     chat_unit["chat"] = generate_convo(persona, persona2)
+          #     chats += [chat_unit]
+          #     #print(chat_unit)
+          #     with open(a_file, "w", encoding = 'UTF8') as outfile: 
+          #       outfile.write(json.dumps(chats, indent=2, ensure_ascii = False))
+        for persona_name2, persona2 in self.personas.items():  
+             
+              if(persona_name == persona_name2) : continue
+              
               chat_unit = { "persona" : "", "target_persona":dict(),"chat":dict(),"religious_2": False}
-              if(persona_name == persona_name2) : continue
-              
               init_currently = persona.scratch.currently.split('나주교가 주교인 인공지능')[0] #처음 currently
-              persona.scratch.currently = init_currently
-
-              chat_unit["persona"] = persona_name
-              chat_unit["target_persona"] = persona_name2
-              chat_unit["chat"] = generate_convo(persona, persona2)
-              chats += [chat_unit]
-              #print(chat_unit)
-              with open(a_file, "w", encoding = 'UTF8') as outfile: 
-                outfile.write(json.dumps(chats, indent=2, ensure_ascii = False))
-
-          for persona_name2, persona2 in self.personas.items():  
-              if(persona_name == persona_name2) : continue
-              
-              init_currently = persona.scratch.currently.split('나주교가 주교인 인공지능')[0] #처음 currently
-            
             
               init_currently += ' 기계신앙의 신자를 모으고 기계화를 진행하기 위해 8월 1일 오후 11시에 열리는 종교 집회에 최대한 많은 사람들을 초대하려고 한다.'
               
@@ -383,12 +385,23 @@ class ReverieServer:
               #generate_convo(persona, persona2)
               chat_unit["persona"] = persona_name
               chat_unit["target_persona"] = persona_name2
-              chat_unit["chat"] = generate_convo(persona, persona2)
+
+              # JSON 파일 읽기
+              with open(a_file, 'r', encoding='utf-8') as file:
+                    data = json.load(file)
+              for entry in data:
+                  if (entry['persona'] == persona_name2 and
+                      entry['target_persona'] == persona_name and entry['chat'] != None):
+                        chat_unit["chat"] = entry['chat']
+                  else : chat_unit["chat"] = generate_convo(persona, persona2)
+
+              #
               chat_unit["religious_2"] = True
               chats += [chat_unit]
 
               with open(a_file, "w", encoding = 'UTF8') as outfile: 
                 outfile.write(json.dumps(chats, indent=2, ensure_ascii = False))
+          
               
     with open(a_file, "w", encoding = 'UTF8') as outfile: 
         outfile.write(json.dumps(chats, indent=2, ensure_ascii = False))
@@ -746,11 +759,15 @@ if __name__ == '__main__1':
 
 if __name__ == '__main__':
 
-  target = input("Enter the name of the new simulation: ").strip()
+  # target = input("Enter the name of the new simulation: ").strip()
 
-  rs = ReverieServer("agenti_15", target)
-  rs.open_server()
-  rs.makeChatsForPersona()
+  rs_file = f"{game_storage}/TestUser/remove.pkl"
+  with open(rs_file, 'rb') as file:
+          gameInstance = pickle.load(file)
+          gameInstance.makeChatsForPersona()
+  # rs = ReverieServer("agenti_15", target)
+  # rs.open_server()
+  # rs
 
 
 
