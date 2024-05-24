@@ -283,21 +283,10 @@ def agent_with_user_chat_api(user_name,init_persona,message,round,reliability):
   if round != -1 and init_persona.scratch.chatting_with != None and init_persona.scratch.chatting_with != "User" :
       utt = init_persona.scratch.chatting_with + "와 대화 중. 대화가 불가능한 상태입니다."
       end = True
-      print("pab")
       return utt, end
 
-  # 신뢰도 5 이하일 때 : 글자 수 제한(10자 이하), 대화 3회
-  # 신뢰도 6~15 일때 : 글자 수 40자, 대화 6회
-  # 신뢰도 30 이하일 때 : 최대 8회 
 
-  if reliability <= 5:
-        max_round = 5
-  elif reliability <= 10:
-        max_round = 7
-  elif reliability >= 20:
-        max_round = 10
-  else:
-        max_round = 10
+  max_round = 9
 
   init_persona.scratch.chatting_with = "User"
   #init_persona.scratch.act_event
@@ -307,48 +296,13 @@ def agent_with_user_chat_api(user_name,init_persona,message,round,reliability):
     init_persona.scratch.chat = []
 
   if round != -1 :
-     
-     #print("이전대화 pou :"+str(init_persona.scratch.chat))
      if(init_persona.scratch.chat != None) :
         curr_chat = init_persona.scratch.chat
-
   else : 
      init_persona.scratch.act_description = ""
      
   
   if round <= max_round : 
-    # focal_points = [f"{target_persona.scratch.name}"]
-    # print("focal_points: ", focal_points)
-    # retrieved = new_retrieve(init_persona, focal_points, 50)
-    
-    # print('\n--------------- retrieved for convo ----------------: \n', retrieved)
-    # for key, val in retrieved.items():
-    #   print("'", key, "': ")
-    #   for i in val:
-    #     print(i.type, " / ", i.spo_summary())
-    # print("----------------------------------------------------\n")
-    
-    # relationship = generate_summarize_agent_relationship(init_persona, target_persona, retrieved)
-    # print ("-------- relationship", relationship)
-    # last_chat = ""
-    # for i in curr_chat[-4:]:
-    #   last_chat += ": ".join(i) + "\n"
-    # if last_chat: 
-    #   focal_points = [f"{relationship}", 
-    #                   f"{target_persona.scratch.name} is {target_persona.scratch.act_description}", 
-    #                   last_chat]
-    # else: 
-    #   focal_points = [f"{relationship}", 
-    #                   f"{target_persona.scratch.name} is {target_persona.scratch.act_description}"]
-    # print("new focal_points: ", focal_points)
-    # retrieved = new_retrieve(init_persona, focal_points, 15)
-    
-    # print('\n------------------ new retrieved for convo --------------------: \n', retrieved)
-    # for key, val in retrieved.items():
-    #   print("'", key, "': ")
-    #   for i in val:
-    #     print(i.type, " / ", i.spo_summary())
-    # print("---------------------------------------------------------------\n")
     
     #처음 대화를 시작할때 NPC가 먼저 말하는지?
     #if round != 0: 
@@ -359,16 +313,16 @@ def agent_with_user_chat_api(user_name,init_persona,message,round,reliability):
     print("---------------------converse-----------------------")
     print(curr_chat)
     utt, end = generate_one_utterance(init_persona, "User", user_name, None, curr_chat)
-    #utt, end = generate_one_utterance(init_persona, target_persona, curr_chat)
 
-    if end or round == max_round:
-      end = True
-      init_persona.scratch.chatting_with = None
-      utt += "\n[채팅이 NPC에 의해 종료되었습니다.]"
+    # if end or round == max_round:
+    #   end = True
+    #   init_persona.scratch.chatting_with = None
+    #   #utt += "\n[채팅이 NPC에 의해 종료되었습니다.]"
 
     curr_chat += [[init_persona.scratch.name, utt]]
     init_persona.scratch.chat = curr_chat # +=
-    print("pok"+str(init_persona.scratch.chat))
+    #print("pok"+str(init_persona.scratch.chat))
+    init_persona.scratch.chatting_with = None
 
     return utt, end
   
