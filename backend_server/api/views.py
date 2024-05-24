@@ -181,9 +181,9 @@ def perceive(request,sim_code,step,user):
         # stream = io.BytesIO(request.body)
         # #stream = stream.replace("'", "\"") 
         # data = JSONParser().parse(stream) #stream data 가 Dict가 됨.
-        #print(stream)
+        print("PERCEIVE")
         
-       
+
         serializer = perceiveSerializer(data=request.data)
         curr_time_d = ""
         
@@ -205,11 +205,12 @@ def perceive(request,sim_code,step,user):
 
             if(step >1):
                 os.makedirs(os.path.dirname(curr_perceive_file), exist_ok=True)
-            
+
                 serializer.validated_data["meta"]["curr_time"]= serializer.validated_data["meta"]["curr_time"].strftime("%B %d, %Y, %H:%M:%S")
                 with open(curr_perceive_file, "w", encoding = 'UTF8') as outfile: 
                     outfile.write((json.dumps(serializer.validated_data, indent=2, ensure_ascii = False))) 
-
+            else :
+                print("json perceive 1 있는 지 확인")
         
         except Exception as e:
             print(f"perceive 저장 실패: {e}")
