@@ -324,6 +324,9 @@ class Scratch:
     return self.curr_address.split(":")[0]
   
   def get_curr_address_sector(self):
+    if(str(type(self.curr_address)) == "<class 'int'>"):
+      self.curr_address = "the Ville:보라매 공원:모래사장"
+    #dprint(type(self.curr_address))
     return self.curr_address.split(":")[1]
   
   def get_curr_address_arena(self):

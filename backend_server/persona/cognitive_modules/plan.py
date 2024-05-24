@@ -1162,7 +1162,7 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
       act_event = (p.name, "chat with", target_persona.name)
       chatting_with = target_persona.name
       chatting_with_buffer = {}
-      chatting_with_buffer[target_persona.name] = 800
+      chatting_with_buffer[target_persona.name] = 4
       # if(assembly_att['convo about attendance']):
       #   p.scratch.assembly_attendance = assembly_att[f'{p.scratch.name} attendance']
       #종교친화지수 수정
@@ -1175,7 +1175,7 @@ def _chat_react(persona, focused_event, reaction_mode, personas):
       act_event = (p.name, "chat with", init_persona.name)
       chatting_with = init_persona.name
       chatting_with_buffer = {}
-      chatting_with_buffer[init_persona.name] = 800
+      chatting_with_buffer[init_persona.name] = 4
       # if(assembly_att['convo about attendance']):
       #   p.scratch.assembly_attendance = assembly_att[f'{p.scratch.name} attendance']
       if init_persona.scratch.name == "나주교":
@@ -1243,7 +1243,7 @@ def _user_chat_react(persona):
   act_event = (init_persona.name, "chat with", "User")
   chatting_with = "User"
   chatting_with_buffer = {}
-  chatting_with_buffer["User"] = 800
+  chatting_with_buffer["User"] = 4
   # if(assembly_att['convo about attendance']):
   #   init_persona.scratch.assembly_attendance = assembly_att[f'{p.scratch.name} attendance']
 

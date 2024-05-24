@@ -3136,7 +3136,7 @@ def run_gpt_generate_iterative_chat_utt(init_persona, target_persona, retrieved,
     init_iss = f"{init_persona.scratch.name}에 관한 짧은 설명이다.\n{init_persona.scratch.get_str_iss()}"
     prompt_input = [init_iss, init_persona.scratch.name, retrieved_str, prev_convo_insert,
       curr_location, curr_context, init_persona.scratch.name, target_persona.scratch.name,
-      convo_str, init_persona.scratch.name, target_persona.scratch.name,
+      convo_str, target_persona.scratch.name, init_persona.scratch.name, target_persona.scratch.name,
       init_persona.scratch.name, init_persona.scratch.name,
       init_persona.scratch.name
       ]
@@ -3236,7 +3236,7 @@ def run_gpt_generate_iterative_user_chat_utt(user_name, init_persona, retrieved,
     init_iss = f"{init_persona.scratch.name}에 관한 짧은 설명이다..\n{init_persona.scratch.get_str_iss()}"
     prompt_input = [init_iss, init_persona.scratch.name, None, None,
       curr_location, curr_context, init_persona.scratch.name, user_name,
-      convo_str, init_persona.scratch.name, user_name,
+      convo_str, user_name, init_persona.scratch.name, user_name,
       init_persona.scratch.name, init_persona.scratch.name,
       init_persona.scratch.name
       ]

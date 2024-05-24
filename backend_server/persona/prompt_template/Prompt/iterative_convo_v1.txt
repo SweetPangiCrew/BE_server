@@ -12,9 +12,11 @@ Variables:
 !<INPUT 8>! -- curr convo
 !<INPUT 9>! -- persona name
 !<INPUT 10>! -- target persona name
-!<INPUT 11>! -- persona name
+!<INPUT 11>! -- target persona name
 !<INPUT 12>! -- persona name
 !<INPUT 13>! -- persona name
+!<INPUT 14>! -- persona name
+!<INPUT 15>! -- persona name
 <commentblockmarker>###</commentblockmarker>
 Context for the task:
 
@@ -38,10 +40,10 @@ Current Context:
 
 —
 
-Task: 위의 내용을 바탕으로, 이 대화에서 !<INPUT 9>!이(가) 다음으로 !<INPUT 10>!에게 해야할 말은 무엇인가? 그리고 이 대화는 끝이 났는가?
+Task: 위의 내용을 바탕으로, 이 대화에서 !<INPUT 9>!의 마지막 말에 대해 !<INPUT 10>!이(가) 다음으로 !<INPUT 11>!에게 해야할 대답은 무엇인가? 그리고 이 대화는 끝이 났는가? !<INPUT 12>!의 입장에서 중복된 답변은 피하라. take a deep breath, think step by step.
 
 출력 결과 형식: 결과는 다음의 json 형식으로 출력하라:
 {
-"!<INPUT 11>!": "<!<INPUT 12>!의 말>",
-"!<INPUT 13>!의 말과 함께 이 대화는 끝이 났는가?": "<json Boolean>"
+"!<INPUT 13>!": "<!<INPUT 14>!의 말>",
+"!<INPUT 15>!의 말과 함께 이 대화는 끝이 났는가?": "<json Boolean>"
 }
