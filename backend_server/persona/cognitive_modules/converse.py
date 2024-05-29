@@ -280,11 +280,13 @@ def agent_with_user_chat(init_persona):
 #api로 메세지 받아서 반환하는 함수.
 def agent_with_user_chat_api(user_name,init_persona,message,round,reliability):
   round = int(round) 
-  if round != -1 and init_persona.scratch.chatting_with != None and init_persona.scratch.chatting_with != "User" :
-      utt = "대화가 거절 당했습니다."#init_persona.scratch.chatting_with + "와 대화 중. 
-      end = True
-      init_persona.scratch.chatting_with = None
-      return utt, end
+  # if round != -1 and init_persona.scratch.chatting_with != None and init_persona.scratch.chatting_with != "User" :
+  #     utt = "대화가 거절 당했습니다." #init_persona.scratch.chatting_with + "와 대화 중.  
+  #     end = False
+  #     init_persona.scratch.chatting_with = None
+  #     init_persona.scratch.chatting_with = "User"
+  #     return utt, end
+     
 
 
   max_round = 9
