@@ -283,6 +283,7 @@ def agent_with_user_chat_api(user_name,init_persona,message,round,reliability):
   if round != -1 and init_persona.scratch.chatting_with != None and init_persona.scratch.chatting_with != "User" :
       utt = "대화가 거절 당했습니다."#init_persona.scratch.chatting_with + "와 대화 중. 
       end = True
+      init_persona.scratch.chatting_with = None
       return utt, end
 
 
