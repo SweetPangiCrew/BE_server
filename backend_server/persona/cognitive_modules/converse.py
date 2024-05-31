@@ -288,7 +288,6 @@ def agent_with_user_chat_api(user_name,init_persona,message,round,reliability):
   #     return utt, end
      
 
-
   max_round = 9
 
   init_persona.scratch.chatting_with = "User"
