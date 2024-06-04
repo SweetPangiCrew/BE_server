@@ -742,7 +742,7 @@ class ReverieServer:
 
 
 
-if __name__ == '__main__1':
+if __name__ == '__main__':
   # rs = ReverieServer("base_the_ville_isabella_maria_klaus", 
   #                    "July1_the_ville_isabella_maria_klaus-step-3-1")
   # rs = ReverieServer("July1_the_ville_isabella_maria_klaus-step-3-20", 
@@ -757,7 +757,7 @@ if __name__ == '__main__1':
 
 
 
-if __name__ == '__main__':
+if __name__ == '__main__1':
 
   # target = input("Enter the name of the new simulation: ").strip()
 
